@@ -1,4 +1,4 @@
-import { Calendar, Award, Star, Trophy, Medal } from 'lucide-react';
+import { Calendar, Award, Star, Trophy, Medal, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata = {
@@ -63,11 +63,17 @@ export default function HistoryPage() {
     return (
         <main className="min-h-screen pt-32 pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-blue-600 py-24 mb-20 text-white relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
+            <section className="bg-[#051324] py-32 mb-20 text-white relative overflow-hidden">
+                {/* Animated Gradient Orbs */}
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+
                 <div className="container mx-auto px-6 relative z-10 text-center">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                        <Sparkles size={16} className="text-sky-400" /> About Our School
+                    </div>
                     <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight uppercase">Our History</h1>
-                    <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-medium">
+                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
                         A legacy of faith, education, and community service starting from 1964.
                     </p>
                 </div>

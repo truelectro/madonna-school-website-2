@@ -1,4 +1,4 @@
-import { Trophy, Star, Award, Medal, CheckCircle2 } from 'lucide-react';
+import { Trophy, Star, Award, Medal, CheckCircle2, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata = {
@@ -17,12 +17,18 @@ export default function HallOfFamePage() {
     return (
         <main className="min-h-screen pt-32 pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-indigo-600 py-24 mb-20 text-white relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
+            <section className="bg-[#051324] py-32 mb-20 text-white relative overflow-hidden">
+                {/* Animated Gradient Orbs */}
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <Trophy className="w-20 h-20 text-yellow-300 mx-auto mb-6" />
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                        <Sparkles size={16} className="text-sky-400" /> Academic Excellence
+                    </div>
+                    <Trophy className="w-20 h-20 text-yellow-500 mx-auto mb-6" />
                     <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight uppercase">Hall of Fame</h1>
-                    <p className="text-xl md:text-2xl text-indigo-100 max-w-3xl mx-auto font-medium">
+                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
                         Celebrating the outstanding achievements, brilliance, and excellence of Madonna School students on national and regional stages.
                     </p>
                 </div>
