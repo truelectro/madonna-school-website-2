@@ -63,3 +63,21 @@
 [04:14:15.710] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [04:14:15.745] Server  LOG     ✓ Compiled in 152ms
 [04:31:35.519] Server  LOG     ✓ Compiled in 248ms
+[04:58:49.928] Server  LOG     ✓ Compiled in 128ms
+[04:58:51.892] Server  LOG     ✓ Compiled in 70ms
+[04:58:52.443] Browser ERROR   ./src/app/page.tsx:135:23
+Parsing ecmascript source code failed
+  133 |                         </div>
+  134 |                     </div>
+> 135 |             </section>
+      |                       ^
+> 136 |
+      | ^
+> 137 |             {/* Philosophy Section */}
+      | ^^^^^^^^^^^^^
+  138 |             <section className="py-32 bg-white">
+  139 |                 <div className="container mx-auto px-6">
+  140 |                     <div className="text-center max-w-3xl mx-auto mb-24">
+
+Expected '</', got 'jsx text'
+[04:59:13.391] Server  LOG     ✓ Compiled in 100ms

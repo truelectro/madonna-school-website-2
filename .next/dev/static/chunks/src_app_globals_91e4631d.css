@@ -2542,6 +2542,10 @@ body {
     flex-direction: row-reverse;
   }
 
+  .lg\:gap-16 {
+    gap: 4rem;
+  }
+
   .lg\:text-8xl {
     font-size: 6rem;
     line-height: 1;
