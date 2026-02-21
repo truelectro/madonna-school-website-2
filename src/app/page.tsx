@@ -13,8 +13,12 @@ export default async function Home() {
     const heroImageUrl = page?.heroImage ? urlFor(page.heroImage).url() : null;
 
     // Find the welcome section to find if it has an image
-    const welcomeSection = page?.pageBuilder?.find((block: any) => block._type === 'textWithImageSection' && block.heading?.includes('Welcome') || block.heading?.includes('Celebrating'));
+    const welcomeSection = page?.pageBuilder?.find((block: any) => block._type === 'textWithImageSection' && (block.heading?.includes('Welcome') || block.heading?.includes('Celebrating')));
     const welcomeImageUrl = welcomeSection?.image ? urlFor(welcomeSection.image).url() : null;
+
+    // Find the difference section to see if it has a custom uploaded image
+    const differenceSection = page?.pageBuilder?.find((block: any) => block._type === 'textWithImageSection' && block.heading?.includes('Difference'));
+    const differenceImageUrl = differenceSection?.image ? urlFor(differenceSection.image).url() : null;
 
     return (
         <main className="min-h-screen">
@@ -233,10 +237,21 @@ export default async function Home() {
                         </div>
                         <div className="lg:w-1/2 relative">
                             <div className="aspect-[4/5] bg-gray-200 rounded-[60px] overflow-hidden shadow-3xl relative group">
-                                <div className="absolute inset-0 bg-blue-600/5 mix-blend-multiply" />
-                                <div className="absolute inset-0 flex items-center justify-center text-blue-100 transform group-hover:scale-105 transition-transform duration-1000">
-                                    <Users size={300} strokeWidth={0.5} />
-                                </div>
+                                {differenceImageUrl ? (
+                                    <Image
+                                        src={differenceImageUrl}
+                                        alt="The Madonna Difference"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
+                                ) : (
+                                    <>
+                                        <div className="absolute inset-0 bg-blue-600/5 mix-blend-multiply" />
+                                        <div className="absolute inset-0 flex items-center justify-center text-blue-100 transform group-hover:scale-105 transition-transform duration-1000">
+                                            <Users size={300} strokeWidth={0.5} />
+                                        </div>
+                                    </>
+                                )}
                             </div>
                             <div className="absolute -bottom-12 -left-12 bg-white p-12 rounded-[40px] shadow-2xl border border-gray-100 max-w-sm">
                                 <div className="flex items-center gap-4 mb-4">
