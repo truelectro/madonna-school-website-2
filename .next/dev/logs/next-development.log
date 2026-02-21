@@ -58,3 +58,7 @@
 [03:51:20.305] Server  LOG     ✓ Compiled in 106ms
 [03:51:46.918] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [03:51:47.100] Server  LOG     ✓ Compiled in 0ms
+[04:13:59.726] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[04:13:59.748] Server  LOG     ✓ Compiled in 101ms
+[04:14:15.710] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[04:14:15.745] Server  LOG     ✓ Compiled in 152ms
