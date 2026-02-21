@@ -1,6 +1,6 @@
 var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/academics/calendar/page.js")
-R.c("server/chunks/ssr/node_modules_@sanity_29d2bbeb._.js")
-R.c("server/chunks/ssr/node_modules_7314683e._.js")
+R.c("server/chunks/ssr/node_modules_@sanity_1e6d20e9._.js")
+R.c("server/chunks/ssr/node_modules_465c902c._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__16b0369d._.js")
 R.c("server/chunks/ssr/node_modules_next_dist_7381059c._.js")
 R.c("server/chunks/ssr/[externals]__7f148858._.js")

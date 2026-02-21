@@ -26,9 +26,9 @@ export default function AnniversaryPlanPage() {
     ];
 
     return (
-        <main className="min-h-screen pt-32 pb-20 bg-gray-50">
+        <main className="min-h-screen pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-[#051324] py-32 mb-20 text-white relative overflow-hidden">
+            <section className="bg-[#051324] pt-40 pb-32 mb-20 text-white relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -37,10 +37,7 @@ export default function AnniversaryPlanPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Jubilee Celebration
                     </div>
-                    <div className="inline-block p-4 bg-sky-500/20 rounded-full mb-6 backdrop-blur-sm border border-sky-400/20">
-                        <Target className="w-12 h-12 text-sky-400" />
-                    </div>
-                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight uppercase">Madonna @ 60</h1>
+                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight">Madonna @ 60</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto font-medium mb-4">
                         "60 Years of Holistic Education: Rebooting our Systems"
                     </p>

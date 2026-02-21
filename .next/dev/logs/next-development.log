@@ -90,3 +90,70 @@ Expected '</', got 'jsx text'
 [05:33:31.340] Server  LOG     ✓ Compiled in 98ms
 [05:35:10.087] Server  LOG     ✓ Compiled in 63ms
 [05:35:41.716] Server  LOG     ✓ Compiled in 211ms
+[05:50:47.608] Server  LOG     ✓ Compiled in 136ms
+[05:51:17.177] Server  LOG     ✓ Compiled in 75ms
+[05:51:39.790] Server  LOG     ✓ Compiled in 272ms
+[05:52:06.563] Server  LOG     ✓ Compiled in 62ms
+[05:52:44.580] Server  LOG     ✓ Compiled in 42ms
+[05:53:09.394] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[05:53:42.494] Server  LOG     ✓ Compiled in 47ms
+[05:54:05.427] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[05:54:06.266] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:12.708] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:18.727] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:24.322] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[05:54:24.987] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:30.250] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:36.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:43.127] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:50.051] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[05:54:50.665] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:54:56.055] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:55:16.350] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:55:24.966] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:55:33.613] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:55:45.432] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:55:53.436] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:56:16.354] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:56:24.865] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:56:33.899] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:56:36.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[05:56:37.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:00:16.922] Server  LOG     ✓ Compiled in 53ms
+[06:00:41.410] Server  LOG     ✓ Compiled in 71ms
+[06:00:44.455] Server  LOG     ✓ Compiled in 29ms
+[06:00:50.886] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:00:52.776] Server  LOG     ✓ Compiled in 27ms
+[06:01:15.960] Server  LOG     ✓ Compiled in 26ms
+[06:01:18.554] Server  LOG     ✓ Compiled in 25ms
+[06:01:21.888] Server  LOG     ✓ Compiled in 21ms
+[06:01:23.845] Server  LOG     ✓ Compiled in 22ms
+[06:01:48.067] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:02:25.161] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:02:43.275] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:02:44.265] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:02:47.470] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:04:31.471] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:04:34.402] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:06:33.793] Server  LOG     ✓ Compiled in 42ms
+[06:07:00.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:07:14.239] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:07:14.888] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:10:58.616] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:10:59.367] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:12:11.036] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:12:14.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:14:11.762] Server  LOG     ✓ Compiled in 102ms
+[06:14:43.889] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:15:00.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:19:56.875] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:21:56.697] Server  LOG     ✓ Compiled in 28ms
+[06:22:51.046] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:23:09.418] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:26:38.039] Server  LOG     ✓ Compiled in 75ms
+[06:27:02.898] Server  LOG     ✓ Compiled in 31ms
+[06:27:42.309] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:27:42.946] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:29:27.897] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:29:58.298] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:30:31.958] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.

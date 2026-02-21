@@ -50,8 +50,8 @@ export default function Navbar() {
     const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
     const pathname = usePathname()
 
-    // Determine if we are on a page with a dark header (e.g., home or specific inner pages)
-    const hasDarkHeader = pathname === '/'
+    // All pages now have the dark hero header — navbar is always transparent on initial load
+    const hasDarkHeader = true
 
     // Text color logic:
     // If scrolled, always dark text (because navbar bg is white)

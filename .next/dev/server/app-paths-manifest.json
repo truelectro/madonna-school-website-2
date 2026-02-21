@@ -1,10 +1,17 @@
 {
   "/[slug]/page": "app/[slug]/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
   "/about/staff/page": "app/about/staff/page.js",
   "/academics/calendar/page": "app/academics/calendar/page.js",
   "/admin/[[...index]]/page": "app/admin/[[...index]]/page.js",
   "/admission/curriculum/page": "app/admission/curriculum/page.js",
   "/admission/process/page": "app/admission/process/page.js",
+  "/anniversary-plan/page": "app/anniversary-plan/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/hall-of-fame/page": "app/hall-of-fame/page.js",
+  "/history/page": "app/history/page.js",
+  "/mosa/page": "app/mosa/page.js",
+  "/news/page": "app/news/page.js",
   "/page": "app/page.js"
 }

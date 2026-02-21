@@ -11,9 +11,9 @@ export default function MosaPage() {
     const years = Array.from({ length: 35 }, (_, i) => 1989 + i).reverse();
 
     return (
-        <main className="min-h-screen pt-32 pb-20 bg-gray-50">
+        <main className="min-h-screen pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-[#051324] py-32 mb-20 text-white relative overflow-hidden">
+            <section className="bg-[#051324] pt-40 pb-32 mb-20 text-white relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -22,8 +22,7 @@ export default function MosaPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Alumni Network
                     </div>
-                    <Users className="w-20 h-20 text-sky-400 mx-auto mb-6" />
-                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight uppercase">MOSA</h1>
+                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight">MOSA</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium mb-4">
                         Madonna Old Students Association
                     </p>
