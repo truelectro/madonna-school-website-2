@@ -1361,6 +1361,10 @@ body {
   background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
 }
 
+.bg-blue-900\/60 {
+  background-color: #1e3a8a99;
+}
+
 .bg-\[radial-gradient\(circle_at_20\%_80\%\,rgba\(255\,255\,255\,0\.05\)\,transparent\)\] {
   background-image: radial-gradient(circle at 20% 80%, #ffffff0d, #0000);
 }
@@ -1409,6 +1413,11 @@ body {
 .object-cover {
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+  object-position: center;
 }
 
 .p-10 {
@@ -1973,6 +1982,10 @@ body {
   opacity: .5;
 }
 
+.opacity-60 {
+  opacity: .6;
+}
+
 .mix-blend-multiply {
   mix-blend-mode: multiply;
 }
@@ -2404,6 +2417,11 @@ body {
 
   .md\:rounded-\[60px\] {
     border-radius: 60px;
+  }
+
+  .md\:object-top {
+    -o-object-position: top;
+    object-position: top;
   }
 
   .md\:p-12 {

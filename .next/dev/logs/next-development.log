@@ -62,3 +62,4 @@
 [04:13:59.748] Server  LOG     ✓ Compiled in 101ms
 [04:14:15.710] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [04:14:15.745] Server  LOG     ✓ Compiled in 152ms
+[04:31:35.519] Server  LOG     ✓ Compiled in 248ms
