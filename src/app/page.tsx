@@ -25,13 +25,13 @@ export default async function Home() {
                         src={heroImageUrl}
                         alt="Madonna School Campus"
                         fill
-                        className="object-cover object-center md:object-top opacity-60 mix-blend-overlay"
+                        className="object-cover object-center md:object-top"
                         priority
                     />
                 )}
 
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={"absolute inset-0 z-10 " + (heroImageUrl ? "bg-blue-900/60" : "bg-black/40")} />
+                    <div className={"absolute inset-0 z-10 " + (heroImageUrl ? "bg-blue-900/40" : "bg-black/40")} />
                     {/* Animated Gradient Orbs */}
                     <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse" />
                     <div className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] animate-pulse delay-700" />
