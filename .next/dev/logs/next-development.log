@@ -81,3 +81,6 @@ Parsing ecmascript source code failed
 
 Expected '</', got 'jsx text'
 [04:59:13.391] Server  LOG     ✓ Compiled in 100ms
+[05:02:25.632] Server  LOG     ✓ Compiled in 75ms
+[05:07:27.803] Server  LOG       Reload env: .env.local
+[05:07:27.943] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.

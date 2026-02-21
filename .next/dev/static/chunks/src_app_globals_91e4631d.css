@@ -1365,6 +1365,10 @@ body {
   background-color: #1e3a8a99;
 }
 
+.bg-blue-900\/40 {
+  background-color: #1e3a8a66;
+}
+
 .bg-\[radial-gradient\(circle_at_20\%_80\%\,rgba\(255\,255\,255\,0\.05\)\,transparent\)\] {
   background-image: radial-gradient(circle at 20% 80%, #ffffff0d, #0000);
 }
