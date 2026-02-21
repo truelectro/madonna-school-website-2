@@ -22,20 +22,20 @@ export default async function Home() {
             <section className="bg-[#051324] text-white pt-32 pb-48 lg:pb-64 relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-20">
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-20">
                         {/* Left Content */}
                         <div className="lg:w-3/5">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                                <Sparkles size={16} className="text-emerald-400" /> Sacrifice • Success • Service
+                                <Sparkles size={16} className="text-sky-400" /> Sacrifice • Success • Service
                             </div>
                             <h1 className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-10 leading-[1.05] tracking-tight whitespace-nowrap">
-                                Where <span className="text-emerald-400">Leaders</span> <br />Are Built.
+                                Where <span className="text-sky-400">Leaders</span> <br />Are Built.
                             </h1>
                             <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
-                                <Link href="/admission" className="px-10 py-5 bg-emerald-500 hover:bg-emerald-600 text-gray-900 transition-all rounded-full font-black text-lg shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 group">
+                                <Link href="/admission" className="px-10 py-5 bg-sky-500 hover:bg-sky-600 text-white transition-all rounded-full font-black text-lg shadow-xl shadow-sky-500/20 flex items-center justify-center gap-3 group">
                                     Apply Today <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <Link href="/about" className="px-10 py-5 bg-transparent hover:bg-white/5 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
@@ -46,7 +46,7 @@ export default async function Home() {
 
                         {/* Right Content */}
                         <div className="lg:w-2/5 flex flex-col gap-12 lg:pt-16">
-                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-emerald-500/50 pl-6">
+                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-sky-500/50 pl-6">
                                 Providing a holistic education that empowers students with critical thinking, moral integrity, and leadership skills. A legacy of excellence since 1964.
                             </p>
 
@@ -58,7 +58,7 @@ export default async function Home() {
                                 ].map((stat, i) => (
                                     <div key={i} className="flex flex-col">
                                         <div className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tighter flex items-baseline gap-1">
-                                            {stat.value} <span className="text-emerald-400 text-xl">+</span>
+                                            {stat.value} <span className="text-sky-400 text-xl">+</span>
                                         </div>
                                         <div className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
                                     </div>
@@ -67,7 +67,7 @@ export default async function Home() {
 
                             {/* Mobile Buttons */}
                             <div className="flex flex-col sm:flex-row gap-6 mt-4 lg:hidden">
-                                <Link href="/admission" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-gray-900 transition-all rounded-full font-black text-lg flex items-center justify-center gap-3">
+                                <Link href="/admission" className="px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white transition-all rounded-full font-black text-lg flex items-center justify-center gap-3">
                                     Apply Today
                                 </Link>
                                 <Link href="/about" className="px-8 py-4 bg-white/5 hover:bg-white/10 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
