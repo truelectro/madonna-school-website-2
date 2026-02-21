@@ -12,6 +12,10 @@ export default async function Home() {
 
     const heroImageUrl = page?.heroImage ? urlFor(page.heroImage).url() : null;
 
+    // Find the welcome section to find if it has an image
+    const welcomeSection = page?.pageBuilder?.find((block: any) => block._type === 'textWithImageSection' && block.heading?.includes('Welcome') || block.heading?.includes('Celebrating'));
+    const welcomeImageUrl = welcomeSection?.image ? urlFor(welcomeSection.image).url() : null;
+
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
@@ -78,37 +82,53 @@ export default async function Home() {
             {/* Welcome Section */}
             <section className="py-24 bg-blue-50 relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl mx-auto bg-white rounded-[40px] p-12 md:p-16 shadow-2xl shadow-blue-900/5 border border-blue-100">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-bold tracking-wider uppercase mb-8 rounded-full">
-                            <Sparkles size={16} /> Welcome Message
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
-                            Celebrating 60 Years of <span className="text-blue-600">Excellence</span>.
-                        </h2>
-                        <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
-                            <p>
-                                We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.
-                            </p>
-                            <p>
-                                For six decades, Madonna School has remained true to its motto — <span className="text-blue-700 font-bold">“Sacrifice, Success, and Service.”</span> Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.
-                            </p>
-                            <p>
-                                As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.
-                            </p>
-                            <p>
-                                We invite you to join us in celebrating this milestone and in shaping the next chapter of the Madonna story — one built on faith, knowledge, and service to humanity.
-                            </p>
-                            <p className="text-xl font-bold text-gray-900 mt-8">
-                                Happy 60th Anniversary, Madonna School — Sacrifice, Success, Service!
-                            </p>
-                        </div>
-                        <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-6">
-                            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-500/30">
-                                SO
+                    <div className={`mx-auto bg-white rounded-[40px] shadow-2xl shadow-blue-900/5 border border-blue-100 ${welcomeImageUrl
+                        ? 'max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-16 p-8 md:p-12'
+                        : 'max-w-4xl p-12 md:p-16'
+                        }`}>
+                        {welcomeImageUrl && (
+                            <div className="w-full lg:w-1/2 relative aspect-square lg:aspect-[4/5] rounded-[30px] overflow-hidden shadow-lg border border-gray-100 flex-shrink-0">
+                                <Image
+                                    src={welcomeImageUrl}
+                                    alt="Welcome to Madonna School"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
-                            <div>
-                                <h4 className="text-xl font-black text-gray-900 tracking-tight">Sr. Perpetual Owiredu</h4>
-                                <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mt-1">Headmistress, Madonna School - Koforidua</p>
+                        )}
+
+                        <div className={welcomeImageUrl ? "w-full lg:w-1/2" : ""}>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-bold tracking-wider uppercase mb-8 rounded-full">
+                                <Sparkles size={16} /> Welcome Message
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
+                                Celebrating 60 Years of <span className="text-blue-600">Excellence</span>.
+                            </h2>
+                            <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
+                                <p>
+                                    We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.
+                                </p>
+                                <p>
+                                    For six decades, Madonna School has remained true to its motto — <span className="text-blue-700 font-bold">“Sacrifice, Success, and Service.”</span> Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.
+                                </p>
+                                <p>
+                                    As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.
+                                </p>
+                                <p>
+                                    We invite you to join us in celebrating this milestone and in shaping the next chapter of the Madonna story — one built on faith, knowledge, and service to humanity.
+                                </p>
+                                <p className="text-xl font-bold text-gray-900 mt-8">
+                                    Happy 60th Anniversary, Madonna School — Sacrifice, Success, Service!
+                                </p>
+                            </div>
+                            <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-6">
+                                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-500/30">
+                                    SO
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-black text-gray-900 tracking-tight">Sr. Perpetual Owiredu</h4>
+                                    <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mt-1">Headmistress, Madonna School - Koforidua</p>
+                                </div>
                             </div>
                         </div>
                     </div>
