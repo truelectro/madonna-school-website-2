@@ -1,4 +1,10 @@
 {
+  "/[slug]/page": "app/[slug]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/staff/page": "app/about/staff/page.js",
   "/academics/calendar/page": "app/academics/calendar/page.js",
-  "/admin/[[...index]]/page": "app/admin/[[...index]]/page.js"
+  "/admin/[[...index]]/page": "app/admin/[[...index]]/page.js",
+  "/admission/curriculum/page": "app/admission/curriculum/page.js",
+  "/admission/process/page": "app/admission/process/page.js",
+  "/page": "app/page.js"
 }
