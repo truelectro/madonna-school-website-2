@@ -8,3 +8,32 @@
 [00:00:10.911] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:00:17.616] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:17:00.521] Server  LOG     ✓ Compiled in 109ms
+[00:31:37.823] Browser ERROR   {}
+[00:31:37.824] Browser ERROR   {}
+[00:31:37.824] Browser ERROR   {}
+[00:31:37.824] Browser ERROR   {}
+[00:37:27.375] Browser ERROR   {}
+[00:37:27.376] Browser ERROR   {}
+[00:37:27.377] Browser ERROR   {}
+[00:37:27.377] Browser ERROR   {}
+[00:37:29.373] Browser ERROR   {}
+[00:37:29.374] Browser ERROR   {}
+[00:37:29.374] Browser ERROR   {}
+[00:37:29.374] Browser ERROR   {}
+[00:37:32.373] Browser ERROR   {}
+[00:37:32.374] Browser ERROR   {}
+[00:37:32.374] Browser ERROR   {}
+[00:37:32.377] Browser ERROR   {}
+[00:37:37.367] Browser ERROR   {}
+[00:37:37.367] Browser ERROR   {}
+[00:37:46.367] Browser ERROR   {}
+[00:37:46.367] Browser ERROR   {}
+[00:50:27.040] Browser ERROR   {}
+[00:50:27.042] Browser ERROR   {}
+[01:19:14.841] Browser ERROR   {}
+[01:19:14.842] Browser ERROR   {}
+[02:27:54.048] Browser ERROR   {}
+[02:27:54.049] Browser ERROR   {}
+[02:46:29.444] Browser ERROR   {}
+[02:46:29.444] Browser ERROR   {}
+[02:56:01.953] Server  LOG       Reload env: .env.local
