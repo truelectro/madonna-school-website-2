@@ -253,7 +253,7 @@ export default async function Home() {
                                     </>
                                 )}
                             </div>
-                            <div className="absolute -bottom-12 -left-12 bg-white p-12 rounded-[40px] shadow-2xl border border-gray-100 max-w-sm">
+                            <div className="absolute -bottom-12 -left-12 bg-white p-12 rounded-[40px] shadow-2xl border border-gray-100 max-w-sm hidden md:block">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="flex -space-x-4">
                                         {[1, 2, 3, 4].map(i => (

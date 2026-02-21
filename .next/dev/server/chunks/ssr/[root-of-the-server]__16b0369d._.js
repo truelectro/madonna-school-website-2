@@ -21,6 +21,8 @@ module.exports = mod;
 __turbopack_context__.s([
     "client",
     ()=>client,
+    "fileUrlFor",
+    ()=>fileUrlFor,
     "urlFor",
     ()=>urlFor
 ]);
@@ -37,6 +39,22 @@ const client = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$
 const builder = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$sanity$2f$image$2d$url$2f$lib$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])(client);
 function urlFor(source) {
     return builder.image(source);
+}
+function fileUrlFor(asset) {
+    const projectId = ("TURBOPACK compile-time value", "yi6lk936") || '';
+    const dataset = ("TURBOPACK compile-time value", "production") || 'production';
+    // ref format: "file-{hash}-{extension}"
+    // Use lastIndexOf to safely split off the extension, since hash may contain hyphens
+    const ref = asset._ref // e.g. "file-abc123def456ghi789-mp4"
+    ;
+    const withoutPrefix = ref.replace(/^file-/, '') // "abc123def456ghi789-mp4"
+    ;
+    const lastHyphen = withoutPrefix.lastIndexOf('-');
+    const hash = withoutPrefix.slice(0, lastHyphen) // "abc123def456ghi789"
+    ;
+    const ext = withoutPrefix.slice(lastHyphen + 1) // "mp4"
+    ;
+    return `https://cdn.sanity.io/files/${projectId}/${dataset}/${hash}.${ext}`;
 }
 }),
 "[project]/src/app/academics/calendar/page.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {

@@ -31,6 +31,7 @@ export const pageType = defineType({
                 { type: 'textWithImageSection' },
                 { type: 'callToActionSection' },
                 { type: 'gallerySection' },
+                { type: 'videoSection' },
             ],
         }),
         defineField({

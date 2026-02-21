@@ -157,3 +157,20 @@ Expected '</', got 'jsx text'
 [06:29:27.897] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [06:29:58.298] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [06:30:31.958] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:36:42.702] Server  LOG     ✓ Compiled in 71ms
+[06:36:42.787] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:37:18.548] Server  LOG     ✓ Compiled in 102ms
+[06:37:43.207] Server  LOG     ✓ Compiled in 89ms
+[06:38:25.966] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:40:15.703] Server  LOG     ✓ Compiled in 541ms
+[06:40:38.902] Server  LOG     ✓ Compiled in 16ms
+[06:40:38.984] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:40:41.124] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:41:11.937] Server  LOG     ✓ Compiled in 204ms
+[06:41:56.995] Server  LOG     ✓ Compiled in 50ms
+[06:41:57.152] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:45:00.730] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:45:01.974] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:45:02.819] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:45:03.589] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:45:09.839] Browser WARN    Image with src "https://cdn.sanity.io/images/yi6lk936/production/a5ba879e06c639ccd7cb82334588af3c6b56e4ef-1024x682.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.

@@ -1079,6 +1079,10 @@ body {
   border-radius: .75rem;
 }
 
+.rounded-\[24px\] {
+  border-radius: 24px;
+}
+
 .rounded-r-2xl {
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -1090,6 +1094,10 @@ body {
 
 .border-4 {
   border-width: 4px;
+}
+
+.border-0 {
+  border-width: 0;
 }
 
 .border-b {
@@ -1474,6 +1482,11 @@ body {
 
 .bg-sky-600\/0 {
   background-color: #0284c700;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[radial-gradient\(circle_at_20\%_80\%\,rgba\(255\,255\,255\,0\.05\)\,transparent\)\] {

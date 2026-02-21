@@ -2,6 +2,7 @@ import { HeroSection } from "./blocks/HeroSection";
 import { TextWithImageSection } from "./blocks/TextWithImageSection";
 import { CallToActionSection } from "./blocks/CallToActionSection";
 import { GallerySection } from "./blocks/GallerySection";
+import { VideoSection } from "./blocks/VideoSection";
 
 export function BlockRenderer({ blocks }: { blocks: any[] }) {
     if (!blocks || blocks.length === 0) return null;
@@ -21,6 +22,8 @@ export function BlockRenderer({ blocks }: { blocks: any[] }) {
                         return <CallToActionSection key={key} data={block} />;
                     case "gallerySection":
                         return <GallerySection key={key} data={block} />;
+                    case "videoSection":
+                        return <VideoSection key={key} data={block} />;
                     default:
                         console.warn(`Unknown block type: ${type}`);
                         return null;

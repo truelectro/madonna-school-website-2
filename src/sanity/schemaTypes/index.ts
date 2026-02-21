@@ -9,6 +9,7 @@ import { heroSectionType } from './blocks/heroSection'
 import { textWithImageSectionType } from './blocks/textWithImageSection'
 import { callToActionSectionType } from './blocks/callToActionSection'
 import { gallerySectionType } from './blocks/gallerySection'
+import { videoSectionType } from './blocks/videoSection'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         textWithImageSectionType,
         callToActionSectionType,
         gallerySectionType,
+        videoSectionType,
     ],
 }
