@@ -1,0 +1,14 @@
+{
+  "/[slug]/page": "/[slug]",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/about/staff/page": "/about/staff",
+  "/academics/calendar/page": "/academics/calendar",
+  "/admin/[[...index]]/page": "/admin/[[...index]]",
+  "/admission/curriculum/page": "/admission/curriculum",
+  "/admission/process/page": "/admission/process",
+  "/contact/page": "/contact",
+  "/news/page": "/news",
+  "/page": "/"
+}
