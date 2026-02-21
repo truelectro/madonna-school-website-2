@@ -1,4 +1,5 @@
 import { CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby, Sparkles, GraduationCap } from "lucide-react";
+import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const metadata = {
     title: 'Admission Policy | Madonna School Koforidua',
@@ -13,6 +14,7 @@ export default function AdmissionProcessPage() {
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">

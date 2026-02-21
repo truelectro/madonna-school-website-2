@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/client";
 import Image from "next/image";
+import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -27,6 +28,7 @@ export default async function Home() {
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-20">
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-20">

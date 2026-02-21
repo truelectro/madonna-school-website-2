@@ -175,3 +175,57 @@ Expected '</', got 'jsx text'
 [06:45:03.589] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [06:45:09.839] Browser WARN    Image with src "https://cdn.sanity.io/images/yi6lk936/production/a5ba879e06c639ccd7cb82334588af3c6b56e4ef-1024x682.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
 [06:52:12.193] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:58:51.858] Server  LOG     ✓ Compiled in 188ms
+[06:59:45.268] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[06:59:45.307] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[06:59:45.506] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[06:59:49.944] Server  LOG     ✓ Compiled in 149ms
+[06:59:50.832] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[06:59:51.032] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:59:51.166] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[06:59:54.971] Server  LOG     ✓ Compiled in 75ms
+[06:59:55.504] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[06:59:55.641] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[06:59:55.771] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[06:59:59.658] Server  LOG     ✓ Compiled in 40ms
+[07:00:00.309] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:00.454] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:00.576] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:05.012] Server  LOG     ✓ Compiled in 41ms
+[07:00:05.486] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:05.618] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:05.747] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:09.710] Server  LOG     ✓ Compiled in 30ms
+[07:00:10.156] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:10.257] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:10.381] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:14.418] Server  LOG     ✓ Compiled in 31ms
+[07:00:14.896] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:14.996] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:15.116] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:19.514] Server  LOG     ✓ Compiled in 61ms
+[07:00:19.600] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:00:19.981] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:20.100] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:20.221] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:24.319] Server  LOG     ✓ Compiled in 33ms
+[07:00:24.809] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:24.894] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:25.016] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:29.268] Server  LOG     ✓ Compiled in 57ms
+[07:00:30.065] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:30.161] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:30.283] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:35.084] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:35.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:35.301] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:00:36.325] Server  LOG     ✓ Compiled in 40ms
+[07:00:36.494] Server  ERROR   ⨯ ReferenceError: HeroMouseOrb is not defined
+[07:00:36.586] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:00:36.709] Browser ERROR   uncaughtError: ReferenceError: HeroMouseOrb is not defined
+[07:01:03.941] Server  LOG     ✓ Compiled in 124ms
+[07:01:04.023] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:01:05.180] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[07:01:05.292] Server  LOG     ✓ Compiled in 139ms
+[07:01:35.044] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[07:01:45.517] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
