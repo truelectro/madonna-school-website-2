@@ -1,13 +1,33 @@
 import { ArrowRight, GraduationCap, Users, Calendar, Award, CheckCircle2, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import Link from 'next/link';
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/client";
+import Image from "next/image";
 
-export default function Home() {
+export const revalidate = 60; // Revalidate every 60 seconds
+
+export default async function Home() {
+    const query = `*[_type == "page" && slug.current == "home"][0]`;
+    const page = await client.fetch(query) || {};
+
+    const heroImageUrl = page?.heroImage ? urlFor(page.heroImage).url() : null;
+
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
             <section className="relative min-h-[95vh] flex items-center bg-blue-900 text-white overflow-hidden pt-20">
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-black/40 z-10" />
+                {heroImageUrl && (
+                    <Image
+                        src={heroImageUrl}
+                        alt="Madonna School Campus"
+                        fill
+                        className="object-cover object-center md:object-top opacity-60 mix-blend-overlay"
+                        priority
+                    />
+                )}
+
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className={"absolute inset-0 z-10 " + (heroImageUrl ? "bg-blue-900/60" : "bg-black/40")} />
                     {/* Animated Gradient Orbs */}
                     <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse" />
                     <div className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] animate-pulse delay-700" />
