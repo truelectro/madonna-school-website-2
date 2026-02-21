@@ -84,3 +84,4 @@ Expected '</', got 'jsx text'
 [05:02:25.632] Server  LOG     ✓ Compiled in 75ms
 [05:07:27.803] Server  LOG       Reload env: .env.local
 [05:07:27.943] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[05:08:32.921] Server  LOG     ✓ Compiled in 179ms

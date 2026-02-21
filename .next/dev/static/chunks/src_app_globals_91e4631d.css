@@ -307,6 +307,10 @@ body {
   pointer-events: none;
 }
 
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -439,6 +443,10 @@ body {
   z-index: 50;
 }
 
+.z-30 {
+  z-index: 30;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -567,6 +575,14 @@ body {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.-mt-32 {
+  margin-top: -8rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .line-clamp-2 {
@@ -901,6 +917,10 @@ body {
   align-items: center;
 }
 
+.items-baseline {
+  align-items: baseline;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -1005,6 +1025,10 @@ body {
 
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 .rounded-2xl {
@@ -1160,6 +1184,15 @@ body {
 .border-yellow-200 {
   --tw-border-opacity: 1;
   border-color: rgb(254 240 138 / var(--tw-border-opacity, 1));
+}
+
+.border-\[\#051324\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(5 19 36 / var(--tw-border-opacity, 1));
+}
+
+.border-emerald-500\/50 {
+  border-color: #10b98180;
 }
 
 .bg-background {
@@ -1367,6 +1400,24 @@ body {
 
 .bg-blue-900\/40 {
   background-color: #1e3a8a66;
+}
+
+.bg-\[\#051324\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 19 36 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black\/10 {
+  background-color: #0000001a;
+}
+
+.bg-emerald-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity, 1));
+}
+
+.bg-emerald-500\/10 {
+  background-color: #10b9811a;
 }
 
 .bg-\[radial-gradient\(circle_at_20\%_80\%\,rgba\(255\,255\,255\,0\.05\)\,transparent\)\] {
@@ -1592,6 +1643,10 @@ body {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pb-48 {
+  padding-bottom: 12rem;
 }
 
 .text-left {
@@ -1925,6 +1980,11 @@ body {
   color: rgb(233 213 255 / var(--tw-text-opacity, 1));
 }
 
+.text-emerald-400 {
+  --tw-text-opacity: 1;
+  color: rgb(52 211 153 / var(--tw-text-opacity, 1));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2065,6 +2125,11 @@ body {
 
 .shadow-slate-200\/50 {
   --tw-shadow-color: #e2e8f080;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-emerald-500\/20 {
+  --tw-shadow-color: #10b98133;
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -2210,6 +2275,19 @@ body {
   background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-emerald-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-white\/10:hover {
+  background-color: #ffffff1a;
+}
+
+.hover\:bg-white\/5:hover {
+  background-color: #ffffff0d;
+}
+
 .hover\:text-blue-400:hover {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity, 1));
@@ -2343,6 +2421,10 @@ body {
   background-color: rgb(79 70 229 / var(--tw-bg-opacity, 1));
 }
 
+.group:hover .group-hover\:bg-transparent {
+  background-color: #0000;
+}
+
 .group:hover .group-hover\:text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity, 1));
@@ -2395,6 +2477,10 @@ body {
     aspect-ratio: 1;
   }
 
+  .md\:aspect-\[21\/9\] {
+    aspect-ratio: 21 / 9;
+  }
+
   .md\:h-14 {
     height: 3.5rem;
   }
@@ -2417,6 +2503,10 @@ body {
 
   .md\:gap-24 {
     gap: 6rem;
+  }
+
+  .md\:gap-12 {
+    gap: 3rem;
   }
 
   .md\:rounded-\[60px\] {
@@ -2483,6 +2573,15 @@ body {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-\[5\.5rem\] {
+    font-size: 5.5rem;
+  }
+
+  .md\:text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2496,6 +2595,10 @@ body {
 
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:-mt-48 {
+    margin-top: -12rem;
   }
 
   .lg\:block {
@@ -2530,6 +2633,14 @@ body {
     width: max-content;
   }
 
+  .lg\:w-2\/5 {
+    width: 40%;
+  }
+
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2550,9 +2661,25 @@ body {
     gap: 4rem;
   }
 
+  .lg\:gap-20 {
+    gap: 5rem;
+  }
+
+  .lg\:pb-64 {
+    padding-bottom: 16rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
+  }
+
   .lg\:text-8xl {
     font-size: 6rem;
     line-height: 1;
+  }
+
+  .lg\:text-\[6\.5rem\] {
+    font-size: 6.5rem;
   }
 }
 
