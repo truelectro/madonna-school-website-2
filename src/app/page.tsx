@@ -19,63 +19,84 @@ export default async function Home() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative min-h-[95vh] flex items-center bg-blue-900 text-white overflow-hidden pt-20">
-                {heroImageUrl && (
-                    <Image
-                        src={heroImageUrl}
-                        alt="Madonna School Campus"
-                        fill
-                        className="object-cover object-center md:object-top"
-                        priority
-                    />
-                )}
-
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className={"absolute inset-0 z-10 " + (heroImageUrl ? "bg-blue-900/40" : "bg-black/40")} />
-                    {/* Animated Gradient Orbs */}
-                    <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse" />
-                    <div className="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] animate-pulse delay-700" />
-                </div>
+            <section className="bg-[#051324] text-white pt-32 pb-48 lg:pb-64 relative overflow-hidden">
+                {/* Animated Gradient Orbs */}
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-20">
-                    <div className="max-w-4xl">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/30 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-8 border border-blue-400/30">
-                            <Sparkles size={16} /> Sacrifice • Success • Service
+                    <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-20">
+                        {/* Left Content */}
+                        <div className="lg:w-3/5">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                                <Sparkles size={16} className="text-emerald-400" /> Sacrifice • Success • Service
+                            </div>
+                            <h1 className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-10 leading-[1.05] tracking-tight whitespace-nowrap">
+                                Where <span className="text-emerald-400">Leaders</span> <br />Are Built.
+                            </h1>
+                            <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
+                                <Link href="/admission" className="px-10 py-5 bg-emerald-500 hover:bg-emerald-600 text-gray-900 transition-all rounded-full font-black text-lg shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 group">
+                                    Apply Today <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                                <Link href="/about" className="px-10 py-5 bg-transparent hover:bg-white/5 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
+                                    Our History
+                                </Link>
+                            </div>
                         </div>
-                        <h1 className="text-6xl md:text-8xl font-black mb-10 leading-[1.05] tracking-tight">
-                            Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Leaders</span> <br />Are Built.
-                        </h1>
-                        <p className="text-xl md:text-2xl mb-12 text-gray-200 leading-relaxed max-w-2xl font-light">
-                            Providing a holistic education that empowers students with critical thinking, moral integrity, and leadership skills. A legacy of excellence since 1964.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-6">
-                            <Link href="/admission" className="px-10 py-5 bg-blue-600 hover:bg-blue-700 transition-all rounded-2xl font-bold text-lg shadow-2xl shadow-blue-500/40 flex items-center justify-center gap-3 group">
-                                Apply Today <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                            <Link href="/about" className="px-10 py-5 bg-white/10 hover:bg-white/20 transition-all backdrop-blur-2xl border border-white/20 rounded-2xl font-bold text-lg flex items-center justify-center">
-                                Our History
-                            </Link>
+
+                        {/* Right Content */}
+                        <div className="lg:w-2/5 flex flex-col gap-12 lg:pt-16">
+                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-emerald-500/50 pl-6">
+                                Providing a holistic education that empowers students with critical thinking, moral integrity, and leadership skills. A legacy of excellence since 1964.
+                            </p>
+
+                            <div className="flex items-center gap-8 md:gap-12 pt-4">
+                                {[
+                                    { label: 'Founding Year', value: '1964' },
+                                    { label: 'B.E.C.E Results', value: 'Top 1%' },
+                                    { label: 'Regional Champions', value: '5-Time' },
+                                ].map((stat, i) => (
+                                    <div key={i} className="flex flex-col">
+                                        <div className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tighter flex items-baseline gap-1">
+                                            {stat.value} <span className="text-emerald-400 text-xl">+</span>
+                                        </div>
+                                        <div className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Mobile Buttons */}
+                            <div className="flex flex-col sm:flex-row gap-6 mt-4 lg:hidden">
+                                <Link href="/admission" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-gray-900 transition-all rounded-full font-black text-lg flex items-center justify-center gap-3">
+                                    Apply Today
+                                </Link>
+                                <Link href="/about" className="px-8 py-4 bg-white/5 hover:bg-white/10 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
+                                    Our History
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                {/* Floating Metrics */}
-                <div className="absolute bottom-16 right-6 lg:right-24 z-20 hidden lg:block">
-                    <div className="bg-white/5 backdrop-blur-3xl border border-white/10 p-10 rounded-[40px] flex gap-16">
-                        {[
-                            { label: 'Founding Year', value: '1964', icon: Calendar },
-                            { label: 'B.E.C.E Results', value: 'Top 1%', icon: TrendingUp },
-                            { label: 'Regional Champions', value: '5-Time', icon: Award },
-                        ].map((stat, i) => (
-                            <div key={i} className="flex flex-col items-center">
-                                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-4 text-blue-400">
-                                    <stat.icon size={24} />
-                                </div>
-                                <div className="text-3xl font-black text-white mb-1 tracking-tighter">{stat.value}</div>
-                                <div className="text-blue-300/60 text-[10px] font-black uppercase tracking-[0.2em]">{stat.label}</div>
-                            </div>
-                        ))}
-                    </div>
+            {/* Overlapping Hero Image */}
+            <section className="relative z-30 -mt-32 lg:-mt-48 px-6 container mx-auto mb-20 pointer-events-none">
+                <div className="relative w-full aspect-video md:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#051324] bg-gray-200 pointer-events-auto group">
+                    {heroImageUrl ? (
+                        <Image
+                            src={heroImageUrl}
+                            alt="Madonna School Campus"
+                            fill
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-1000"
+                            priority
+                        />
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500 font-bold">
+                            Hero Image Placeholder
+                        </div>
+                    )}
+                    {/* Optional play button overlay if it were a video */}
+                    <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-transparent" />
                 </div>
             </section>
 
