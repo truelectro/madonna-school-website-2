@@ -1,4 +1,4 @@
-import { Calendar, Target, Flag, Users, ArrowRight, Lightbulb, TrendingUp } from 'lucide-react';
+import { Calendar, Target, Flag, Users, ArrowRight, Lightbulb, TrendingUp, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 
 export const metadata = {
