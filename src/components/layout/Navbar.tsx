@@ -12,9 +12,9 @@ const navLinks = [
         name: 'About',
         href: '/about',
         subLinks: [
-            { name: 'History', href: '/about/history' },
+            { name: 'History', href: '/history' },
             { name: 'Staff & Administration', href: '/about/staff' },
-            { name: 'Hall of Fame', href: '/about/hall-of-fame' },
+            { name: 'Hall of Fame', href: '/hall-of-fame' },
         ],
     },
     {
@@ -34,10 +34,10 @@ const navLinks = [
     },
     {
         name: 'Madonna @ 60',
-        href: '/anniversary',
+        href: '/anniversary-plan',
         subLinks: [
-            { name: '60th Anniversary Plan', href: '/anniversary/plan' },
-            { name: 'MOSA (Alumni)', href: '/anniversary/mosa' },
+            { name: '60th Anniversary Plan', href: '/anniversary-plan' },
+            { name: 'MOSA (Alumni)', href: '/mosa' },
         ],
     },
     { name: 'News', href: '/news' },

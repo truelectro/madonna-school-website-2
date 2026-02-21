@@ -5,31 +5,8 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 
-// We can't use route segment config `revalidate` with `output: export`
-// export const revalidate = 60; // Removed for static export
-export const dynamicParams = false;
+export const revalidate = 60; // Revalidate every 60 seconds
 
-export async function generateStaticParams() {
-    const query = `*[_type == "page" && defined(slug.current)][]{
-        "slug": slug.current
-    }`;
-    const pages = await client.fetch(query) || [];
-
-    const params = pages.map((page: { slug: string }) => ({
-        slug: page.slug,
-    }));
-
-    // Next.js throws an error if generateStaticParams returns an empty array for a dynamic route.
-    // Also adding 'studio' to explicitly catch any accidental /studio navigations.
-    if (params.length === 0) {
-        return [{ slug: 'home' }, { slug: 'studio' }];
-    }
-
-    // Include 'studio' to prevent missing param error if they navigate there
-    params.push({ slug: 'studio' });
-
-    return params;
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const slug = (await params).slug;
