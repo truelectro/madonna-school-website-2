@@ -2443,6 +2443,10 @@ body {
 }
 
 @media (min-width: 640px) {
+  .sm\:aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
   .sm\:w-64 {
     width: 16rem;
   }
@@ -2636,6 +2640,14 @@ body {
     margin-top: -12rem;
   }
 
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
+  .lg\:mb-8 {
+    margin-bottom: 2rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -2646,6 +2658,10 @@ body {
 
   .lg\:aspect-\[4\/5\] {
     aspect-ratio: 4 / 5;
+  }
+
+  .lg\:aspect-\[21\/9\] {
+    aspect-ratio: 21 / 9;
   }
 
   .lg\:w-1\/2 {
@@ -2694,6 +2710,10 @@ body {
 
   .lg\:gap-20 {
     gap: 5rem;
+  }
+
+  .lg\:gap-12 {
+    gap: 3rem;
   }
 
   .lg\:pb-64 {

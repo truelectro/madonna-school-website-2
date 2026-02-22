@@ -37,13 +37,13 @@ export default async function Home() {
                         <HeroMouseOrb />
 
                         <div className="container mx-auto px-6 relative z-20">
-                            <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-20">
+                            <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-20">
                                 {/* Left Content */}
                                 <div className="lg:w-3/5">
-                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-6 lg:mb-8 border border-white/10">
                                         <Sparkles size={16} className="text-sky-400" /> Sacrifice • Success • Service
                                     </div>
-                                    <h1 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-10 leading-[1.05] tracking-tight">
+                                    <h1 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight">
                                         Where <span className="text-sky-400">Leaders</span> <br />Are Built.
                                     </h1>
                                     <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
@@ -57,8 +57,8 @@ export default async function Home() {
                                 </div>
 
                                 {/* Right Content */}
-                                <div className="lg:w-2/5 flex flex-col gap-12 lg:pt-16">
-                                    <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-sky-500/50 pl-6">
+                                <div className="lg:w-2/5 flex flex-col gap-8 lg:gap-12 lg:pt-16">
+                                    <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-sky-500/50 pl-6 text-left">
                                         Providing a holistic education that empowers students with critical thinking, moral integrity, and leadership skills. A legacy of excellence since 1964.
                                     </p>
 
@@ -93,7 +93,7 @@ export default async function Home() {
 
                     {/* Overlapping Hero Image */}
                     <section className="relative z-30 -mt-24 md:-mt-32 lg:-mt-48 px-6 container mx-auto mb-12 md:mb-20 pointer-events-none">
-                        <div className="relative w-full aspect-video md:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#051324] bg-gray-200 pointer-events-auto group">
+                        <div className="relative w-full aspect-[4/5] sm:aspect-video lg:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#051324] bg-gray-200 pointer-events-auto group">
                             {heroImageUrl ? (
                                 <Image
                                     src={heroImageUrl}
