@@ -38,7 +38,7 @@ export function VideoSection({ data }: { data: VideoSectionData }) {
     if (!hasVideo) return null;
 
     return (
-        <section className={`py-20 px-6 ${isDark ? 'bg-[#051324]' : 'bg-gray-50'}`}>
+        <section className={`py-12 md:py-20 px-6 ${isDark ? 'bg-[#051324]' : 'bg-gray-50'}`}>
             <div className="container mx-auto max-w-5xl">
 
                 {data.heading && (

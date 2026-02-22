@@ -24,7 +24,7 @@ export default async function Home() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="bg-[#051324] text-white pt-32 pb-48 lg:pb-64 relative overflow-hidden">
+            <section className="bg-[#051324] text-white pt-24 md:pt-32 pb-32 md:pb-48 lg:pb-64 relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -86,7 +86,7 @@ export default async function Home() {
             </section>
 
             {/* Overlapping Hero Image */}
-            <section className="relative z-30 -mt-32 lg:-mt-48 px-6 container mx-auto mb-20 pointer-events-none">
+            <section className="relative z-30 -mt-24 md:-mt-32 lg:-mt-48 px-6 container mx-auto mb-12 md:mb-20 pointer-events-none">
                 <div className="relative w-full aspect-video md:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#051324] bg-gray-200 pointer-events-auto group">
                     {heroImageUrl ? (
                         <Image
@@ -107,7 +107,7 @@ export default async function Home() {
             </section>
 
             {/* Welcome Section */}
-            <section className="py-24 bg-blue-50 relative overflow-hidden">
+            <section className="py-16 md:py-24 bg-blue-50 relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <div className={`mx-auto bg-white rounded-[40px] shadow-2xl shadow-blue-900/5 border border-blue-100 ${welcomeImageUrl
                         ? 'max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-16 p-8 md:p-12'
@@ -163,7 +163,7 @@ export default async function Home() {
             </section>
 
             {/* Philosophy Section */}
-            <section className="py-32 bg-white">
+            <section className="py-16 md:py-32 bg-white">
                 <div className="container mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-24">
                         <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight">
@@ -208,7 +208,7 @@ export default async function Home() {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-32 bg-gray-50 relative overflow-hidden">
+            <section className="py-16 md:py-32 bg-gray-50 relative overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-24">
                         <div className="lg:w-1/2">

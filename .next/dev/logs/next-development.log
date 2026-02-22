@@ -269,3 +269,13 @@ Expected '</', got 'jsx text'
 [07:56:24.232] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [07:56:49.639] Server  LOG     ✓ Compiled in 63ms
 [07:56:49.750] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:58:55.851] Server  LOG     ✓ Compiled in 172ms
+[07:58:55.938] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:59:02.994] Server  LOG     ✓ Compiled in 30ms
+[07:59:03.031] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:59:05.005] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:59:07.013] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:59:09.127] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:59:14.761] Server  LOG     ✓ Compiled in 64ms
+[07:59:29.058] Server  LOG     ✓ Compiled in 49ms
+[07:59:31.140] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.

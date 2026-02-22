@@ -20,7 +20,7 @@ export default async function CalendarPage() {
     return (
         <main className="min-h-screen">
             {/* Page Header */}
-            <section className="bg-[#051324] pt-32 pb-24 text-white relative overflow-hidden">
+            <section className="bg-[#051324] pt-24 pb-16 md:pt-32 md:pb-24 text-white relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -37,7 +37,7 @@ export default async function CalendarPage() {
                 </div>
             </section>
 
-            <div className="bg-gray-50 py-20">
+            <div className="bg-gray-50 py-10 md:py-20">
                 <section className="container mx-auto px-6 max-w-4xl">
                     <div className="bg-white rounded-[40px] shadow-xl shadow-gray-200/50 border border-gray-100 p-8 md:p-12">
                         <div className="flex items-center gap-4 mb-10 pb-6 border-b border-gray-100">

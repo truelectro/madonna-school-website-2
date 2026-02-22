@@ -6,7 +6,7 @@ export function TextWithImageSection({ data }: { data: any }) {
     const isImageRight = data.imagePosition === "right";
 
     return (
-        <section className="py-24 bg-white overflow-hidden relative">
+        <section className="py-16 md:py-24 bg-white overflow-hidden relative">
             <div className="container mx-auto px-6">
                 <div className={`flex flex-col lg:flex-row items-center gap-16 md:gap-24 ${isImageRight ? "lg:flex-row-reverse" : ""}`}>
 

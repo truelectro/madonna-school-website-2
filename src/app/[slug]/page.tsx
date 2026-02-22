@@ -36,7 +36,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
         <main className="min-h-screen">
             {/* If Page Builder is used, render the modular blocks */}
             {hasPageBuilder ? (
-                <div className="pt-20">
+                <div className="pt-12 md:pt-20">
                     <BlockRenderer blocks={page.pageBuilder} />
                 </div>
             ) : (

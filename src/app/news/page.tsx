@@ -22,7 +22,7 @@ export default async function NewsPage() {
     return (
         <main className="min-h-screen">
             {/* Page Header */}
-            <section className="bg-[#051324] pt-32 pb-24 text-white relative overflow-hidden">
+            <section className="bg-[#051324] pt-24 pb-16 md:pt-32 md:pb-24 text-white relative overflow-hidden">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -39,7 +39,7 @@ export default async function NewsPage() {
                 </div>
             </section>
 
-            <div className="bg-gray-50 py-20">
+            <div className="bg-gray-50 py-10 md:py-20">
                 <section className="container mx-auto px-6">
                     {newsItems.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -71,7 +71,7 @@ export default async function NewsPage() {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-24 bg-white rounded-[40px] border border-gray-100 shadow-sm">
+                        <div className="text-center py-16 md:py-24 bg-white rounded-[40px] border border-gray-100 shadow-sm">
                             <Newspaper size={64} className="text-gray-200 mx-auto mb-6" />
                             <h2 className="text-2xl font-black text-gray-400 uppercase tracking-widest">No news yet</h2>
                             <p className="text-gray-400 mt-4 font-medium">Check back soon for updates from Madonna School.</p>
@@ -80,8 +80,8 @@ export default async function NewsPage() {
                 </section>
 
                 {/* Newsletter */}
-                <section className="container mx-auto px-6 mt-20">
-                    <div className="bg-[#051324] rounded-[60px] p-12 md:p-24 text-center text-white relative overflow-hidden border border-white/5">
+                <section className="container mx-auto px-6 mt-10 md:mt-20">
+                    <div className="bg-[#051324] rounded-[60px] p-8 md:p-24 text-center text-white relative overflow-hidden border border-white/5">
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                         <div className="relative z-10">
