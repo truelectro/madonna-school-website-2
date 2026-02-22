@@ -1,5 +1,5 @@
 import StaffCard from "@/components/ui/StaffCard";
-import { client } from "@/sanity/lib/client";
+import { client, sanityFetch } from "@/sanity/lib/client";
 import { Sparkles, Users } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default async function StaffPage() {
-    let sanityStaff = await client.fetch(`*[_type == "staff"] | order(order asc)`);
+    let sanityStaff = await sanityFetch<any[]>(`*[_type == "staff"] | order(order asc)`) ?? [];
 
     const administration = sanityStaff.filter((s: any) => s.category === 'administration' || s.role === 'Headmistress' || s.role === 'Assistant Headmistress');
     const teaching = sanityStaff.filter((s: any) => s.category === 'teaching' || (s.role !== 'Headmistress' && s.role !== 'Assistant Headmistress' && s.role !== 'Staff' && !s.category));

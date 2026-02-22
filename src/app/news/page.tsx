@@ -1,6 +1,6 @@
 import { Newspaper, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import Link from 'next/link';
-import { client } from "@/sanity/lib/client";
+import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -17,7 +17,7 @@ export default async function NewsPage() {
         publishedAt,
         "excerpt": pt::text(content)
     }`;
-    const newsItems = await client.fetch(newsQuery) || [];
+    const newsItems = await sanityFetch<any[]>(newsQuery) || [];
 
     return (
         <main className="min-h-screen">

@@ -1,7 +1,6 @@
 import { ArrowRight, GraduationCap, Users, Calendar, Award, CheckCircle2, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import Link from 'next/link';
-import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/client";
+import { client, urlFor, sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
@@ -9,7 +8,7 @@ export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function Home() {
     const query = `*[_type == "page" && slug.current == "home"][0]`;
-    const page = await client.fetch(query) || {};
+    const page = await sanityFetch<any>(query) || {};
 
     const heroImageUrl = page?.heroImage ? urlFor(page.heroImage).url() : null;
 

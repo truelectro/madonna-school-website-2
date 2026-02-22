@@ -229,3 +229,16 @@ Expected '</', got 'jsx text'
 [07:01:05.292] Server  LOG     ✓ Compiled in 139ms
 [07:01:35.044] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [07:01:45.517] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:10:40.959] Server  LOG     ✓ Compiled in 162ms
+[07:10:41.102] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:10:41.224] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:11:09.279] Server  LOG     ✓ Compiled in 38ms
+[07:11:09.355] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:11:09.436] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:11:38.533] Server  LOG     ✓ Compiled in 84ms
+[07:11:41.430] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:11:45.920] Server  LOG     ✓ Compiled in 51ms
+[07:11:48.560] Server  LOG     ✓ Compiled in 26ms
+[07:11:50.545] Server  LOG     ✓ Compiled in 43ms
+[07:11:50.675] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[07:13:40.800] Server  LOG       Reload env: .env.local

@@ -5,8 +5,23 @@ export const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: '2023-01-01',
-    useCdn: false, // Set to true for production for speed
+    useCdn: process.env.NODE_ENV === 'production',
 })
+
+/**
+ * Drop-in replacement for client.fetch() that tells Next.js to
+ * revalidate this data every `revalidate` seconds (default: 60).
+ * Works with next-sanity v12 + Next.js App Router.
+ */
+export async function sanityFetch<T = unknown>(
+    query: string,
+    params?: Record<string, unknown>,
+    revalidate = 60
+): Promise<T> {
+    return client.fetch<T>(query, params, {
+        next: { revalidate },
+    })
+}
 
 const builder = imageUrlBuilder(client)
 

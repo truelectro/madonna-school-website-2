@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { client, sanityFetch } from "@/sanity/lib/client";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export const revalidate = 60; // Revalidate every 60 seconds
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const slug = (await params).slug;
     const query = `*[_type == "page" && slug.current == $slug][0] { title }`;
-    const page = await client.fetch(query, { slug });
+    const page = await sanityFetch<any>(query, { slug });
 
     if (!page) return { title: 'Not Found' };
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function DynamicPage({ params }: { params: Promise<{ slug: string }> }) {
     const slug = (await params).slug;
     const query = `*[_type == "page" && slug.current == $slug][0]`;
-    const page = await client.fetch(query, { slug });
+    const page = await sanityFetch<any>(query, { slug });
 
     if (!page) {
         notFound();

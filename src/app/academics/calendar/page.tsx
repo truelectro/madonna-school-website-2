@@ -1,5 +1,5 @@
 import { Calendar as CalendarIcon, Clock, Sparkles } from "lucide-react";
-import { client } from "@/sanity/lib/client";
+import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -15,7 +15,7 @@ export default async function CalendarPage() {
         description,
         term
     }`;
-    const sanEvents = await client.fetch(calendarQuery) || [];
+    const sanEvents = await sanityFetch<any[]>(calendarQuery) || [];
 
     return (
         <main className="min-h-screen">
