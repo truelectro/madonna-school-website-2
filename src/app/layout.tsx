@@ -8,11 +8,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    themeColor: "#051324",
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#051324" },
+        { media: "(prefers-color-scheme: dark)", color: "#051324" },
+    ],
     width: "device-width",
     initialScale: 1,
+    maximumScale: 5,
 };
-
 
 export default function RootLayout({
     children,
@@ -21,6 +24,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <head>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+            </head>
             <body className="font-sans antialiased text-foreground bg-background" suppressHydrationWarning>
                 <LayoutWrapper>
                     {children}
@@ -29,3 +36,4 @@ export default function RootLayout({
         </html>
     );
 }
+
