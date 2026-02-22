@@ -28,7 +28,7 @@ export default function HallOfFamePage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Academic Excellence
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight">Hall of Fame</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Hall of Fame</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
                         Celebrating the outstanding achievements, brilliance, and excellence of Madonna School students on national and regional stages.
                     </p>

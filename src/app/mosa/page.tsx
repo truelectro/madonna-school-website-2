@@ -24,7 +24,7 @@ export default function MosaPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Alumni Network
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight">MOSA</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">MOSA</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium mb-4">
                         Madonna Old Students Association
                     </p>

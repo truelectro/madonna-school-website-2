@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { client, urlFor, sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -36,7 +37,7 @@ export default async function Home() {
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                                 <Sparkles size={16} className="text-sky-400" /> Sacrifice • Success • Service
                             </div>
-                            <h1 className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-10 leading-[1.05] tracking-tight whitespace-nowrap">
+                            <h1 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-10 leading-[1.05] tracking-tight">
                                 Where <span className="text-sky-400">Leaders</span> <br />Are Built.
                             </h1>
                             <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
@@ -273,6 +274,14 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Sanity Page Builder extras (e.g. video sections added in Studio) */}
+            {(() => {
+                const extraBlocks = (page?.pageBuilder || []).filter(
+                    (b: any) => b._type === 'videoSection' || b._type === 'callToActionSection'
+                );
+                return extraBlocks.length > 0 ? <BlockRenderer blocks={extraBlocks} /> : null;
+            })()}
 
             {/* CTA Section */}
             <section className="py-20">

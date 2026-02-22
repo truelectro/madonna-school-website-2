@@ -39,7 +39,7 @@ export default function AnniversaryPlanPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Jubilee Celebration
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tight">Madonna @ 60</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Madonna @ 60</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto font-medium mb-4">
                         "60 Years of Holistic Education: Rebooting our Systems"
                     </p>
