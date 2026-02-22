@@ -6,6 +6,12 @@ export const heroSectionType = defineType({
     type: 'object',
     fields: [
         defineField({
+            name: 'badgeText',
+            type: 'string',
+            title: 'Badge Text',
+            description: 'Upper text in a rounded badge (e.g. Sacrifice • Success • Service)',
+        }),
+        defineField({
             name: 'heading',
             type: 'string',
             title: 'Heading',
@@ -14,24 +20,50 @@ export const heroSectionType = defineType({
         defineField({
             name: 'subheading',
             type: 'text',
-            title: 'Subheading',
+            title: 'Subheading/Description',
         }),
         defineField({
             name: 'backgroundImage',
             type: 'image',
-            title: 'Background Image',
+            title: 'Main Hero Image',
+            description: 'The large image on the right/center overlap.',
             options: { hotspot: true },
         }),
         defineField({
             name: 'ctaLabel',
             type: 'string',
-            title: 'CTA Button Label',
+            title: 'Primary CTA Label',
         }),
         defineField({
             name: 'ctaLink',
             type: 'string',
-            title: 'CTA Button Link (URL or Path)',
+            title: 'Primary CTA Link',
         }),
+        defineField({
+            name: 'secondaryCtaLabel',
+            type: 'string',
+            title: 'Secondary CTA Label',
+        }),
+        defineField({
+            name: 'secondaryCtaLink',
+            type: 'string',
+            title: 'Secondary CTA Link',
+        }),
+        defineField({
+            name: 'stats',
+            type: 'array',
+            title: 'Statistics',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        { name: 'label', type: 'string', title: 'Label' },
+                        { name: 'value', type: 'string', title: 'Value (e.g. 1964)' }
+                    ]
+                }
+            ]
+        }),
+
     ],
     preview: {
         select: {

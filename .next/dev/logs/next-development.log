@@ -393,3 +393,10 @@ Import traces:
 [08:06:21.482] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 [08:06:55.858] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [08:07:10.193] Browser WARN    Image with src "https://cdn.sanity.io/images/yi6lk936/production/a5ba879e06c639ccd7cb82334588af3c6b56e4ef-1024x682.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[08:13:25.127] Server  LOG     ✓ Compiled in 65ms
+[08:13:25.292] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:14:30.487] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:17:38.081] Server  LOG     ✓ Compiled in 169ms
+[08:17:38.209] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:18:32.834] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:19:15.547] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
