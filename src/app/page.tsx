@@ -275,36 +275,13 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Sanity Page Builder extras (e.g. video sections added in Studio) */}
+            {/* Sanity Page Builder — all remaining blocks (CTA, video, etc.) */}
             {(() => {
                 const extraBlocks = (page?.pageBuilder || []).filter(
-                    (b: any) => b._type === 'videoSection' || b._type === 'callToActionSection'
+                    (b: any) => b._type !== 'textWithImageSection'
                 );
                 return extraBlocks.length > 0 ? <BlockRenderer blocks={extraBlocks} /> : null;
             })()}
-
-            {/* CTA Section */}
-            <section className="py-20">
-                <div className="container mx-auto px-6">
-                    <div className="bg-blue-600 rounded-[60px] p-12 md:p-24 text-center text-white relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48" />
-                        <div className="relative z-10">
-                            <h2 className="text-4xl md:text-6xl font-black mb-10 tracking-tight">Ready to join our family?</h2>
-                            <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-2xl mx-auto font-medium">
-                                We admit children from age four (4), irrespective of religion, nationality, and social status. Begin your journey toward excellence today.
-                            </p>
-                            <div className="flex flex-col sm:flex-row justify-center gap-6">
-                                <button className="px-12 py-6 bg-white text-blue-600 rounded-2xl font-black text-xl hover:shadow-2xl transition-all">
-                                    Apply Online
-                                </button>
-                                <button className="px-12 py-6 bg-blue-700 text-white border border-blue-500 rounded-2xl font-black text-xl hover:bg-blue-800 transition-all">
-                                    Visit Campus
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
     );
 }
