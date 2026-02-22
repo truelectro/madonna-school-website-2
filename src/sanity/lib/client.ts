@@ -5,7 +5,7 @@ export const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: '2023-01-01',
-    useCdn: process.env.NODE_ENV === 'production',
+    useCdn: false, // Set to false so Next.js handles caching instead of Sanity CDN
 })
 
 /**
@@ -16,7 +16,7 @@ export const client = createClient({
 export async function sanityFetch<T = unknown>(
     query: string,
     params?: Record<string, unknown>,
-    revalidate = 60
+    revalidate = 0
 ): Promise<T> {
     return client.fetch<T>(query, params, {
         next: { revalidate },

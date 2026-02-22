@@ -5,7 +5,7 @@ import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Disable static caching so changes show up instantly
 
 export default async function Home() {
     const query = `*[_type == "page" && slug.current == "home"][0]`;

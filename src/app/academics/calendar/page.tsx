@@ -2,7 +2,7 @@ import { Calendar as CalendarIcon, Clock, Sparkles } from "lucide-react";
 import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Disable static caching so changes show up instantly
 
 export const metadata = {
     title: 'School Calendar | Madonna School Koforidua',

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Disable static caching so changes show up instantly
 
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
