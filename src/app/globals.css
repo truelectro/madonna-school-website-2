@@ -54,3 +54,15 @@
     @apply bg-white text-gray-900 antialiased;
   }
 }
+
+/* Mobile Menu Slide Transition */
+.mobile-menu-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.mobile-menu-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}

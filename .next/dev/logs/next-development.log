@@ -279,3 +279,117 @@ Expected '</', got 'jsx text'
 [07:59:14.761] Server  LOG     ✓ Compiled in 64ms
 [07:59:29.058] Server  LOG     ✓ Compiled in 49ms
 [07:59:31.140] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:01:23.776] Server  LOG     ✓ Compiled in 302ms
+[08:01:35.380] Server  LOG     ✓ Compiled in 1098ms
+[08:01:35.672] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:01:35.786] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:01:37.219] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:01:37.490] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:01:37.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:01:37.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:02:52.178] Server  LOG     ✓ Compiled in 191ms
+[08:03:06.954] Server  LOG     ✓ Compiled in 147ms
+[08:03:37.254] Server  LOG     ✓ Compiled in 76ms
+[08:05:17.436] Server  LOG     ✓ Compiled in 174ms
+[08:05:55.086] Server  LOG     ✓ Compiled in 91ms
+[08:05:55.198] Browser ERROR   ./src/components/layout/Navbar.tsx:144:45
+Parsing ecmascript source code failed
+  142 |                                 className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out top-4 ${isOpen ? '-rotate-45 -translate-y-2' : 'translate-y-0'
+  143 |                                     < button
+> 144 |                                             onClick={() => toggleMobileDropdown(link.name)}
+      |                                             ^^^^^^^
+  145 |                                 className="flex items-center justify-between py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left"
+  146 |                             >
+  147 |                                 {link.name}
+
+Expected '</', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[08:05:55.198] Browser ERROR   ./src/components/layout/Navbar.tsx:144:45
+Parsing ecmascript source code failed
+  142 |                                 className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out top-4 ${isOpen ? '-rotate-45 -translate-y-2' : 'translate-y-0'
+  143 |                                     < button
+> 144 |                                             onClick={() => toggleMobileDropdown(link.name)}
+      |                                             ^^^^^^^
+  145 |                                 className="flex items-center justify-between py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left"
+  146 |                             >
+  147 |                                 {link.name}
+
+Expected '</', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[08:05:55.199] Browser ERROR   ./src/components/layout/Navbar.tsx:144:45
+Parsing ecmascript source code failed
+  142 |                                 className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out top-4 ${isOpen ? '-rotate-45 -translate-y-2' : 'translate-y-0'
+  143 |                                     < button
+> 144 |                                             onClick={() => toggleMobileDropdown(link.name)}
+      |                                             ^^^^^^^
+  145 |                                 className="flex items-center justify-between py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left"
+  146 |                             >
+  147 |                                 {link.name}
+
+Expected '</', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[08:05:55.446] Browser ERROR   ./src/components/layout/Navbar.tsx:144:45
+Parsing ecmascript source code failed
+  142 |                                 className={`absolute h-0.5 w-6 bg-current transform transition-all duration-300 ease-in-out top-4 ${isOpen ? '-rotate-45 -translate-y-2' : 'translate-y-0'
+  143 |                                     < button
+> 144 |                                             onClick={() => toggleMobileDropdown(link.name)}
+      |                                             ^^^^^^^
+  145 |                                 className="flex items-center justify-between py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left"
+  146 |                             >
+  147 |                                 {link.name}
+
+Expected '</', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/components/layout/Navbar.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component Browser]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/layout/Navbar.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Client Component SSR]
+    ./src/components/layout/LayoutWrapper.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+[08:06:21.020] Server  LOG     ✓ Compiled in 40ms
+[08:06:21.228] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:06:21.482] Server  WARN    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+[08:06:55.858] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[08:07:10.193] Browser WARN    Image with src "https://cdn.sanity.io/images/yi6lk936/production/a5ba879e06c639ccd7cb82334588af3c6b56e4ef-1024x682.jpg" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
