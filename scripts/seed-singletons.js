@@ -177,60 +177,46 @@ async function seed() {
             { _key: 'hs2', value: 'Top 1%', label: 'B.E.C.E Results' },
             { _key: 'hs3', value: '5-Time', label: 'Regional Champions' },
         ],
-        pageBuilder: [
+        welcomeTag: 'Welcome Message',
+        welcomeTitle: 'Celebrating 60 Years of Excellence.',
+        welcomeText: [
             {
-                _key: 'welcome-001',
-                _type: 'welcomeSection',
-                tag: 'Welcome Message',
-                title: 'Celebrating 60 Years of Excellence.',
-                content: [
-                    {
-                        _type: 'block',
-                        _key: 'w1',
-                        style: 'normal',
-                        children: [{ _type: 'span', text: 'We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.' }]
-                    },
-                    {
-                        _type: 'block',
-                        _key: 'w2',
-                        style: 'normal',
-                        children: [{ _type: 'span', text: 'For six decades, Madonna School has remained true to its motto — "Sacrifice, Success, and Service." Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.' }]
-                    },
-                    {
-                        _type: 'block',
-                        _key: 'w3',
-                        style: 'normal',
-                        children: [{ _type: 'span', text: 'As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.' }]
-                    }
-                ]
+                _type: 'block',
+                _key: 'w1',
+                style: 'normal',
+                children: [{ _type: 'span', text: 'We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.' }]
             },
             {
-                _key: 'philosophy-001',
-                _type: 'philosophySection',
-                title: 'A Legacy of Excellence',
-                subtitle: 'For over six decades, Madonna School has been at the forefront of educational innovation, transforming potential into achievement.',
-                cards: [
-                    { _key: 'pc1', title: 'High Academics', desc: "A curriculum that challenges and inspires, preparing students for the world's top universities." },
-                    { _key: 'pc2', title: 'Moral Integrity', desc: "Instilling core values and discipline that form the bedrock of successful adult life." },
-                    { _key: 'pc3', title: 'Global Leadership', desc: "Developing critical thinking and public speaking skills to lead in the 21st century." },
-                ]
+                _type: 'block',
+                _key: 'w2',
+                style: 'normal',
+                children: [{ _type: 'span', text: 'For six decades, Madonna School has remained true to its motto — "Sacrifice, Success, and Service." Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.' }]
             },
             {
-                _key: 'difference-001',
-                _type: 'differenceSection',
-                tag: 'Our Distinction',
-                title: 'The Madonna Difference.',
-                content: textBlock('We go beyond the classroom. Our holistic approach ensures that every student is nurtured emotionally, socially, and intellectually.'),
-                bullets: [
-                    'Unbeatable B.E.C.E Results',
-                    'Presidential Award-Winning Students',
-                    '5-Time Regional Spelling Bee Champions',
-                    '1st in Regional Science & Math Quizzes',
-                    'Accepts children from age 4 (KG 1)',
-                    'Holistic Education (KG to JHS)',
-                ]
+                _type: 'block',
+                _key: 'w3',
+                style: 'normal',
+                children: [{ _type: 'span', text: 'As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.' }]
             }
-        ]
+        ],
+        philosophyTitle: 'A Legacy of Excellence',
+        philosophySubtitle: 'For over six decades, Madonna School has been at the forefront of educational innovation, transforming potential into achievement.',
+        philosophyCards: [
+            { _key: 'pc1', title: 'High Academics', desc: "A curriculum that challenges and inspires, preparing students for the world's top universities." },
+            { _key: 'pc2', title: 'Moral Integrity', desc: "Instilling core values and discipline that form the bedrock of successful adult life." },
+            { _key: 'pc3', title: 'Global Leadership', desc: "Developing critical thinking and public speaking skills to lead in the 21st century." },
+        ],
+        differenceTag: 'Our Distinction',
+        differenceTitle: 'The Madonna Difference.',
+        differenceText: textBlock('We go beyond the classroom. Our holistic approach ensures that every student is nurtured emotionally, socially, and intellectually.'),
+        differenceBullets: [
+            'Unbeatable B.E.C.E Results',
+            'Presidential Award-Winning Students',
+            '5-Time Regional Spelling Bee Champions',
+            '1st in Regional Science & Math Quizzes',
+            'Accepts children from age 4 (KG 1)',
+            'Holistic Education (KG to JHS)',
+        ],
     })
 
     console.log('⏳ Committing transaction...')
