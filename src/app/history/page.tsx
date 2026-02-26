@@ -19,7 +19,11 @@ export default async function HistoryPage() {
     const pageQuery = `*[_type == "page" && slug.current == "history"][0]`;
     const pageData = (await sanityFetch<any>(pageQuery)) || {};
 
-    const extraBlocks = pageData?.pageBuilder || [];
+    const heroBlock = pageData?.pageBuilder?.find((b: any) => b._type === "heroSection");
+    const extraBlocks = (pageData?.pageBuilder || []).filter((b: any) => b !== heroBlock);
+
+    const title = historyData.headerTitle || heroBlock?.heading || "Our History";
+    const subtitle = historyData.headerSubtitle || heroBlock?.subheading || "A legacy of faith, education, and community service starting from 1964.";
 
     const timelineEvents = historyData.timelineEvents?.length > 0 ? historyData.timelineEvents : [
         {
@@ -87,9 +91,9 @@ export default async function HistoryPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> About Our School
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{historyData.headerTitle || "Our History"}</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{title}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
-                        {historyData.headerSubtitle || "A legacy of faith, education, and community service starting from 1964."}
+                        {subtitle}
                     </p>
                 </div>
             </section>
