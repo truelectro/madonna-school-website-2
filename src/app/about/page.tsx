@@ -1,7 +1,35 @@
 import { ShieldCheck, Target, Eye, History as HistoryIcon, Award, Sparkles } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { PortableText } from "next-sanity";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
-export default function AboutPage() {
+export const revalidate = 0;
+
+export default async function AboutPage() {
+    const aboutQuery = `*[_type == "aboutPage"][0]`;
+    const aboutData = (await sanityFetch<any>(aboutQuery)) || {};
+
+    const pageQuery = `*[_type == "page" && slug.current == "about"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    // If they strictly use pageBuilder, we could render just the blocks, 
+    // but we will render legacy layout + blocks appended
+    const extraBlocks = pageData?.pageBuilder || [];
+
+    const stats = aboutData.stats?.length > 0 ? aboutData.stats : [
+        { label: 'Founded', val: '1964' },
+        { label: 'Excellence', val: '100%' },
+        { label: 'Faculty', val: '50+' },
+        { label: 'Awards', val: '200+' },
+    ];
+
+    const coreValues = aboutData.coreValues?.length > 0 ? aboutData.coreValues : [
+        { title: 'Integrity', desc: 'Acting with honesty and strong moral principles at all times.' },
+        { title: 'Service', desc: 'Dedicating ourselves to the growth and welfare of our community.' },
+        { title: 'Innovation', desc: 'Embracing new ideas and methods to enhance learning.' },
+        { title: 'Discipline', desc: 'Fostering the self-control necessary for personal and academic mastery.' },
+    ];
     return (
         <main className="min-h-screen">
             {/* Page Header */}
@@ -15,9 +43,9 @@ export default function AboutPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> About Our School
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Our <span className="text-sky-400">Story</span></h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{aboutData.headerTitle || <>Our <span className="text-sky-400">Story</span></>}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
-                        Discover the legacy, values, and vision that drive Madonna School towards academic and moral excellence.
+                        {aboutData.headerSubtitle || "Discover the legacy, values, and vision that drive Madonna School towards academic and moral excellence."}
                     </p>
                 </div>
             </section>
@@ -34,9 +62,9 @@ export default function AboutPage() {
                                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-md">
                                     <Target size={32} />
                                 </div>
-                                <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">Our Mission</h2>
+                                <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">{aboutData.missionTitle || "Our Mission"}</h2>
                                 <p className="text-xl text-blue-50/90 leading-relaxed font-medium">
-                                    To provide a holistic and rigorous education that empowers students with critical thinking, moral integrity, and the leadership skills necessary to excel in a rapidly changing global society.
+                                    {aboutData.missionText || "To provide a holistic and rigorous education that empowers students with critical thinking, moral integrity, and the leadership skills necessary to excel in a rapidly changing global society."}
                                 </p>
                             </div>
                         </div>
@@ -49,9 +77,9 @@ export default function AboutPage() {
                                 <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-md">
                                     <Eye size={32} />
                                 </div>
-                                <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">Our Vision</h2>
+                                <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">{aboutData.visionTitle || "Our Vision"}</h2>
                                 <p className="text-xl text-gray-400 leading-relaxed font-medium">
-                                    To be the leading center of educational excellence in the region, recognized for producing graduates who are not only academically brilliant but also ethically grounded and socially responsible.
+                                    {aboutData.visionText || "To be the leading center of educational excellence in the region, recognized for producing graduates who are not only academically brilliant but also ethically grounded and socially responsible."}
                                 </p>
                             </div>
                         </div>
@@ -65,24 +93,25 @@ export default function AboutPage() {
                             <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
                                 <HistoryIcon size={32} />
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">Founded in 1964. Built for Infinity.</h2>
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">{aboutData.historyTitle || "Founded in 1964. Built for Infinity."}</h2>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
-                                <p>
-                                    Madonna School was established with a clear mandate: to create an oasis of learning where discipline and academic rigor are inseparable. Over the decades, we have evolved from a small local school into a beacon of educational distinction.
-                                </p>
-                                <p>
-                                    Our journey has been marked by continuous innovation, from building state-of-the-art libraries to integrating digital learning platforms, all while maintaining the core values that have defined us for over 60 years.
-                                </p>
+                                {aboutData.historyContent ? (
+                                    <PortableText value={aboutData.historyContent} />
+                                ) : (
+                                    <>
+                                        <p>
+                                            Madonna School was established with a clear mandate: to create an oasis of learning where discipline and academic rigor are inseparable. Over the decades, we have evolved from a small local school into a beacon of educational distinction.
+                                        </p>
+                                        <p>
+                                            Our journey has been marked by continuous innovation, from building state-of-the-art libraries to integrating digital learning platforms, all while maintaining the core values that have defined us for over 60 years.
+                                        </p>
+                                    </>
+                                )}
                             </div>
                         </div>
                         <div className="lg:w-1/2">
                             <div className="grid grid-cols-2 gap-6">
-                                {[
-                                    { label: 'Founded', val: '1964' },
-                                    { label: 'Excellence', val: '100%' },
-                                    { label: 'Faculty', val: '50+' },
-                                    { label: 'Awards', val: '200+' },
-                                ].map((stat, i) => (
+                                {stats.map((stat: any, i: number) => (
                                     <div key={i} className="p-10 bg-white rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                                         <div className="text-4xl font-black text-blue-600 mb-2">{stat.val}</div>
                                         <div className="text-gray-400 font-bold text-xs uppercase tracking-widest">{stat.label}</div>
@@ -102,16 +131,11 @@ export default function AboutPage() {
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                                 <Sparkles size={14} className="text-sky-400" /> Our Principles
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Our Core Values</h2>
-                            <p className="text-xl text-gray-400 font-medium tracking-tight">The pillars that sustain our institution.</p>
+                            <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">{aboutData.coreValuesTitle || "Our Core Values"}</h2>
+                            <p className="text-xl text-gray-400 font-medium tracking-tight">{aboutData.coreValuesSubtitle || "The pillars that sustain our institution."}</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                            {[
-                                { title: 'Integrity', desc: 'Acting with honesty and strong moral principles at all times.' },
-                                { title: 'Service', desc: 'Dedicating ourselves to the growth and welfare of our community.' },
-                                { title: 'Innovation', desc: 'Embracing new ideas and methods to enhance learning.' },
-                                { title: 'Discipline', desc: 'Fostering the self-control necessary for personal and academic mastery.' },
-                            ].map((v, i) => (
+                            {coreValues.map((v: any, i: number) => (
                                 <div key={i} className="space-y-6 p-8 rounded-[30px] bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                                     <div className="text-sky-400 font-black text-6xl opacity-40">0{i + 1}</div>
                                     <h3 className="text-2xl font-bold">{v.title}</h3>
@@ -122,6 +146,9 @@ export default function AboutPage() {
                     </div>
                 </section>
             </div>
+
+            {/* Render any additional blocks from page builder */}
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

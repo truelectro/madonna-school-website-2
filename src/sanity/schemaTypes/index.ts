@@ -10,6 +10,12 @@ import { textWithImageSectionType } from './blocks/textWithImageSection'
 import { callToActionSectionType } from './blocks/callToActionSection'
 import { gallerySectionType } from './blocks/gallerySection'
 import { videoSectionType } from './blocks/videoSection'
+import { aboutPageType } from './singletons/aboutPage'
+import { historyPageType } from './singletons/historyPage'
+import { anniversaryPlanPageType } from './singletons/anniversaryPlanPage'
+import { contactPageType } from './singletons/contactPage'
+import { mosaPageType } from './singletons/mosaPage'
+import { hallOfFamePageType } from './singletons/hallOfFamePage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
@@ -24,5 +30,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         callToActionSectionType,
         gallerySectionType,
         videoSectionType,
+        aboutPageType,
+        historyPageType,
+        anniversaryPlanPageType,
+        contactPageType,
+        mosaPageType,
+        hallOfFamePageType,
     ],
 }

@@ -1,6 +1,7 @@
 import { Calendar as CalendarIcon, Clock, Sparkles } from "lucide-react";
 import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
 
@@ -16,6 +17,11 @@ export default async function CalendarPage() {
         term
     }`;
     const sanEvents = await sanityFetch<any[]>(calendarQuery) || [];
+
+    const pageQuery = `*[_type == "page" && slug.current == "calendar"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
 
     return (
         <main className="min-h-screen">
@@ -71,6 +77,8 @@ export default async function CalendarPage() {
                     </div>
                 </section>
             </div>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

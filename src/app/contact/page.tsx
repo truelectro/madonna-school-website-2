@@ -1,12 +1,23 @@
 import { Mail, Phone, MapPin, Send, MessageSquare, Sparkles } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
+
+export const revalidate = 0;
 
 export const metadata = {
     title: 'Contact Us | Madonna School Koforidua',
     description: 'Get in touch with Madonna School. We are here to help with admission inquiries, curriculum questions, and more.',
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+    const contactQuery = `*[_type == "contactPage"][0]`;
+    const contactData = (await sanityFetch<any>(contactQuery)) || {};
+
+    const pageQuery = `*[_type == "page" && slug.current == "contact"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
     return (
         <main className="min-h-screen">
             {/* Page Header */}
@@ -20,9 +31,9 @@ export default function ContactPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Get In Touch
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Reach <span className="text-sky-400">Out</span></h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{contactData.headerTitle || <>Reach <span className="text-sky-400">Out</span></>}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
-                        Questions about admission, curriculum, or visiting? We&apos;re here to help you every step of the way.
+                        {contactData.headerSubtitle || "Questions about admission, curriculum, or visiting? We're here to help you every step of the way."}
                     </p>
                 </div>
             </section>
@@ -37,8 +48,8 @@ export default function ContactPage() {
                                     <Phone size={24} />
                                 </div>
                                 <h3 className="text-xl font-black mb-2 uppercase tracking-tight text-gray-900">Call Us</h3>
-                                <p className="text-gray-700 font-bold">+233(0)342022770</p>
-                                <p className="text-gray-400 text-sm mt-2">Mon - Fri, 8:00 AM - 4:00 PM</p>
+                                <p className="text-gray-700 font-bold">{contactData.phone || "+233(0)342022770"}</p>
+                                <p className="text-gray-400 text-sm mt-2">{contactData.workingHours || "Mon - Fri, 8:00 AM - 4:00 PM"}</p>
                             </div>
 
                             <div className="p-10 bg-blue-600 rounded-[40px] text-white shadow-xl shadow-blue-500/20">
@@ -46,8 +57,8 @@ export default function ContactPage() {
                                     <Mail size={24} />
                                 </div>
                                 <h3 className="text-xl font-black mb-2 uppercase tracking-tight">Email Us</h3>
-                                <p className="text-blue-100 font-bold">madonnaschoolgh@gmail.com</p>
-                                <p className="text-blue-200/60 text-sm mt-2">We typically reply within 24 hours</p>
+                                <p className="text-blue-100 font-bold">{contactData.email || "madonnaschoolgh@gmail.com"}</p>
+                                <p className="text-blue-200/60 text-sm mt-2">{contactData.responseTime || "We typically reply within 24 hours"}</p>
                             </div>
 
                             <div className="p-10 bg-[#051324] rounded-[40px] text-white border border-white/10">
@@ -55,7 +66,7 @@ export default function ContactPage() {
                                     <MapPin size={24} />
                                 </div>
                                 <h3 className="text-xl font-black mb-2 uppercase tracking-tight">Visit Us</h3>
-                                <p className="text-gray-400 font-medium">Madonna School, Koforidua, Eastern Region, Ghana</p>
+                                <p className="text-gray-400 font-medium">{contactData.address || "Madonna School, Koforidua, Eastern Region, Ghana"}</p>
                             </div>
                         </div>
 
@@ -100,6 +111,8 @@ export default function ContactPage() {
                     </div>
                 </section>
             </div>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

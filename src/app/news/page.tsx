@@ -2,6 +2,7 @@ import { Newspaper, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import Link from 'next/link';
 import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
 
@@ -18,6 +19,11 @@ export default async function NewsPage() {
         "excerpt": pt::text(content)
     }`;
     const newsItems = await sanityFetch<any[]>(newsQuery) || [];
+
+    const pageQuery = `*[_type == "page" && slug.current == "news"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
 
     return (
         <main className="min-h-screen">
@@ -104,6 +110,8 @@ export default async function NewsPage() {
                     </div>
                 </section>
             </div>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

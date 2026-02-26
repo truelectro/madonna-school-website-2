@@ -1,14 +1,27 @@
 import { Calendar, Target, Flag, Users, ArrowRight, Lightbulb, TrendingUp, CheckCircle2, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { PortableText } from "next-sanity";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
+
+export const revalidate = 0;
 
 export const metadata = {
     title: 'Madonna @ 60 Plan | Madonna School Koforidua',
     description: '60 Years of Holistic Education: Rebooting and Reigniting our Systems.',
 };
 
-export default function AnniversaryPlanPage() {
-    const activities = [
+export default async function AnniversaryPlanPage() {
+    const planQuery = `*[_type == "anniversaryPlanPage"][0]`;
+    const planData = (await sanityFetch<any>(planQuery)) || {};
+
+    const pageQuery = `*[_type == "page" && slug.current == "anniversary-plan"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
+
+    const activities = planData.activities?.length > 0 ? planData.activities : [
         { date: "Fri, 21st Nov 2025", title: "Students Float for Public Awareness" },
         { date: "Fri, 28th Nov 2025", title: "Old & Current Students Float" },
         { date: "Fri, 28th Nov 2025", title: "Old Students Home Coming & Socialization" },
@@ -17,7 +30,7 @@ export default function AnniversaryPlanPage() {
         { date: "Sun, 30th Nov 2025", title: "Thanksgiving Service at St. George Cathedral" }
     ];
 
-    const framework = [
+    const framework = planData.framework?.length > 0 ? planData.framework : [
         { obj: "Build Stakeholder Bond", desc: "Engage stakeholders via PTA meetings and alumni outreach", lead: "Mr. Henry Larbi" },
         { obj: "Alumni Mentorship", desc: "Invite Old Students for professional mentorship sessions", lead: "Anniversary Committee" },
         { obj: "New Language Programs", desc: "Introduce German & Spanish Languages to curriculum", lead: "Anniversary Committee" },
@@ -39,9 +52,9 @@ export default function AnniversaryPlanPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Jubilee Celebration
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Madonna @ 60</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{planData.headerTitle || "Madonna @ 60"}</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto font-medium mb-4">
-                        "60 Years of Holistic Education: Rebooting our Systems"
+                        {planData.headerSubtitle || <>"60 Years of Holistic Education: Rebooting our Systems"</>}
                     </p>
                     <p className="text-lg text-sky-400 font-bold tracking-widest uppercase">Sacrifice • Success • Service</p>
                 </div>
@@ -57,7 +70,7 @@ export default function AnniversaryPlanPage() {
                                 <Calendar className="text-red-600" /> Event Schedule
                             </h2>
                             <div className="space-y-6">
-                                {activities.map((act, i) => (
+                                {activities.map((act: any, i: number) => (
                                     <div key={i} className="flex flex-col gap-1 group">
                                         <span className="text-sm font-bold text-red-600 tracking-wider uppercase">{act.date}</span>
                                         <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors">{act.title}</span>
@@ -81,11 +94,11 @@ export default function AnniversaryPlanPage() {
                         </h2>
 
                         <p className="text-xl text-gray-600 font-medium mb-12 leading-relaxed">
-                            Our implementation period spans from August 2025 to November 2026, aimed at strengthening stakeholder engagement, improving academic standards, upgrading physical infrastructure, and building sustainable accountability systems.
+                            {planData.frameworkIntro || "Our implementation period spans from August 2025 to November 2026, aimed at strengthening stakeholder engagement, improving academic standards, upgrading physical infrastructure, and building sustainable accountability systems."}
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-6">
-                            {framework.map((item, i) => (
+                            {framework.map((item: any, i: number) => (
                                 <div key={i} className="bg-white p-8 rounded-[30px] shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                                     <h3 className="text-xl font-bold text-gray-900 mb-3">{item.obj}</h3>
                                     <p className="text-gray-600 font-medium mb-6 leading-relaxed">{item.desc}</p>
@@ -110,6 +123,8 @@ export default function AnniversaryPlanPage() {
 
                 </div>
             </section>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

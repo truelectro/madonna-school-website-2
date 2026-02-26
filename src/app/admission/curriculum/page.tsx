@@ -1,5 +1,9 @@
 import { BookOpen, GraduationCap, Users, Sparkles } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
+
+export const revalidate = 0;
 
 export const metadata = {
     title: 'Curriculum | Madonna School Koforidua',
@@ -17,7 +21,12 @@ function BabyIcon({ size, className }: { size: number, className?: string }) {
     )
 }
 
-export default function CurriculumPage() {
+export default async function CurriculumPage() {
+    const pageQuery = `*[_type == "page" && slug.current == "curriculum"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
+
     return (
         <main className="min-h-screen">
             {/* Page Header */}
@@ -83,6 +92,8 @@ export default function CurriculumPage() {
                     </div>
                 </section>
             </div>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

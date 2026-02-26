@@ -4,6 +4,7 @@ import { client, urlFor, sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
+import { PortableText } from "next-sanity";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
 
@@ -138,24 +139,30 @@ export default async function Home() {
                                 <Sparkles size={16} /> Welcome Message
                             </div>
                             <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
-                                Celebrating 60 Years of <span className="text-blue-600">Excellence</span>.
+                                {welcomeSection?.heading || <>Celebrating 60 Years of <span className="text-blue-600">Excellence</span>.</>}
                             </h2>
                             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
-                                <p>
-                                    We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.
-                                </p>
-                                <p>
-                                    For six decades, Madonna School has remained true to its motto — <span className="text-blue-700 font-bold">“Sacrifice, Success, and Service.”</span> Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.
-                                </p>
-                                <p>
-                                    As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.
-                                </p>
-                                <p>
-                                    We invite you to join us in celebrating this milestone and in shaping the next chapter of the Madonna story — one built on faith, knowledge, and service to humanity.
-                                </p>
-                                <p className="text-xl font-bold text-gray-900 mt-8">
-                                    Happy 60th Anniversary, Madonna School — Sacrifice, Success, Service!
-                                </p>
+                                {welcomeSection?.content ? (
+                                    <PortableText value={welcomeSection.content} />
+                                ) : (
+                                    <>
+                                        <p>
+                                            We joyfully welcome you to Madonna School, Koforidua, as we celebrate 60 years of quality and holistic Basic Education. Founded in 1966 by the Missionary Sisters, Servants of the Holy Spirit, our school has grown into a community of learning, faith, and service.
+                                        </p>
+                                        <p>
+                                            For six decades, Madonna School has remained true to its motto — <span className="text-blue-700 font-bold">“Sacrifice, Success, and Service.”</span> Guided by these enduring values, we have dedicated ourselves to nurturing disciplined, confident, and compassionate learners who excel both in academics and in character.
+                                        </p>
+                                        <p>
+                                            As we mark this Diamond Jubilee, we honor our founders, teachers, students, parents, and alumni who have contributed to the rich legacy we cherish today. Their collective sacrifice and commitment continue to inspire us to pursue excellence and to serve our society with integrity and purpose.
+                                        </p>
+                                        <p>
+                                            We invite you to join us in celebrating this milestone and in shaping the next chapter of the Madonna story — one built on faith, knowledge, and service to humanity.
+                                        </p>
+                                        <p className="text-xl font-bold text-gray-900 mt-8">
+                                            Happy 60th Anniversary, Madonna School — Sacrifice, Success, Service!
+                                        </p>
+                                    </>
+                                )}
                             </div>
                             <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-6">
                                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-500/30">
@@ -225,11 +232,15 @@ export default async function Home() {
                                 Our Distinction
                             </div>
                             <h2 className="text-4xl md:text-6xl font-black mb-10 text-gray-900 leading-tight tracking-tighter">
-                                The Madonna <br />Difference.
+                                {differenceSection?.heading || <>The Madonna <br />Difference.</>}
                             </h2>
-                            <p className="text-xl text-gray-600 mb-12 leading-relaxed font-medium">
-                                We go beyond the classroom. Our holistic approach ensures that every student is nurtured emotionally, socially, and intellectually.
-                            </p>
+                            <div className="text-xl text-gray-600 mb-12 leading-relaxed font-medium">
+                                {differenceSection?.content ? (
+                                    <PortableText value={differenceSection.content} />
+                                ) : (
+                                    <p>We go beyond the classroom. Our holistic approach ensures that every student is nurtured emotionally, socially, and intellectually.</p>
+                                )}
+                            </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 {[
                                     "Unbeatable B.E.C.E Results",
@@ -287,7 +298,7 @@ export default async function Home() {
             {/* Sanity Page Builder — all remaining blocks (CTA, video, etc.) */}
             {(() => {
                 const extraBlocks = (page?.pageBuilder || []).filter(
-                    (b: any) => b._type !== 'textWithImageSection' && b._type !== 'heroSection'
+                    (b: any) => b._key !== heroBlock?._key && b._key !== welcomeSection?._key && b._key !== differenceSection?._key
                 );
                 return extraBlocks.length > 0 ? <BlockRenderer blocks={extraBlocks} /> : null;
             })()}

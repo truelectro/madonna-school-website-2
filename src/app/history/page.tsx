@@ -1,14 +1,27 @@
 import { Calendar, Award, Star, Trophy, Medal, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { PortableText } from "next-sanity";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
+
+export const revalidate = 0;
 
 export const metadata = {
     title: 'History | Madonna School Koforidua',
     description: 'A legacy of faith, education, and community service starting from 1964.',
 };
 
-export default function HistoryPage() {
-    const timelineEvents = [
+export default async function HistoryPage() {
+    const historyQuery = `*[_type == "historyPage"][0]`;
+    const historyData = (await sanityFetch<any>(historyQuery)) || {};
+
+    const pageQuery = `*[_type == "page" && slug.current == "history"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
+
+    const timelineEvents = historyData.timelineEvents?.length > 0 ? historyData.timelineEvents : [
         {
             year: "1964",
             title: "The Vision Begins",
@@ -74,9 +87,9 @@ export default function HistoryPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> About Our School
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Our History</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{historyData.headerTitle || "Our History"}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
-                        A legacy of faith, education, and community service starting from 1964.
+                        {historyData.headerSubtitle || "A legacy of faith, education, and community service starting from 1964."}
                     </p>
                 </div>
             </section>
@@ -103,12 +116,18 @@ export default function HistoryPage() {
 
                 <div className="mt-10 bg-white p-10 rounded-[40px] shadow-lg border border-gray-100 text-center">
                     <Award className="w-16 h-16 text-indigo-600 mx-auto mb-6" />
-                    <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tight">A Debt of Gratitude</h2>
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium">
-                        The school owes a big debt of gratitude to all the many benefactors who helped with each project. We also greatly appreciate the late Dominic Andoh, Archbishop Charles Gabriel Palmer-Buckle, Bishop Joseph Afriah-Agyekum, then Msgr. Francis Twum-Barimah, Fr. Paul Abankwah, Fr. Andrew Dunyo who were all local Managers. May God bless them generously!
-                    </p>
+                    <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tight">{historyData.debtOfGratitudeTitle || "A Debt of Gratitude"}</h2>
+                    <div className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium">
+                        {historyData.debtOfGratitudeContent ? (
+                            <PortableText value={historyData.debtOfGratitudeContent} />
+                        ) : (
+                            <p>The school owes a big debt of gratitude to all the many benefactors who helped with each project. We also greatly appreciate the late Dominic Andoh, Archbishop Charles Gabriel Palmer-Buckle, Bishop Joseph Afriah-Agyekum, then Msgr. Francis Twum-Barimah, Fr. Paul Abankwah, Fr. Andrew Dunyo who were all local Managers. May God bless them generously!</p>
+                        )}
+                    </div>
                 </div>
             </section>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

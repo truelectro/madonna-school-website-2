@@ -1,13 +1,25 @@
 import { Users, Presentation, Globe, ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { sanityFetch } from "@/sanity/lib/client";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
+
+export const revalidate = 0;
 
 export const metadata = {
     title: 'MOSA (Alumni) | Madonna School Koforidua',
     description: 'Connecting generations of Madonians worldwide.',
 };
 
-export default function MosaPage() {
+export default async function MosaPage() {
+    const mosaQuery = `*[_type == "mosaPage"][0]`;
+    const mosaData = (await sanityFetch<any>(mosaQuery)) || {};
+
+    const pageQuery = `*[_type == "page" && slug.current == "mosa"][0]`;
+    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+
+    const extraBlocks = pageData?.pageBuilder || [];
+
     // Array to match generic school year lengths from '89 to present
     const years = Array.from({ length: 35 }, (_, i) => 1989 + i).reverse();
 
@@ -24,9 +36,9 @@ export default function MosaPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         <Sparkles size={16} className="text-sky-400" /> Alumni Network
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">MOSA</h1>
+                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{mosaData.headerTitle || "MOSA"}</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium mb-4">
-                        Madonna Old Students Association
+                        {mosaData.headerSubtitle || "Madonna Old Students Association"}
                     </p>
                     <p className="text-lg text-sky-400 font-bold uppercase tracking-widest">A vital link between alumni and building our future</p>
                 </div>
@@ -35,9 +47,9 @@ export default function MosaPage() {
             <section className="container mx-auto px-6 max-w-6xl">
                 <div className="text-center mb-16">
                     <Globe className="w-12 h-12 text-gray-400 mx-auto mb-6" />
-                    <h2 className="text-4xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Welcome Back, Madonians</h2>
+                    <h2 className="text-4xl font-black text-gray-900 mb-6 uppercase tracking-tighter">{mosaData.welcomeTitle || "Welcome Back, Madonians"}</h2>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto font-medium leading-relaxed">
-                        MOSA serves as a vital bridge connecting generations of Madonna School alumni worldwide. Whether you graduated recently or decades ago, our association is dedicated to maintaining lifelong friendships, professional networking, and giving back to the institution that shaped us.
+                        {mosaData.welcomeText || "MOSA serves as a vital bridge connecting generations of Madonna School alumni worldwide. Whether you graduated recently or decades ago, our association is dedicated to maintaining lifelong friendships, professional networking, and giving back to the institution that shaped us."}
                     </p>
                 </div>
 
@@ -60,6 +72,8 @@ export default function MosaPage() {
                 </div>
 
             </section>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }
