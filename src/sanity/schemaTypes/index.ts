@@ -10,6 +10,9 @@ import { textWithImageSectionType } from './blocks/textWithImageSection'
 import { callToActionSectionType } from './blocks/callToActionSection'
 import { gallerySectionType } from './blocks/gallerySection'
 import { videoSectionType } from './blocks/videoSection'
+import { homeWelcomeSectionType } from './blocks/homeWelcomeSection'
+import { homePhilosophySectionType } from './blocks/homePhilosophySection'
+import { homeDifferenceSectionType } from './blocks/homeDifferenceSection'
 import { homePageType } from './singletons/homePage'
 import { aboutPageType } from './singletons/aboutPage'
 import { historyPageType } from './singletons/historyPage'
@@ -31,6 +34,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         callToActionSectionType,
         gallerySectionType,
         videoSectionType,
+        homeWelcomeSectionType,
+        homePhilosophySectionType,
+        homeDifferenceSectionType,
         homePageType,
         aboutPageType,
         historyPageType,
