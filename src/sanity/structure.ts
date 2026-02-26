@@ -9,13 +9,15 @@ const singletonTypes = [
     'mosaPage',
 ]
 
-// Block types that should never appear as standalone documents
+// Block types and legacy collection types that should never appear as standalone list items
 const hiddenTypes = [
     'heroSection',
     'textWithImageSection',
     'callToActionSection',
     'gallerySection',
     'videoSection',
+    'anniversaryPlan',
+    'hallOfFame',
     ...singletonTypes,
 ]
 
