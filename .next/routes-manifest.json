@@ -88,10 +88,34 @@
       "namedRegex": "^/admission/process(?:/)?$"
     },
     {
+      "page": "/anniversary-plan",
+      "regex": "^/anniversary\\-plan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/anniversary\\-plan(?:/)?$"
+    },
+    {
       "page": "/contact",
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/hall-of-fame",
+      "regex": "^/hall\\-of\\-fame(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hall\\-of\\-fame(?:/)?$"
+    },
+    {
+      "page": "/history",
+      "regex": "^/history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/history(?:/)?$"
+    },
+    {
+      "page": "/mosa",
+      "regex": "^/mosa(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mosa(?:/)?$"
     },
     {
       "page": "/news",

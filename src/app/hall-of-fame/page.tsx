@@ -15,10 +15,7 @@ export default async function HallOfFamePage() {
     const hallOfFameQuery = `*[_type == "hallOfFamePage"][0]`;
     const hallOfFameData = (await sanityFetch<any>(hallOfFameQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "hall-of-fame"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
+    const extraBlocks = hallOfFameData?.pageBuilder || [];
 
     const presidentialAwards = hallOfFameData.presidentialAwards?.length > 0 ? hallOfFameData.presidentialAwards : [
         { name: "Yvette Yeboah-Wadie", year: "1997/98" },

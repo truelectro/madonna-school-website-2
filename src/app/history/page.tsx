@@ -16,14 +16,10 @@ export default async function HistoryPage() {
     const historyQuery = `*[_type == "historyPage"][0]`;
     const historyData = (await sanityFetch<any>(historyQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "history"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
+    const extraBlocks = historyData?.pageBuilder || [];
 
-    const heroBlock = pageData?.pageBuilder?.find((b: any) => b._type === "heroSection");
-    const extraBlocks = (pageData?.pageBuilder || []).filter((b: any) => b !== heroBlock);
-
-    const title = historyData.headerTitle || heroBlock?.heading || "Our History";
-    const subtitle = historyData.headerSubtitle || heroBlock?.subheading || "A legacy of faith, education, and community service starting from 1964.";
+    const title = historyData.headerTitle || "Our History";
+    const subtitle = historyData.headerSubtitle || "A legacy of faith, education, and community service starting from 1964.";
 
     const timelineEvents = historyData.timelineEvents?.length > 0 ? historyData.timelineEvents : [
         {

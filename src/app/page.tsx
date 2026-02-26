@@ -9,7 +9,7 @@ import { PortableText } from "next-sanity";
 export const revalidate = 0; // Disable static caching so changes show up instantly
 
 export default async function Home() {
-    const query = `*[_type == "page" && slug.current == "home"][0]`;
+    const query = `*[_type == "homePage"][0]`;
     const page = await sanityFetch<any>(query) || {};
 
     // Find the dynamic hero block from Sanity if it exists

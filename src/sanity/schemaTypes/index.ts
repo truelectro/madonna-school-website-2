@@ -10,6 +10,7 @@ import { textWithImageSectionType } from './blocks/textWithImageSection'
 import { callToActionSectionType } from './blocks/callToActionSection'
 import { gallerySectionType } from './blocks/gallerySection'
 import { videoSectionType } from './blocks/videoSection'
+import { homePageType } from './singletons/homePage'
 import { aboutPageType } from './singletons/aboutPage'
 import { historyPageType } from './singletons/historyPage'
 import { anniversaryPlanPageType } from './singletons/anniversaryPlanPage'
@@ -30,6 +31,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         callToActionSectionType,
         gallerySectionType,
         videoSectionType,
+        homePageType,
         aboutPageType,
         historyPageType,
         anniversaryPlanPageType,

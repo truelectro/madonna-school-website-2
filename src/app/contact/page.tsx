@@ -14,10 +14,7 @@ export default async function ContactPage() {
     const contactQuery = `*[_type == "contactPage"][0]`;
     const contactData = (await sanityFetch<any>(contactQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "contact"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
+    const extraBlocks = contactData?.pageBuilder || [];
     return (
         <main className="min-h-screen">
             {/* Page Header */}

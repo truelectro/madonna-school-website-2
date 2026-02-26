@@ -2,7 +2,6 @@ import StaffCard from "@/components/ui/StaffCard";
 import { client, sanityFetch } from "@/sanity/lib/client";
 import { Sparkles, Users } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
-import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
 export const revalidate = 0;
 
@@ -17,11 +16,6 @@ export default async function StaffPage() {
     const administration = sanityStaff.filter((s: any) => s.category === 'administration' || s.role === 'Headmistress' || s.role === 'Assistant Headmistress');
     const teaching = sanityStaff.filter((s: any) => s.category === 'teaching' || (s.role !== 'Headmistress' && s.role !== 'Assistant Headmistress' && s.role !== 'Staff' && !s.category));
     const nonTeaching = sanityStaff.filter((s: any) => s.category === 'non_teaching' || s.role === 'Staff');
-
-    const pageQuery = `*[_type == "page" && slug.current == "staff"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
 
     return (
         <main className="min-h-screen">
@@ -78,8 +72,6 @@ export default async function StaffPage() {
                     </div>
                 </section>
             </div>
-
-            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }

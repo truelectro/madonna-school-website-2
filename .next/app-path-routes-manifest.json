@@ -8,7 +8,11 @@
   "/admin/[[...index]]/page": "/admin/[[...index]]",
   "/admission/curriculum/page": "/admission/curriculum",
   "/admission/process/page": "/admission/process",
+  "/anniversary-plan/page": "/anniversary-plan",
   "/contact/page": "/contact",
+  "/hall-of-fame/page": "/hall-of-fame",
+  "/history/page": "/history",
+  "/mosa/page": "/mosa",
   "/news/page": "/news",
   "/page": "/"
 }

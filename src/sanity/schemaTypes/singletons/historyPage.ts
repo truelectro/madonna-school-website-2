@@ -4,17 +4,25 @@ export const historyPageType = defineType({
     name: 'historyPage',
     title: 'History Page',
     type: 'document',
+    groups: [
+        { name: 'header', title: 'Header' },
+        { name: 'timeline', title: 'Timeline' },
+        { name: 'gratitude', title: 'Debt of Gratitude' },
+        { name: 'extra', title: 'Additional Sections' },
+    ],
     fields: [
         defineField({
             name: 'headerTitle',
             title: 'Header Title',
             type: 'string',
             initialValue: 'Our History',
+            group: 'header',
         }),
         defineField({
             name: 'headerSubtitle',
             title: 'Header Subtitle',
             type: 'text',
+            group: 'header',
         }),
         defineField({
             name: 'timelineEvents',
@@ -30,18 +38,35 @@ export const historyPageType = defineType({
                     ],
                 }),
             ],
+            group: 'timeline',
         }),
         defineField({
             name: 'debtOfGratitudeTitle',
             title: 'Debt of Gratitude Title',
             type: 'string',
             initialValue: 'A Debt of Gratitude',
+            group: 'gratitude',
         }),
         defineField({
             name: 'debtOfGratitudeContent',
             title: 'Debt of Gratitude Content',
             type: 'array',
             of: [{ type: 'block' }],
+            group: 'gratitude',
+        }),
+        defineField({
+            name: 'pageBuilder',
+            title: 'Additional Sections',
+            description: 'Add extra modular sections to this page.',
+            type: 'array',
+            of: [
+                { type: 'heroSection' },
+                { type: 'textWithImageSection' },
+                { type: 'callToActionSection' },
+                { type: 'gallerySection' },
+                { type: 'videoSection' },
+            ],
+            group: 'extra',
         }),
     ],
 })

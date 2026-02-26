@@ -16,10 +16,7 @@ export default async function AnniversaryPlanPage() {
     const planQuery = `*[_type == "anniversaryPlanPage"][0]`;
     const planData = (await sanityFetch<any>(planQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "anniversary-plan"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
+    const extraBlocks = planData?.pageBuilder || [];
 
     const activities = planData.activities?.length > 0 ? planData.activities : [
         { date: "Fri, 21st Nov 2025", title: "Students Float for Public Awareness" },

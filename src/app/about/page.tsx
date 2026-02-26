@@ -10,12 +10,7 @@ export default async function AboutPage() {
     const aboutQuery = `*[_type == "aboutPage"][0]`;
     const aboutData = (await sanityFetch<any>(aboutQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "about"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    // If they strictly use pageBuilder, we could render just the blocks, 
-    // but we will render legacy layout + blocks appended
-    const extraBlocks = pageData?.pageBuilder || [];
+    const extraBlocks = aboutData?.pageBuilder || [];
 
     const stats = aboutData.stats?.length > 0 ? aboutData.stats : [
         { label: 'Founded', val: '1964' },

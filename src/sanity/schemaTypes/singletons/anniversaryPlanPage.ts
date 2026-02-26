@@ -2,19 +2,27 @@ import { defineType, defineField, defineArrayMember } from 'sanity'
 
 export const anniversaryPlanPageType = defineType({
     name: 'anniversaryPlanPage',
-    title: 'Anniversary Plan Page Wrapper',
+    title: 'Anniversary Plan Page',
     type: 'document',
+    groups: [
+        { name: 'header', title: 'Header' },
+        { name: 'schedule', title: 'Event Schedule' },
+        { name: 'framework', title: 'Strategic Framework' },
+        { name: 'extra', title: 'Additional Sections' },
+    ],
     fields: [
         defineField({
             name: 'headerTitle',
             title: 'Header Title',
             type: 'string',
             initialValue: 'Madonna @ 60',
+            group: 'header',
         }),
         defineField({
             name: 'headerSubtitle',
             title: 'Header Subtitle',
             type: 'text',
+            group: 'header',
         }),
         defineField({
             name: 'activities',
@@ -29,11 +37,13 @@ export const anniversaryPlanPageType = defineType({
                     ],
                 }),
             ],
+            group: 'schedule',
         }),
         defineField({
             name: 'frameworkIntro',
             title: 'Strategic Framework Introduction',
             type: 'text',
+            group: 'framework',
         }),
         defineField({
             name: 'framework',
@@ -49,6 +59,21 @@ export const anniversaryPlanPageType = defineType({
                     ],
                 }),
             ],
+            group: 'framework',
+        }),
+        defineField({
+            name: 'pageBuilder',
+            title: 'Additional Sections',
+            description: 'Add extra modular sections to this page.',
+            type: 'array',
+            of: [
+                { type: 'heroSection' },
+                { type: 'textWithImageSection' },
+                { type: 'callToActionSection' },
+                { type: 'gallerySection' },
+                { type: 'videoSection' },
+            ],
+            group: 'extra',
         }),
     ],
 })

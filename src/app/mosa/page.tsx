@@ -15,10 +15,7 @@ export default async function MosaPage() {
     const mosaQuery = `*[_type == "mosaPage"][0]`;
     const mosaData = (await sanityFetch<any>(mosaQuery)) || {};
 
-    const pageQuery = `*[_type == "page" && slug.current == "mosa"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
+    const extraBlocks = mosaData?.pageBuilder || [];
 
     // Array to match generic school year lengths from '89 to present
     const years = Array.from({ length: 35 }, (_, i) => 1989 + i).reverse();

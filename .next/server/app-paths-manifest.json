@@ -8,7 +8,11 @@
   "/admin/[[...index]]/page": "app/admin/[[...index]]/page.js",
   "/admission/curriculum/page": "app/admission/curriculum/page.js",
   "/admission/process/page": "app/admission/process/page.js",
+  "/anniversary-plan/page": "app/anniversary-plan/page.js",
   "/contact/page": "app/contact/page.js",
+  "/hall-of-fame/page": "app/hall-of-fame/page.js",
+  "/history/page": "app/history/page.js",
+  "/mosa/page": "app/mosa/page.js",
   "/news/page": "app/news/page.js",
   "/page": "app/page.js"
 }

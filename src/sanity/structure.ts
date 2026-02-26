@@ -1,40 +1,55 @@
+// All singleton type IDs — these get their own dedicated tab and are NOT shown in the default list
+const singletonTypes = [
+    'homePage',
+    'aboutPage',
+    'historyPage',
+    'anniversaryPlanPage',
+    'contactPage',
+    'hallOfFamePage',
+    'mosaPage',
+]
+
+// Block types that should never appear as standalone documents
+const hiddenTypes = [
+    'heroSection',
+    'textWithImageSection',
+    'callToActionSection',
+    'gallerySection',
+    'videoSection',
+    ...singletonTypes,
+]
+
 export const structure = (S: any) =>
     S.list()
         .title('Content')
         .items([
+            // ── Page singletons (one tab each) ──────────────────────
             S.listItem()
-                .title('Settings & Single Pages')
-                .child(
-                    S.list()
-                        .title('Settings & Single Pages')
-                        .items([
-                            S.listItem()
-                                .title('About Page')
-                                .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
-                            S.listItem()
-                                .title('Anniversary Plan Page')
-                                .child(S.document().schemaType('anniversaryPlanPage').documentId('anniversaryPlanPage')),
-                            S.listItem()
-                                .title('Contact Page')
-                                .child(S.document().schemaType('contactPage').documentId('contactPage')),
-                            S.listItem()
-                                .title('Hall of Fame Page')
-                                .child(S.document().schemaType('hallOfFamePage').documentId('hallOfFamePage')),
-                            S.listItem()
-                                .title('History Page')
-                                .child(S.document().schemaType('historyPage').documentId('historyPage')),
-                            S.listItem()
-                                .title('MOSA Page')
-                                .child(S.document().schemaType('mosaPage').documentId('mosaPage')),
-                        ])
-                ),
+                .title('🏠 Home')
+                .child(S.document().schemaType('homePage').documentId('homePage')),
+            S.listItem()
+                .title('ℹ️ About')
+                .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
+            S.listItem()
+                .title('📜 History')
+                .child(S.document().schemaType('historyPage').documentId('historyPage')),
+            S.listItem()
+                .title('🎉 Anniversary Plan')
+                .child(S.document().schemaType('anniversaryPlanPage').documentId('anniversaryPlanPage')),
+            S.listItem()
+                .title('🏆 Hall of Fame')
+                .child(S.document().schemaType('hallOfFamePage').documentId('hallOfFamePage')),
+            S.listItem()
+                .title('🎓 MOSA (Alumni)')
+                .child(S.document().schemaType('mosaPage').documentId('mosaPage')),
+            S.listItem()
+                .title('📞 Contact')
+                .child(S.document().schemaType('contactPage').documentId('contactPage')),
 
             S.divider(),
 
+            // ── Collections (lists of many documents) ───────────────
             ...S.documentTypeListItems().filter(
-                (listItem: any) =>
-                    !['aboutPage', 'anniversaryPlanPage', 'contactPage', 'hallOfFamePage', 'historyPage', 'mosaPage'].includes(
-                        listItem.getId()
-                    )
+                (listItem: any) => !hiddenTypes.includes(listItem.getId())
             ),
         ])

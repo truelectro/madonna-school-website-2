@@ -1,21 +1,12 @@
 import { CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby, Sparkles, GraduationCap } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
-import { sanityFetch } from "@/sanity/lib/client";
-import { BlockRenderer } from "@/components/sections/BlockRenderer";
-
-export const revalidate = 0;
 
 export const metadata = {
     title: 'Admission Policy | Madonna School Koforidua',
     description: 'Learn about the admission rules, processes, and requirements for Madonna School Koforidua.',
 };
 
-export default async function AdmissionProcessPage() {
-    const pageQuery = `*[_type == "page" && slug.current == "process"][0]`;
-    const pageData = (await sanityFetch<any>(pageQuery)) || {};
-
-    const extraBlocks = pageData?.pageBuilder || [];
-
+export default function AdmissionProcessPage() {
     return (
         <main className="min-h-screen">
             {/* Page Header */}
@@ -120,8 +111,6 @@ export default async function AdmissionProcessPage() {
                     </div>
                 </section>
             </div>
-
-            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }
