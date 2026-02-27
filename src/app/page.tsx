@@ -4,6 +4,7 @@ import { client, urlFor, sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
+import { HomeHeroCarousel } from "@/components/ui/HomeHeroCarousel";
 import { PortableText } from "next-sanity";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
@@ -15,7 +16,9 @@ export default async function Home() {
     const heroTag = page?.heroTag || "Sacrifice • Success • Service";
     const heroTitle = page?.heroTitle || "Where <span class='text-sky-400'>Leaders</span> <br />Are Built.";
     const heroSubtitle = page?.heroSubtitle || "Providing a holistic education that empowers students with critical thinking, moral integrity, and leadership skills. A legacy of excellence since 1964.";
-    const heroImageUrl = page?.heroImage ? urlFor(page.heroImage).url() : null;
+    const heroImageUrls = page?.heroImages && Array.isArray(page.heroImages)
+        ? page.heroImages.map((img: any) => urlFor(img).url())
+        : [];
     const stats = page?.heroStats?.length > 0 ? page?.heroStats : [
         { label: 'Founding Year', value: '1964' },
         { label: 'B.E.C.E Results', value: 'Top 1%' },
@@ -89,24 +92,8 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Overlapping Hero Image */}
-            <section className="relative z-30 -mt-24 md:-mt-32 lg:-mt-48 px-6 container mx-auto mb-12 md:mb-20 pointer-events-none">
-                <div className="relative w-full aspect-[4/5] sm:aspect-video lg:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl border-4 border-[#051324] bg-gray-200 pointer-events-auto group">
-                    {heroImageUrl ? (
-                        <Image
-                            src={heroImageUrl}
-                            alt="Madonna School Campus"
-                            fill
-                            className="object-cover object-center group-hover:scale-105 transition-transform duration-1000"
-                            priority
-                        />
-                    ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500 font-bold">
-                            Hero Image Placeholder
-                        </div>
-                    )}
-                </div>
-            </section>
+            {/* Overlapping Hero Image Carousel */}
+            <HomeHeroCarousel heroImageUrls={heroImageUrls} />
 
             {/* Modular Content Builder — all sections (Welcome, Philosophy, Difference, plus any extra blocks) */}
             {page?.pageBuilder && (

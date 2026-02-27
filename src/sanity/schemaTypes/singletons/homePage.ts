@@ -30,10 +30,10 @@ export const homePageType = defineType({
             group: 'hero',
         }),
         defineField({
-            name: 'heroImage',
-            title: 'Hero Image',
-            type: 'image',
-            options: { hotspot: true },
+            name: 'heroImages',
+            title: 'Hero Images (Carousel)',
+            type: 'array',
+            of: [{ type: 'image', options: { hotspot: true } }],
             group: 'hero',
         }),
         defineField({
