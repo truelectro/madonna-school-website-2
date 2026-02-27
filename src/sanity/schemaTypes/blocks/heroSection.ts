@@ -23,11 +23,12 @@ export const heroSectionType = defineType({
             title: 'Subheading/Description',
         }),
         defineField({
-            name: 'backgroundImage',
-            type: 'image',
-            title: 'Main Hero Image',
-            description: 'The large image on the right/center overlap.',
-            options: { hotspot: true },
+            name: 'backgroundImages',
+            type: 'array',
+            title: 'Hero Images (Carousel)',
+            description: 'Add multiple images to create a carousel effect on the hero section.',
+            of: [{ type: 'image', options: { hotspot: true } }],
+            validation: (Rule) => Rule.min(1).error('At least one image is required for the hero section.'),
         }),
         defineField({
             name: 'ctaLabel',
@@ -68,7 +69,7 @@ export const heroSectionType = defineType({
     preview: {
         select: {
             title: 'heading',
-            media: 'backgroundImage',
+            media: 'backgroundImages.0',
         },
         prepare({ title, media }) {
             return {
