@@ -77,10 +77,10 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <div key={link.name} className="relative group">
                             {link.subLinks ? (
-                                <button className={`flex items-center gap-1 font-medium transition hover:text-blue-400 ${isDarkText ? 'text-gray-700' : 'text-white/90'}`}>
+                                <Link href={link.href} className={`flex items-center gap-1 font-medium transition hover:text-blue-400 ${isDarkText ? 'text-gray-700' : 'text-white/90'}`}>
                                     {link.name}
                                     <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
-                                </button>
+                                </Link>
                             ) : (
                                 <Link
                                     href={link.href}
@@ -139,8 +139,8 @@ export default function Navbar() {
             {/* Mobile Menu — Persistent for Slide In/Out */}
             <div
                 className={`lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl max-h-[85vh] overflow-y-auto z-[90] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen
-                        ? 'translate-y-0 opacity-100'
-                        : '-translate-y-full opacity-0 pointer-events-none'
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-full opacity-0 pointer-events-none'
                     }`}
             >
                 <div className="flex flex-col py-6 px-6 gap-2">
@@ -148,13 +148,21 @@ export default function Navbar() {
                         <div key={link.name} className="flex flex-col">
                             {link.subLinks ? (
                                 <>
-                                    <button
-                                        onClick={() => toggleMobileDropdown(link.name)}
-                                        className="flex items-center justify-between py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left"
-                                    >
-                                        {link.name}
-                                        <ChevronDown size={20} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180 text-blue-600' : 'text-gray-400'}`} />
-                                    </button>
+                                    <div className="flex items-center justify-between w-full">
+                                        <Link
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="py-3 text-gray-900 text-lg font-medium hover:text-blue-600 text-left flex-1"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                        <button
+                                            onClick={() => toggleMobileDropdown(link.name)}
+                                            className="p-3 -mr-3"
+                                        >
+                                            <ChevronDown size={20} className={`transition-transform duration-300 ${openMobileDropdown === link.name ? 'rotate-180 text-blue-600' : 'text-gray-400'}`} />
+                                        </button>
+                                    </div>
 
                                     <div className={`flex flex-col pl-4 border-l-2 border-gray-100 ml-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${openMobileDropdown === link.name ? 'max-h-[400px] opacity-100 pb-2' : 'max-h-0 opacity-0'}`}>
                                         {link.subLinks.map((subLink) => (
