@@ -48,7 +48,7 @@ export const academicsPageType = defineType({
             of: [
                 defineArrayMember({
                     type: 'object',
-                    name: 'calendarEvent',
+                    name: 'calendarEventItem',
                     title: 'Calendar Event',
                     fields: [
                         defineField({
