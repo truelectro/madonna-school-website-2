@@ -7,6 +7,8 @@ const singletonTypes = [
     'contactPage',
     'hallOfFamePage',
     'mosaPage',
+    'curriculumPage',
+    'admissionPage',
 ]
 
 // Block types and legacy collection types that should never appear as standalone list items
@@ -48,6 +50,12 @@ export const structure = (S: any) =>
             S.listItem()
                 .title('📞 Contact')
                 .child(S.document().schemaType('contactPage').documentId('contactPage')),
+            S.listItem()
+                .title('📚 Curriculum')
+                .child(S.document().schemaType('curriculumPage').documentId('curriculumPage')),
+            S.listItem()
+                .title('📝 Admission Policy')
+                .child(S.document().schemaType('admissionPage').documentId('admissionPage')),
 
             S.divider(),
 

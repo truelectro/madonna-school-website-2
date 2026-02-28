@@ -20,6 +20,8 @@ import { anniversaryPlanPageType } from './singletons/anniversaryPlanPage'
 import { contactPageType } from './singletons/contactPage'
 import { mosaPageType } from './singletons/mosaPage'
 import { hallOfFamePageType } from './singletons/hallOfFamePage'
+import { curriculumPageType } from './singletons/curriculumPage'
+import { admissionPageType } from './singletons/admissionPage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
@@ -44,5 +46,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         contactPageType,
         mosaPageType,
         hallOfFamePageType,
+        curriculumPageType,
+        admissionPageType,
     ],
 }
