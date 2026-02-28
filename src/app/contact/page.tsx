@@ -1,7 +1,8 @@
-import { Mail, Phone, MapPin, Send, MessageSquare, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, Sparkles } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
+import { ContactForm } from "@/components/ui/ContactForm";
 
 export const revalidate = 0;
 
@@ -76,34 +77,7 @@ export default async function ContactPage() {
                                 <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Send a Message</h2>
                             </div>
 
-                            <form className="space-y-8">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div className="space-y-3">
-                                        <label className="text-sm font-black text-gray-400 uppercase tracking-widest pl-1">Full Name</label>
-                                        <input type="text" className="w-full px-8 py-5 bg-gray-50 rounded-2xl border border-gray-100 focus:ring-2 focus:ring-sky-400 focus:bg-white transition-all font-medium outline-none" placeholder="John Doe" />
-                                    </div>
-                                    <div className="space-y-3">
-                                        <label className="text-sm font-black text-gray-400 uppercase tracking-widest pl-1">Email Address</label>
-                                        <input type="email" className="w-full px-8 py-5 bg-gray-50 rounded-2xl border border-gray-100 focus:ring-2 focus:ring-sky-400 focus:bg-white transition-all font-medium outline-none" placeholder="john@example.com" />
-                                    </div>
-                                </div>
-                                <div className="space-y-3">
-                                    <label className="text-sm font-black text-gray-400 uppercase tracking-widest pl-1">Subject</label>
-                                    <select className="w-full px-8 py-5 bg-gray-50 rounded-2xl border border-gray-100 focus:ring-2 focus:ring-sky-400 focus:bg-white transition-all font-medium appearance-none outline-none">
-                                        <option>General Inquiry</option>
-                                        <option>Admission Support</option>
-                                        <option>Curriculum Questions</option>
-                                        <option>Alumni Affairs</option>
-                                    </select>
-                                </div>
-                                <div className="space-y-3">
-                                    <label className="text-sm font-black text-gray-400 uppercase tracking-widest pl-1">Your Message</label>
-                                    <textarea rows={6} className="w-full px-8 py-5 bg-gray-50 rounded-2xl border border-gray-100 focus:ring-2 focus:ring-sky-400 focus:bg-white transition-all font-medium resize-none outline-none" placeholder="How can we help you?"></textarea>
-                                </div>
-                                <button className="w-full lg:w-max px-12 py-6 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl font-black text-xl transition-all shadow-xl shadow-sky-500/20 flex items-center justify-center gap-3 group">
-                                    Send Message <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </form>
+                            <ContactForm />
                         </div>
                     </div>
                 </section>
