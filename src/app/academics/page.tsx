@@ -2,6 +2,7 @@ import { Clock } from "lucide-react";
 import { sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
+import { AddToCalendarButton } from "@/components/ui/AddToCalendarButton";
 
 export const revalidate = 0;
 
@@ -10,15 +11,25 @@ export const metadata = {
     description: 'Stay up to date with the academic calendar and other resources for Madonna School Koforidua.',
 };
 
+function formatDate(dateStr: string): string {
+    return new Date(dateStr).toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+    });
+}
+
 export default async function AcademicsPage() {
     const pageQuery = `*[_type == "academicsPage"][0]{
         headerTitle,
         headerSubtitle,
         calendarTitle,
         calendarSubtitle,
-        calendarEvents[]{
+        calendarEvents[] | order(startDate asc) {
             title,
             description,
+            startDate,
+            endDate,
             term
         },
         pageBuilder
@@ -77,8 +88,30 @@ export default async function AcademicsPage() {
                                 <div key={i} className="mb-10 ml-8 relative group">
                                     <div className="absolute -left-[45px] top-1 w-6 h-6 rounded-full bg-gray-200 border-4 border-white group-hover:bg-sky-500 transition-colors duration-300 shadow-sm" />
                                     <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group-hover:border-sky-200 group-hover:shadow-md transition-all">
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                                        <p className="text-sky-600 font-black tracking-wide uppercase text-sm">{event.description}</p>
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div className="flex-1">
+                                                <h3 className="text-xl font-bold text-gray-900 mb-1">{event.title}</h3>
+                                                {event.startDate && (
+                                                    <p className="text-sky-600 font-black tracking-wide uppercase text-sm mb-1">
+                                                        {formatDate(event.startDate)}
+                                                        {event.endDate && event.endDate !== event.startDate && (
+                                                            <> — {formatDate(event.endDate)}</>
+                                                        )}
+                                                    </p>
+                                                )}
+                                                {event.description && (
+                                                    <p className="text-gray-500 text-sm font-medium">{event.description}</p>
+                                                )}
+                                            </div>
+                                            {event.startDate && (
+                                                <AddToCalendarButton
+                                                    title={event.title}
+                                                    description={event.description}
+                                                    startDate={event.startDate}
+                                                    endDate={event.endDate}
+                                                />
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             ))}

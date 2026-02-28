@@ -59,8 +59,25 @@ export const academicsPageType = defineType({
                         }),
                         defineField({
                             name: 'description',
-                            title: 'Description / Date Range',
+                            title: 'Description',
                             type: 'string',
+                        }),
+                        defineField({
+                            name: 'startDate',
+                            title: 'Start Date',
+                            type: 'date',
+                            options: {
+                                dateFormat: 'DD MMM YYYY',
+                            },
+                            validation: (Rule) => Rule.required(),
+                        }),
+                        defineField({
+                            name: 'endDate',
+                            title: 'End Date (optional, for multi-day events)',
+                            type: 'date',
+                            options: {
+                                dateFormat: 'DD MMM YYYY',
+                            },
                         }),
                         defineField({
                             name: 'term',
@@ -79,7 +96,16 @@ export const academicsPageType = defineType({
                     preview: {
                         select: {
                             title: 'title',
-                            subtitle: 'description',
+                            startDate: 'startDate',
+                            endDate: 'endDate',
+                        },
+                        prepare({ title, startDate, endDate }: { title: string; startDate: string; endDate: string }) {
+                            const start = startDate ? new Date(startDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+                            const end = endDate ? ` — ${new Date(endDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}` : '';
+                            return {
+                                title: title || 'Untitled Event',
+                                subtitle: `${start}${end}`,
+                            }
                         },
                     },
                 }),
