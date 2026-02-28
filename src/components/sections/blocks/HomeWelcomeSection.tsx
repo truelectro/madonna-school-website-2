@@ -2,6 +2,7 @@ import { urlFor } from "@/sanity/lib/client";
 import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import { PortableText } from "next-sanity";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 export function HomeWelcomeSection({ data }: { data: any }) {
     const welcomeImageUrl = data.image ? urlFor(data.image).url() : null;
@@ -28,8 +29,11 @@ export function HomeWelcomeSection({ data }: { data: any }) {
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-bold tracking-wider uppercase mb-8 rounded-full">
                             <Sparkles size={16} /> {data.tag || "Welcome Message"}
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight"
-                            dangerouslySetInnerHTML={{ __html: data.title || "Celebrating 60 Years of Excellence." }} />
+                        <HighlightedText
+                            text={data.title || "Celebrating 60 Years of Excellence."}
+                            as="h2"
+                            className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight"
+                        />
                         <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
                             {data.text ? (
                                 <PortableText value={data.text} />

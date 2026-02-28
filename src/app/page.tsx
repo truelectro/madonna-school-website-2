@@ -5,6 +5,7 @@ import Image from "next/image";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
 import { HomeHeroCarousel } from "@/components/ui/HomeHeroCarousel";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 import { PortableText } from "next-sanity";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
@@ -49,8 +50,11 @@ export default async function Home() {
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-6 lg:mb-8 border border-white/10">
                                 <Sparkles size={16} className="text-sky-400" /> {heroTag}
                             </div>
-                            <h1 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight"
-                                dangerouslySetInnerHTML={{ __html: heroTitle }} />
+                            <HighlightedText
+                                text={heroTitle}
+                                as="h1"
+                                className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight"
+                            />
                             <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
                                 <Link href="/admission" className="px-10 py-5 bg-sky-500 hover:bg-sky-600 text-white transition-all rounded-full font-black text-lg shadow-xl shadow-sky-500/20 flex items-center justify-center gap-3 group">
                                     Apply Today <ArrowRight className="group-hover:translate-x-1 transition-transform" />

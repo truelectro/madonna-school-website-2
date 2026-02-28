@@ -2,6 +2,7 @@ import { urlFor } from "@/sanity/lib/client";
 import Image from "next/image";
 import { CheckCircle2, Users } from "lucide-react";
 import { PortableText } from "next-sanity";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 export function HomeDifferenceSection({ data }: { data: any }) {
     const imageUrl = data.image ? urlFor(data.image).url() : null;
@@ -14,8 +15,11 @@ export function HomeDifferenceSection({ data }: { data: any }) {
                         <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 text-xs font-black uppercase tracking-widest rounded-full mb-6">
                             {data.tag || "Our Distinction"}
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-black mb-10 text-gray-900 leading-tight tracking-tighter"
-                            dangerouslySetInnerHTML={{ __html: data.title || "The Madonna Difference." }} />
+                        <HighlightedText
+                            text={data.title || "The Madonna Difference."}
+                            as="h2"
+                            className="text-4xl md:text-6xl font-black mb-10 text-gray-900 leading-tight tracking-tighter"
+                        />
                         <div className="text-xl text-gray-600 mb-12 leading-relaxed font-medium">
                             {data.text ? (
                                 <PortableText value={data.text} />

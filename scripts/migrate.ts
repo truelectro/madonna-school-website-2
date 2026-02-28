@@ -1,8 +1,23 @@
 import { createClient } from '@sanity/client';
+import * as fs from 'fs';
+import * as path from 'path';
+
+// Load .env.local
+const envPath = path.join(__dirname, '..', '.env.local');
+try {
+    fs.readFileSync(envPath, 'utf8').split('\n').forEach((line) => {
+        const [key, ...val] = line.split('=');
+        if (key && val.length && process.env[key.trim()] === undefined) {
+            process.env[key.trim()] = val.join('=').trim();
+        }
+    });
+} catch (e) {
+    // Ignore if file doesn't exist
+}
 
 const client = createClient({
-    projectId: 'yi6lk936',
-    dataset: 'production',
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
     apiVersion: '2023-01-01',
     token: process.env.SANITY_API_TOKEN,
     useCdn: false,

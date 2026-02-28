@@ -1,4 +1,5 @@
 import { GraduationCap, ShieldCheck, Award } from "lucide-react";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 export function HomePhilosophySection({ data }: { data: any }) {
     const icons = [GraduationCap, ShieldCheck, Award];
@@ -8,8 +9,11 @@ export function HomePhilosophySection({ data }: { data: any }) {
         <section className="py-16 md:py-32 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-24">
-                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight"
-                        dangerouslySetInnerHTML={{ __html: data.title || "A Legacy of Excellence" }} />
+                    <HighlightedText
+                        text={data.title || "A Legacy of Excellence"}
+                        as="h2"
+                        className="text-4xl md:text-6xl font-black text-gray-900 mb-8 tracking-tight"
+                    />
                     <p className="text-xl text-gray-500 leading-relaxed font-medium">
                         {data.subtitle || "For over six decades, Madonna School has been at the forefront of educational innovation."}
                     </p>
