@@ -1,5 +1,5 @@
-import { Calendar as CalendarIcon, Clock } from "lucide-react";
-import { client, sanityFetch } from "@/sanity/lib/client";
+import { Clock } from "lucide-react";
+import { sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
@@ -11,18 +11,25 @@ export const metadata = {
 };
 
 export default async function AcademicsPage() {
-    const calendarQuery = `*[_type == "calendarEvent"] | order(date asc) {
-        title,
-        description,
-        term
+    const pageQuery = `*[_type == "academicsPage"][0]{
+        headerTitle,
+        headerSubtitle,
+        calendarTitle,
+        calendarSubtitle,
+        calendarEvents[]{
+            title,
+            description,
+            term
+        },
+        pageBuilder
     }`;
-    const sanEvents = await sanityFetch<any[]>(calendarQuery) || [];
-
-    const pageQuery = `*[_type == "academicsPage"][0]`;
     const data = (await sanityFetch<any>(pageQuery)) || {};
 
     const headerTitle = data.headerTitle || "Academics";
     const headerSubtitle = data.headerSubtitle || "Stay up to date with the academic calendar and other resources.";
+    const calendarTitle = data.calendarTitle || "1st Term Schedule";
+    const calendarSubtitle = data.calendarSubtitle || "September 2025 - January 2026";
+    const events = data.calendarEvents || [];
     const extraBlocks = data.pageBuilder || [];
 
     return (
@@ -60,24 +67,22 @@ export default async function AcademicsPage() {
                                 <Clock size={32} />
                             </div>
                             <div>
-                                <h2 className="text-3xl font-black text-gray-900 tracking-tight">1st Term Schedule</h2>
-                                <p className="text-gray-500 font-medium">September 2025 - January 2026</p>
+                                <h2 className="text-3xl font-black text-gray-900 tracking-tight">{calendarTitle}</h2>
+                                <p className="text-gray-500 font-medium">{calendarSubtitle}</p>
                             </div>
                         </div>
 
                         <div className="relative border-l-2 border-sky-200 ml-6 pb-4">
-                            {sanEvents.map((event: any, i: number) => {
-                                return (
-                                    <div key={i} className="mb-10 ml-8 relative group">
-                                        <div className="absolute -left-[45px] top-1 w-6 h-6 rounded-full bg-gray-200 border-4 border-white group-hover:bg-sky-500 transition-colors duration-300 shadow-sm" />
-                                        <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group-hover:border-sky-200 group-hover:shadow-md transition-all">
-                                            <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                                            <p className="text-sky-600 font-black tracking-wide uppercase text-sm">{event.description}</p>
-                                        </div>
+                            {events.map((event: any, i: number) => (
+                                <div key={i} className="mb-10 ml-8 relative group">
+                                    <div className="absolute -left-[45px] top-1 w-6 h-6 rounded-full bg-gray-200 border-4 border-white group-hover:bg-sky-500 transition-colors duration-300 shadow-sm" />
+                                    <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group-hover:border-sky-200 group-hover:shadow-md transition-all">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
+                                        <p className="text-sky-600 font-black tracking-wide uppercase text-sm">{event.description}</p>
                                     </div>
-                                );
-                            })}
-                            {sanEvents.length === 0 && (
+                                </div>
+                            ))}
+                            {events.length === 0 && (
                                 <div className="ml-8 py-12 text-center text-gray-400 font-medium">
                                     No calendar events have been added yet. Check back soon!
                                 </div>

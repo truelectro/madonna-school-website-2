@@ -14,6 +14,7 @@ const singletonTypes = [
 // Block types and legacy collection types that should never appear as standalone list items
 const hiddenTypes = [
     'page',
+    'calendarEvent',
     'heroSection',
     'textWithImageSection',
     'callToActionSection',
