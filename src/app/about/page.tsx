@@ -1,4 +1,4 @@
-import { ShieldCheck, Target, Eye, History as HistoryIcon, Award, Sparkles } from "lucide-react";
+import { ShieldCheck, Target, Eye, History as HistoryIcon, Award } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
 import { PortableText } from "next-sanity";
@@ -36,7 +36,7 @@ export default async function AboutPage() {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                        <Sparkles size={16} className="text-sky-400" /> About Our School
+                        About Our School
                     </div>
                     <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{aboutData.headerTitle || <>Our <span className="text-sky-400">Story</span></>}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
@@ -124,7 +124,7 @@ export default async function AboutPage() {
                     <div className="container mx-auto px-6 relative z-10">
                         <div className="text-center mb-20 md:mb-32">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                                <Sparkles size={14} className="text-sky-400" /> Our Principles
+                                Our Principles
                             </div>
                             <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">{aboutData.coreValuesTitle || "Our Core Values"}</h2>
                             <p className="text-xl text-gray-400 font-medium tracking-tight">{aboutData.coreValuesSubtitle || "The pillars that sustain our institution."}</p>

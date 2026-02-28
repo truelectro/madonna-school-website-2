@@ -1,4 +1,4 @@
-import { CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby, Sparkles, GraduationCap } from "lucide-react";
+import { CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby, GraduationCap } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
@@ -61,7 +61,7 @@ export default async function AdmissionProcessPage() {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                        <Sparkles size={16} className="text-sky-400" /> Join Our Family
+                        Join Our Family
                     </div>
                     <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-sky-400">{headerTitle.split(' ').slice(-1)[0]}</span></h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">

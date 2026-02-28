@@ -1,4 +1,4 @@
-import { Calendar, Award, Star, Trophy, Medal, Sparkles } from 'lucide-react';
+import { Calendar, Award, Star, Trophy, Medal } from 'lucide-react';
 import Image from 'next/image';
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
@@ -85,7 +85,7 @@ export default async function HistoryPage() {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                        <Sparkles size={16} className="text-sky-400" /> About Our School
+                        About Our School
                     </div>
                     <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{title}</h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">

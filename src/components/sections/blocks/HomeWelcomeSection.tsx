@@ -1,6 +1,6 @@
 import { urlFor } from "@/sanity/lib/client";
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
+
 import { PortableText } from "next-sanity";
 import { HighlightedText } from "@/components/ui/HighlightedText";
 
@@ -27,7 +27,7 @@ export function HomeWelcomeSection({ data }: { data: any }) {
 
                     <div className={welcomeImageUrl ? "w-full lg:w-1/2" : ""}>
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 text-sm font-bold tracking-wider uppercase mb-8 rounded-full">
-                            <Sparkles size={16} /> {data.tag || "Welcome Message"}
+                            {data.tag || "Welcome Message"}
                         </div>
                         <HighlightedText
                             text={data.title || "Celebrating 60 Years of Excellence."}

@@ -1,4 +1,4 @@
-import { Calendar, Target, Flag, Users, ArrowRight, Lightbulb, TrendingUp, CheckCircle2, Sparkles } from 'lucide-react';
+import { Calendar, Target, Flag, Users, ArrowRight, Lightbulb, TrendingUp, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
@@ -47,7 +47,7 @@ export default async function AnniversaryPlanPage() {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                        <Sparkles size={16} className="text-sky-400" /> Jubilee Celebration
+                        Jubilee Celebration
                     </div>
                     <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{planData.headerTitle || "Madonna @ 60"}</h1>
                     <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto font-medium mb-4">

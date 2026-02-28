@@ -1,4 +1,4 @@
-import { ArrowRight, GraduationCap, Users, Calendar, Award, CheckCircle2, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, Calendar, Award, CheckCircle2, TrendingUp, ShieldCheck } from "lucide-react";
 import Link from 'next/link';
 import { client, urlFor, sanityFetch } from "@/sanity/lib/client";
 import Image from "next/image";
@@ -48,7 +48,7 @@ export default async function Home() {
                         {/* Left Content */}
                         <div className="lg:w-3/5">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-6 lg:mb-8 border border-white/10">
-                                <Sparkles size={16} className="text-sky-400" /> {heroTag}
+                                {heroTag}
                             </div>
                             <HighlightedText
                                 text={heroTitle}

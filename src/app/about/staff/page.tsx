@@ -1,6 +1,6 @@
 import StaffCard from "@/components/ui/StaffCard";
 import { client, sanityFetch } from "@/sanity/lib/client";
-import { Sparkles, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 0;
@@ -28,7 +28,7 @@ export default async function StaffPage() {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
-                        <Sparkles size={16} className="text-sky-400" /> Our Team
+                        Our Team
                     </div>
                     <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">Staff & <span className="text-sky-400">Administration</span></h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">

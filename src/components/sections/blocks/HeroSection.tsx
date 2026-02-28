@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { urlFor } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
@@ -37,7 +37,7 @@ export function HeroSection({ data }: { data: any }) {
                         <div className="lg:w-3/5">
                             {data.badgeText && (
                                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-6 lg:mb-8 border border-white/10">
-                                    <Sparkles size={16} className="text-sky-400" /> {data.badgeText}
+                                    {data.badgeText}
                                 </div>
                             )}
                             <h1 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight">
