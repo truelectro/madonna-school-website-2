@@ -1,4 +1,4 @@
-import { CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby, GraduationCap } from "lucide-react";
+import { BookOpen, GraduationCap, Users, CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
@@ -6,10 +6,11 @@ import { BlockRenderer } from "@/components/sections/BlockRenderer";
 export const revalidate = 0;
 
 export const metadata = {
-    title: 'Admission Policy | Madonna School Koforidua',
-    description: 'Learn about the admission rules, processes, and requirements for Madonna School Koforidua.',
+    title: 'Admissions & Curriculum | Madonna School Koforidua',
+    description: 'Learn about the admission rules, processes, requirements, and curriculum for Madonna School Koforidua.',
 };
 
+// --- Defaults ---
 const defaultGeneralRules = [
     "The School admits children from age four (4), irrespective of religion, nationality and social status.",
     "It is expected that the religious beliefs and practices of the Catholic Church be respected once admitted.",
@@ -37,24 +38,62 @@ const defaultOnAdmissionRequirements = [
     'Ensure the child abides by school regulations to maintain discipline.'
 ];
 
-export default async function AdmissionProcessPage() {
-    const query = `*[_type == "admissionPage"][0]`;
+const defaultLevels = [
+    {
+        title: 'Kindergarten',
+        duration: '2 Years',
+        description: 'Laying the foundational building blocks of learning through play, interaction, and structured early childhood curricula.'
+    },
+    {
+        title: 'Primary School',
+        duration: '6 Years',
+        description: 'Developing core competencies in numeracy, literacy, science, and the arts to build a strong academic foundation.'
+    },
+    {
+        title: 'Junior High School',
+        duration: '3 Years',
+        description: 'Preparing students for higher education through rigorous academics, critical thinking, and advanced subject focus.'
+    }
+];
+
+function BabyIcon({ size, className }: { size: number, className?: string }) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            <circle cx="12" cy="11.5" r="3" />
+            <path d="M10 14h4a4 4 0 0 1 4 4v2H6v-2a4 4 0 0 1 4-4Z" />
+            <path d="M12 21v1" />
+        </svg>
+    )
+}
+
+const iconMap = [BabyIcon, Users, GraduationCap];
+const colorMap = ['bg-pink-500', 'bg-sky-500', 'bg-blue-600'];
+const shadowMap = ['shadow-pink-500/20', 'shadow-sky-500/20', 'shadow-blue-600/20'];
+
+export default async function AdmissionsPage() {
+    const query = `*[_type == "admissionsPage"][0]`;
     const data = (await sanityFetch<any>(query)) || {};
 
-    const headerTitle = data.headerTitle || "Admission Policy";
-    const headerSubtitle = data.headerSubtitle || "The journey toward excellence starts here. Learn about our admission rules, processes, and requirements.";
+    const headerTitle = data.headerTitle || "Admissions";
+    const headerSubtitle = data.headerSubtitle || "The journey toward excellence starts here. Learn about our admission rules, processes, and curriculum.";
+
+    const policyTitle = data.policyTitle || "Admission Policy";
     const generalRules = data.generalRules?.length > 0 ? data.generalRules : defaultGeneralRules;
     const kg1Rules = data.kg1Rules?.length > 0 ? data.kg1Rules : defaultKg1Rules;
     const withdrawalRules = data.withdrawalRules?.length > 0 ? data.withdrawalRules : defaultWithdrawalRules;
     const onAdmissionNote = data.onAdmissionNote || "Ignorance of these rules and regulations will not be an excuse for any infringement, for which sanctions will be strictly applied.";
     const onAdmissionRequirements = data.onAdmissionRequirements?.length > 0 ? data.onAdmissionRequirements : defaultOnAdmissionRequirements;
+
+    const curriculumTitle = data.curriculumTitle || "Curriculum Offered";
+    const curriculumSubtitle = data.curriculumSubtitle || "According to the current education reforms by Ghana Education Service (GES), our Basic school has been redefined to provide a holistic and modern learning structure.";
+    const levels = data.levels?.length > 0 ? data.levels : defaultLevels;
+
     const extraBlocks = data.pageBuilder || [];
 
     return (
         <main className="min-h-screen">
             {/* Page Header */}
             <section className="bg-[#051324] pt-32 pb-24 text-white relative overflow-hidden">
-                {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <HeroMouseOrb />
@@ -63,20 +102,32 @@ export default async function AdmissionProcessPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         Join Our Family
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-sky-400">{headerTitle.split(' ').slice(-1)[0]}</span></h1>
+                    {headerTitle.split(' ').length > 1 ? (
+                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
+                            {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-sky-400">{headerTitle.split(' ').slice(-1)[0]}</span>
+                        </h1>
+                    ) : (
+                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
+                            {headerTitle}
+                        </h1>
+                    )}
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
                         {headerSubtitle}
                     </p>
                 </div>
             </section>
 
+            {/* Combined Content Area */}
             <div className="bg-gray-50 py-20">
-                <section className="container mx-auto px-6">
+                <section className="container mx-auto px-6 max-w-7xl">
                     <div className="flex flex-col lg:flex-row gap-20">
-                        {/* General Rules & KG1 */}
+
+                        {/* Main Content (Rules + Curriculum) */}
                         <div className="lg:w-2/3">
-                            <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter decoration-blue-600 decoration-4 underline underline-offset-8">General Rules</h2>
-                            <div className="space-y-8 mb-20">
+                            {/* Policy Section */}
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">{policyTitle}</h2>
+                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-blue-600 decoration-4 underline underline-offset-8">General Rules</h3>
+                            <div className="space-y-6 mb-16">
                                 {generalRules.map((rule: string, i: number) => (
                                     <div key={i} className="flex gap-6 group items-start">
                                         <div className="mt-1 text-sky-500 flex-shrink-0"><CheckCircle2 size={24} /></div>
@@ -85,10 +136,10 @@ export default async function AdmissionProcessPage() {
                                 ))}
                             </div>
 
-                            <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter decoration-indigo-600 decoration-4 underline underline-offset-8 flex items-center gap-4">
-                                <Baby size={36} className="text-indigo-600" /> KG 1 Admission
-                            </h2>
-                            <div className="space-y-8 mb-20">
+                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-indigo-600 decoration-4 underline underline-offset-8 flex items-center gap-4">
+                                <Baby size={32} className="text-indigo-600" /> KG 1 Admission
+                            </h3>
+                            <div className="space-y-6 mb-16">
                                 {kg1Rules.map((rule: string, i: number) => (
                                     <div key={i} className="flex gap-6 group items-start">
                                         <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">{i + 1}</div>
@@ -97,10 +148,10 @@ export default async function AdmissionProcessPage() {
                                 ))}
                             </div>
 
-                            <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter decoration-red-500 decoration-4 underline underline-offset-8 flex items-center gap-4">
-                                <ShieldAlert size={36} className="text-red-500" /> Withdrawal Policy
-                            </h2>
-                            <div className="bg-red-50 p-8 rounded-[30px] border border-red-100">
+                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-red-500 decoration-4 underline underline-offset-8 flex items-center gap-4">
+                                <ShieldAlert size={32} className="text-red-500" /> Withdrawal Policy
+                            </h3>
+                            <div className="bg-red-50 p-8 rounded-[30px] border border-red-100 mb-20">
                                 <ul className="space-y-6">
                                     {withdrawalRules.map((rule: string, i: number) => (
                                         <li key={i} className="flex gap-4 items-start text-red-900 font-medium text-lg">
@@ -110,9 +161,38 @@ export default async function AdmissionProcessPage() {
                                     ))}
                                 </ul>
                             </div>
+
+                            {/* Curriculum Section */}
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">{curriculumTitle}</h2>
+                            <p className="text-xl text-gray-500 font-medium mb-10 max-w-3xl">
+                                {curriculumSubtitle}
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                                {levels.map((level: any, i: number) => {
+                                    const Icon = iconMap[i % iconMap.length];
+                                    const color = colorMap[i % colorMap.length];
+                                    const shadow = shadowMap[i % shadowMap.length];
+                                    return (
+                                        <div key={i} className="bg-white p-8 rounded-[30px] shadow-xl shadow-gray-200/50 border border-gray-100 hover:-translate-y-2 transition-transform duration-300 group">
+                                            <div className={`w-14 h-14 ${color} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg ${shadow} group-hover:scale-110 transition-transform`}>
+                                                <Icon size={28} />
+                                            </div>
+                                            <div className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-black uppercase tracking-widest rounded-full mb-3">
+                                                {level.duration}
+                                            </div>
+                                            <h3 className="text-2xl font-black text-gray-900 mb-3">{level.title}</h3>
+                                            <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">
+                                                {level.description}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
                         </div>
 
-                        {/* Requirements & CTA */}
+                        {/* Sidebar */}
                         <div className="lg:w-1/3">
                             <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-xl mb-10 sticky top-32">
                                 <h2 className="text-2xl font-black text-gray-900 mb-8 border-b border-gray-200 pb-6 uppercase tracking-tight">On Admission</h2>

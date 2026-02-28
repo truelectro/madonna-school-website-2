@@ -17,21 +17,8 @@ const navLinks = [
             { name: 'Hall of Fame', href: '/hall-of-fame' },
         ],
     },
-    {
-        name: 'Admissions',
-        href: '/admission',
-        subLinks: [
-            { name: 'Admission Policy & Process', href: '/admission/process' },
-            { name: 'Curriculum Offered', href: '/admission/curriculum' },
-        ],
-    },
-    {
-        name: 'Academics',
-        href: '/academics',
-        subLinks: [
-            { name: 'School Calendar', href: '/academics/calendar' },
-        ],
-    },
+    { name: 'Admissions', href: '/admission' },
+    { name: 'Academics', href: '/academics' },
     {
         name: 'Madonna @ 60',
         href: '/anniversary-plan',

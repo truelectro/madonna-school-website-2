@@ -1,15 +1,16 @@
 import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import { client, sanityFetch } from "@/sanity/lib/client";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
+import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
-export const revalidate = 0; // Disable static caching so changes show up instantly
+export const revalidate = 0;
 
 export const metadata = {
-    title: 'School Calendar | Madonna School Koforidua',
-    description: 'Stay up to date with the academic calendar for Madonna School Koforidua.',
+    title: 'Academics | Madonna School Koforidua',
+    description: 'Stay up to date with the academic calendar and other resources for Madonna School Koforidua.',
 };
 
-export default async function CalendarPage() {
+export default async function AcademicsPage() {
     const calendarQuery = `*[_type == "calendarEvent"] | order(date asc) {
         title,
         description,
@@ -17,11 +18,17 @@ export default async function CalendarPage() {
     }`;
     const sanEvents = await sanityFetch<any[]>(calendarQuery) || [];
 
+    const pageQuery = `*[_type == "academicsPage"][0]`;
+    const data = (await sanityFetch<any>(pageQuery)) || {};
+
+    const headerTitle = data.headerTitle || "Academics";
+    const headerSubtitle = data.headerSubtitle || "Stay up to date with the academic calendar and other resources.";
+    const extraBlocks = data.pageBuilder || [];
+
     return (
         <main className="min-h-screen">
             {/* Page Header */}
             <section className="bg-[#051324] pt-24 pb-16 md:pt-32 md:pb-24 text-white relative overflow-hidden">
-                {/* Animated Gradient Orbs */}
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <HeroMouseOrb />
@@ -30,9 +37,17 @@ export default async function CalendarPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
                         Academic Year
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">School <br /><span className="text-sky-400">Calendar</span></h1>
+                    {headerTitle.split(' ').length > 1 ? (
+                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
+                            {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-sky-400">{headerTitle.split(' ').slice(-1)[0]}</span>
+                        </h1>
+                    ) : (
+                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
+                            {headerTitle}
+                        </h1>
+                    )}
                     <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
-                        Stay up to date with the academic calendar for the First Term of the 2025/2026 Academic Year.
+                        {headerSubtitle}
                     </p>
                 </div>
             </section>
@@ -71,6 +86,8 @@ export default async function CalendarPage() {
                     </div>
                 </section>
             </div>
+
+            {extraBlocks.length > 0 && <BlockRenderer blocks={extraBlocks} />}
         </main>
     );
 }
