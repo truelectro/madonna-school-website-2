@@ -40,6 +40,21 @@ export const anniversaryPlanPageType = defineType({
             group: 'schedule',
         }),
         defineField({
+            name: 'keySpeakers',
+            title: 'Key Speakers / Guests',
+            type: 'array',
+            of: [
+                defineArrayMember({
+                    type: 'object',
+                    fields: [
+                        { name: 'name', type: 'string', title: 'Speaker Name' },
+                        { name: 'role', type: 'string', title: 'Role / Designation' },
+                    ],
+                }),
+            ],
+            group: 'schedule',
+        }),
+        defineField({
             name: 'frameworkIntro',
             title: 'Strategic Framework Introduction',
             type: 'text',
@@ -59,6 +74,13 @@ export const anniversaryPlanPageType = defineType({
                     ],
                 }),
             ],
+            group: 'framework',
+        }),
+        defineField({
+            name: 'expectedOutcomes',
+            title: 'Expected Outcomes',
+            type: 'array',
+            of: [{ type: 'string' }],
             group: 'framework',
         }),
         defineField({

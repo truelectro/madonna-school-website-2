@@ -63,10 +63,10 @@ export function HomeDifferenceSection({ data }: { data: any }) {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="text-sm font-black text-gray-400 uppercase tracking-widest">Alumni Network</div>
+                                <div className="text-sm font-black text-gray-400 uppercase tracking-widest">{data.badgeTitle || "Alumni Network"}</div>
                             </div>
                             <div className="text-2xl font-black text-gray-900 leading-tight">
-                                Over 10,000 successful alumni globally.
+                                {data.badgeText || "Over 10,000 successful alumni globally."}
                             </div>
                         </div>
                     </div>

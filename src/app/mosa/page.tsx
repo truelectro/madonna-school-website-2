@@ -53,8 +53,8 @@ export default async function MosaPage() {
                 {/* Database Search Section stub */}
                 <div className="bg-white p-12 rounded-[50px] shadow-xl border border-gray-100 max-w-4xl mx-auto text-center mb-20">
                     <Presentation className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-                    <h3 className="text-3xl font-black text-gray-900 mb-6">Alumni Database Directory</h3>
-                    <p className="text-lg text-gray-500 mb-8 font-medium">Find your classmates. Select your graduating year below to view your year group.</p>
+                    <h3 className="text-3xl font-black text-gray-900 mb-6">{mosaData.directoryTitle || "Alumni Database Directory"}</h3>
+                    <p className="text-lg text-gray-500 mb-8 font-medium">{mosaData.directorySubtitle || "Find your classmates. Select your graduating year below to view your year group."}</p>
 
                     <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
                         {years.slice(0, 15).map((year) => (

@@ -38,6 +38,20 @@ export const mosaPageType = defineType({
             group: 'content',
         }),
         defineField({
+            name: 'directoryTitle',
+            title: 'Directory Section Title',
+            type: 'string',
+            initialValue: 'Alumni Database Directory',
+            group: 'content',
+        }),
+        defineField({
+            name: 'directorySubtitle',
+            title: 'Directory Section Subtitle',
+            type: 'string',
+            initialValue: 'Find your classmates. Select your graduating year below to view your year group.',
+            group: 'content',
+        }),
+        defineField({
             name: 'pageBuilder',
             title: 'Additional Sections',
             description: 'Add extra modular sections to this page.',

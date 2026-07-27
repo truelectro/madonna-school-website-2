@@ -42,12 +42,23 @@ export function HomeWelcomeSection({ data }: { data: any }) {
                             )}
                         </div>
                         <div className="mt-12 pt-8 border-t border-gray-100 flex items-center gap-6">
-                            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-500/30">
-                                SO
-                            </div>
+                            {data.authorImage ? (
+                                <div className="w-16 h-16 relative rounded-full overflow-hidden shadow-lg border-2 border-blue-500">
+                                    <Image
+                                        src={urlFor(data.authorImage).url()}
+                                        alt={data.authorName || "Headmistress"}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-blue-500/30">
+                                    {data.authorInitials || "SO"}
+                                </div>
+                            )}
                             <div>
-                                <h4 className="text-xl font-black text-gray-900 tracking-tight">Sr. Perpetual Owiredu</h4>
-                                <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mt-1">Headmistress, Madonna School - Koforidua</p>
+                                <h4 className="text-xl font-black text-gray-900 tracking-tight">{data.authorName || "Sr. Perpetual Owiredu"}</h4>
+                                <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mt-1">{data.authorRole || "Headmistress, Madonna School - Koforidua"}</p>
                             </div>
                         </div>
                     </div>

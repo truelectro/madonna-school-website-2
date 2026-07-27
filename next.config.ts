@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: [
           {
-            key: "X-Frame-Options",
-            value: "DENY",
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'self' https://*.sanity.build https://*.sanity.studio https://*.sanity.io https://sanity.io;",
           },
           {
             key: "X-Content-Type-Options",

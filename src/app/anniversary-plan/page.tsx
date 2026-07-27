@@ -35,6 +35,18 @@ export default async function AnniversaryPlanPage() {
         { obj: "JHS Legacy Project", desc: "Build Anniversary Legacy Project (2-Stream JHS Complex) Sponsored by Nana Owiredu Wadie I", lead: "Nana Owiredu Wadie I" },
         { obj: "Internet & AI Centre", desc: "Establish connected campus with AI & Robotics Centre", lead: "PTA & Sr. Perpetual" },
     ];
+    const keySpeakers = planData.keySpeakers?.length > 0 ? planData.keySpeakers : [
+        { name: "Nana Owiredu Wadie", role: "Chairman" },
+        { name: "Daasebre Nana Kwaku Boateng III", role: "Guest of Honour" },
+        { name: "Most Rev. Joseph Afrifah-Agyekum", role: "Special Guest of Honour" }
+    ];
+
+    const expectedOutcomes = planData.expectedOutcomes?.length > 0 ? planData.expectedOutcomes : [
+        "Strong stakeholder partnerships and alumni network.",
+        "Completion of the 2-Stream JHS Block.",
+        "Operational AI Learning & Robotics Centre and Language Labs.",
+        "Enhanced reputation as a model international school."
+    ];
 
     return (
         <main className="min-h-screen pb-20 bg-gray-50">
@@ -77,9 +89,11 @@ export default async function AnniversaryPlanPage() {
 
                             <h2 className="text-2xl font-black text-gray-900 mt-12 mb-6 border-b border-gray-100 pb-4 uppercase">Key Speakers</h2>
                             <ul className="space-y-4">
-                                <li className="font-bold text-gray-800">Nana Owiredu Wadie <span className="block text-sm font-medium text-gray-500">Chairman</span></li>
-                                <li className="font-bold text-gray-800">Daasebre Nana Kwaku Boateng III <span className="block text-sm font-medium text-gray-500">Guest of Honour</span></li>
-                                <li className="font-bold text-gray-800">Most Rev. Joseph Afrifah-Agyekum <span className="block text-sm font-medium text-gray-500">Special Guest of Honour</span></li>
+                                {keySpeakers.map((spk: any, i: number) => (
+                                    <li key={i} className="font-bold text-gray-800">
+                                        {spk.name} <span className="block text-sm font-medium text-gray-500">{spk.role}</span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -110,10 +124,11 @@ export default async function AnniversaryPlanPage() {
                             <TrendingUp className="absolute -right-10 -bottom-10 w-64 h-64 text-white/5" />
                             <h3 className="text-3xl font-black mb-6 relative z-10">Expected Outcomes by 2026</h3>
                             <ul className="space-y-4 font-medium text-gray-300 relative z-10 text-lg">
-                                <li className="flex items-start gap-4"><CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> Strong stakeholder partnerships and alumni network.</li>
-                                <li className="flex items-start gap-4"><CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> Completion of the 2-Stream JHS Block.</li>
-                                <li className="flex items-start gap-4"><CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> Operational AI Learning & Robotics Centre and Language Labs.</li>
-                                <li className="flex items-start gap-4"><CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> Enhanced reputation as a model international school.</li>
+                                {expectedOutcomes.map((oc: string, i: number) => (
+                                    <li key={i} className="flex items-start gap-4">
+                                        <CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> {oc}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
