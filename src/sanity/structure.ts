@@ -11,7 +11,7 @@ const singletonTypes = [
     'academicsPage',
 ]
 
-// Block types and legacy collection types that should never appear as standalone list items
+// Block types, singletons, and collection types managed inside nested folders
 const hiddenTypes = [
     'page',
     'calendarEvent',
@@ -22,6 +22,8 @@ const hiddenTypes = [
     'videoSection',
     'anniversaryPlan',
     'hallOfFame',
+    'staff',
+    'news',
     ...singletonTypes,
 ]
 
@@ -29,38 +31,78 @@ export const structure = (S: any) =>
     S.list()
         .title('Content')
         .items([
-            // ── Page singletons (one tab each) ──────────────────────
+            // 🏠 Home
             S.listItem()
                 .title('🏠 Home')
                 .child(S.document().schemaType('homePage').documentId('homePage')),
+
+            // ℹ️ About Us (Folder)
             S.listItem()
-                .title('ℹ️ About')
-                .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
+                .title('ℹ️ About Us')
+                .child(
+                    S.list()
+                        .title('About Us')
+                        .items([
+                            S.listItem()
+                                .title('ℹ️ Main About Page')
+                                .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
+                            S.listItem()
+                                .title('📜 School History')
+                                .child(S.document().schemaType('historyPage').documentId('historyPage')),
+                            S.listItem()
+                                .title('🏆 Hall of Fame')
+                                .child(S.document().schemaType('hallOfFamePage').documentId('hallOfFamePage')),
+                            S.listItem()
+                                .title('👥 Staff Members')
+                                .child(S.documentTypeList('staff').title('Staff Members')),
+                        ])
+                ),
+
+            // 🎓 Academics & Admissions (Folder)
             S.listItem()
-                .title('📜 History')
-                .child(S.document().schemaType('historyPage').documentId('historyPage')),
+                .title('🎓 Academics & Admissions')
+                .child(
+                    S.list()
+                        .title('Academics & Admissions')
+                        .items([
+                            S.listItem()
+                                .title('🎓 Academics & Calendar')
+                                .child(S.document().schemaType('academicsPage').documentId('academicsPage')),
+                            S.listItem()
+                                .title('💼 Admissions & Policy')
+                                .child(S.document().schemaType('admissionsPage').documentId('admissionsPage')),
+                        ])
+                ),
+
+            // 🎉 Anniversary & News (Folder)
             S.listItem()
-                .title('🎉 Anniversary Plan')
-                .child(S.document().schemaType('anniversaryPlanPage').documentId('anniversaryPlanPage')),
-            S.listItem()
-                .title('🏆 Hall of Fame')
-                .child(S.document().schemaType('hallOfFamePage').documentId('hallOfFamePage')),
+                .title('🎉 Anniversary & News')
+                .child(
+                    S.list()
+                        .title('Anniversary & News')
+                        .items([
+                            S.listItem()
+                                .title('🎉 Anniversary Plan (@ 60)')
+                                .child(S.document().schemaType('anniversaryPlanPage').documentId('anniversaryPlanPage')),
+                            S.listItem()
+                                .title('📰 News & Announcements')
+                                .child(S.documentTypeList('news').title('News & Announcements')),
+                        ])
+                ),
+
+            // 🎓 MOSA (Alumni)
             S.listItem()
                 .title('🎓 MOSA (Alumni)')
                 .child(S.document().schemaType('mosaPage').documentId('mosaPage')),
+
+            // 📞 Contact
             S.listItem()
                 .title('📞 Contact')
                 .child(S.document().schemaType('contactPage').documentId('contactPage')),
-            S.listItem()
-                .title('💼 Admissions')
-                .child(S.document().schemaType('admissionsPage').documentId('admissionsPage')),
-            S.listItem()
-                .title('🎓 Academics')
-                .child(S.document().schemaType('academicsPage').documentId('academicsPage')),
 
             S.divider(),
 
-            // ── Collections (lists of many documents) ───────────────
+            // ── Any other remaining collections ───────────────────
             ...S.documentTypeListItems().filter(
                 (listItem: any) => !hiddenTypes.includes(listItem.getId())
             ),
