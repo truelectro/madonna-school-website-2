@@ -60,7 +60,7 @@ export default async function AnniversaryPlanPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Jubilee Celebration
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{planData.headerTitle || "Madonna @ 60"}</h1>
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">{planData.headerTitle || "Madonna @ 60"}</h1>
                     <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto font-medium mb-4 leading-relaxed">
                         {planData.headerSubtitle || <>"60 Years of Holistic Education: Rebooting our Systems"</>}
                     </p>

@@ -53,7 +53,7 @@ export default async function Home() {
                             <HighlightedText
                                 text={heroTitle}
                                 as="h1"
-                                className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight"
+                                className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight text-white"
                             />
                             <div className="flex flex-col sm:flex-row gap-5 mt-12 hidden lg:flex">
                                 <Link href="/admission" className="px-10 py-5 bg-[#D4AF37] hover:bg-[#c49f27] text-[#071322] transition-all rounded-full font-bold text-lg shadow-xl shadow-amber-500/10 flex items-center justify-center gap-3 group">

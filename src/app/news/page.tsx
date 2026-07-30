@@ -31,7 +31,7 @@ export default async function NewsPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         From Our School
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">Latest <span className="text-[#D4AF37]">News</span></h1>
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">Latest <span className="text-[#D4AF37]">News</span></h1>
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         Stay updated with the heartbeat of Madonna School.
                     </p>

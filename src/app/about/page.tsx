@@ -37,7 +37,7 @@ export default async function AboutPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         About Our School
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{aboutData.headerTitle || <>Our <span className="text-[#D4AF37]">Story</span></>}</h1>
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">{aboutData.headerTitle || <>Our <span className="text-[#D4AF37]">Story</span></>}</h1>
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         {aboutData.headerSubtitle || "Discover the legacy, values, and vision that drive Madonna School towards academic and moral excellence."}
                     </p>

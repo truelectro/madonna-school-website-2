@@ -36,7 +36,7 @@ export default async function HallOfFamePage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Academic Excellence
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{hallOfFameData.headerTitle || "Hall of Fame"}</h1>
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">{hallOfFameData.headerTitle || "Hall of Fame"}</h1>
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         {hallOfFameData.headerSubtitle || "Celebrating the outstanding achievements, brilliance, and excellence of Madonna School students on national and regional stages."}
                     </p>

@@ -28,7 +28,7 @@ export default async function ContactPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Get In Touch
                     </div>
-                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{contactData.headerTitle || <>Reach <span className="text-[#D4AF37]">Out</span></>}</h1>
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">{contactData.headerTitle || <>Reach <span className="text-[#D4AF37]">Out</span></>}</h1>
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         {contactData.headerSubtitle || "Questions about admission, curriculum, or visiting? We're here to help you every step of the way."}
                     </p>

@@ -103,11 +103,11 @@ export default async function AdmissionsPage() {
                         Join Our Family
                     </div>
                     {headerTitle.split(' ').length > 1 ? (
-                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">
                             {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-[#D4AF37]">{headerTitle.split(' ').slice(-1)[0]}</span>
                         </h1>
                     ) : (
-                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">
                             {headerTitle}
                         </h1>
                     )}
