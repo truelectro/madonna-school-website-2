@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { draftMode } from "next/headers";
 import "./globals.css";
 import { LayoutWrapper } from "@/components/layout/LayoutWrapper";
+import VisualEditing from "@/components/admin/VisualEditing";
 
 export const metadata: Metadata = {
     title: "Madonna School | Excellence in Education",
@@ -17,11 +19,13 @@ export const viewport: Viewport = {
     maximumScale: 5,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const draft = await draftMode();
+
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
@@ -32,8 +36,8 @@ export default function RootLayout({
                 <LayoutWrapper>
                     {children}
                 </LayoutWrapper>
+                {draft.isEnabled && <VisualEditing />}
             </body>
         </html>
     );
 }
-

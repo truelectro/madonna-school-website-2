@@ -1,29 +1,62 @@
 import { createClient } from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
+import createImageUrlBuilder from '@sanity/image-url'
+
+export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
+export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+export const apiVersion = '2023-01-01'
 
 export const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    apiVersion: '2023-01-01',
+    projectId,
+    dataset,
+    apiVersion,
     useCdn: false, // Set to false so Next.js handles caching instead of Sanity CDN
+    stega: {
+        studioUrl: '/admin',
+    },
 })
 
 /**
- * Drop-in replacement for client.fetch() that tells Next.js to
- * revalidate this data every `revalidate` seconds (default: 60).
- * Works with next-sanity v12 + Next.js App Router.
+ * Enhanced sanityFetch that respects Next.js Draft Mode.
+ * Dynamically evaluates draftMode on the server to prevent dragging
+ * server-only modules into client component bundles.
  */
 export async function sanityFetch<T = unknown>(
     query: string,
-    params?: Record<string, unknown>,
+    params: Record<string, unknown> = {},
     revalidate = 0
 ): Promise<T> {
+    let isDraftMode = false
+
+    if (typeof window === 'undefined') {
+        try {
+            const { draftMode } = await import('next/headers')
+            const draft = await draftMode()
+            isDraftMode = draft.isEnabled
+        } catch {
+            // Context where draftMode is unavailable
+        }
+    }
+
+    if (isDraftMode) {
+        const token = process.env.SANITY_API_READ_TOKEN
+        return client
+            .withConfig({
+                token,
+                perspective: 'previewDrafts',
+                stega: true,
+                useCdn: false,
+            })
+            .fetch<T>(query, params, {
+                next: { revalidate: 0 },
+            })
+    }
+
     return client.fetch<T>(query, params, {
         next: { revalidate },
     })
 }
 
-const builder = imageUrlBuilder(client)
+const builder = createImageUrlBuilder(client)
 
 export function urlFor(source: any) {
     return builder.image(source)
@@ -35,14 +68,10 @@ export function urlFor(source: any) {
  * The CDN URL format is: https://cdn.sanity.io/files/<projectId>/<dataset>/<hash>.<ext>
  */
 export function fileUrlFor(asset: { _ref: string }): string {
-    const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
-    const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
-    // ref format: "file-{hash}-{extension}"
-    // Use lastIndexOf to safely split off the extension, since hash may contain hyphens
-    const ref = asset._ref // e.g. "file-abc123def456ghi789-mp4"
-    const withoutPrefix = ref.replace(/^file-/, '') // "abc123def456ghi789-mp4"
+    const ref = asset._ref
+    const withoutPrefix = ref.replace(/^file-/, '')
     const lastHyphen = withoutPrefix.lastIndexOf('-')
-    const hash = withoutPrefix.slice(0, lastHyphen)  // "abc123def456ghi789"
-    const ext = withoutPrefix.slice(lastHyphen + 1)  // "mp4"
+    const hash = withoutPrefix.slice(0, lastHyphen)
+    const ext = withoutPrefix.slice(lastHyphen + 1)
     return `https://cdn.sanity.io/files/${projectId}/${dataset}/${hash}.${ext}`
 }
