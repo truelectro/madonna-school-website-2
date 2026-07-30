@@ -51,47 +51,46 @@ export default async function AnniversaryPlanPage() {
     return (
         <main className="min-h-screen pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-[#051324] pt-40 pb-32 mb-20 text-white relative overflow-hidden">
-                {/* Animated Gradient Orbs */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <section className="bg-[#071322] pt-40 pb-32 mb-16 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
                 <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Jubilee Celebration
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{planData.headerTitle || "Madonna @ 60"}</h1>
-                    <p className="text-2xl md:text-3xl text-gray-200 max-w-4xl mx-auto font-medium mb-4">
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{planData.headerTitle || "Madonna @ 60"}</h1>
+                    <p className="text-xl md:text-2xl text-slate-200 max-w-4xl mx-auto font-medium mb-4 leading-relaxed">
                         {planData.headerSubtitle || <>"60 Years of Holistic Education: Rebooting our Systems"</>}
                     </p>
-                    <p className="text-lg text-sky-400 font-bold tracking-widest uppercase">Sacrifice • Success • Service</p>
+                    <p className="text-sm text-[#D4AF37] font-bold tracking-widest uppercase">Sacrifice • Success • Service</p>
                 </div>
             </section>
 
             <section className="container mx-auto px-6 max-w-6xl">
-                <div className="flex flex-col lg:flex-row gap-16">
+                <div className="flex flex-col lg:flex-row gap-12">
 
                     {/* Schedule Column */}
-                    <div className="lg:w-1/3 space-y-8">
-                        <div className="bg-white p-8 rounded-[40px] shadow-sm border border-gray-100 sticky top-32">
-                            <h2 className="text-2xl font-black text-gray-900 mb-8 border-b border-gray-100 pb-4 uppercase flex items-center gap-3">
-                                <Calendar className="text-red-600" /> Event Schedule
+                    <div className="lg:w-1/3 space-y-6">
+                        <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/80 sticky top-32">
+                            <h2 className="text-lg font-bold text-slate-900 mb-6 border-b border-slate-100 pb-3 uppercase tracking-wider flex items-center gap-2.5">
+                                <Calendar className="text-[#B8860B] w-5 h-5" /> Event Schedule
                             </h2>
-                            <div className="space-y-6">
+                            <div className="space-y-5">
                                 {activities.map((act: any, i: number) => (
-                                    <div key={i} className="flex flex-col gap-1 group">
-                                        <span className="text-sm font-bold text-red-600 tracking-wider uppercase">{act.date}</span>
-                                        <span className="text-gray-700 font-medium group-hover:text-gray-900 transition-colors">{act.title}</span>
+                                    <div key={i} className="flex flex-col gap-0.5 group border-b border-slate-100/80 pb-3 last:border-0 last:pb-0">
+                                        <span className="text-xs font-bold text-[#B8860B] tracking-wider uppercase">{act.date}</span>
+                                        <span className="text-slate-800 font-semibold text-sm group-hover:text-slate-900 transition-colors leading-snug">{act.title}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <h2 className="text-2xl font-black text-gray-900 mt-12 mb-6 border-b border-gray-100 pb-4 uppercase">Key Speakers</h2>
-                            <ul className="space-y-4">
+                            <h2 className="text-lg font-bold text-slate-900 mt-10 mb-4 border-b border-slate-100 pb-3 uppercase tracking-wider">Key Speakers</h2>
+                            <ul className="space-y-3">
                                 {keySpeakers.map((spk: any, i: number) => (
-                                    <li key={i} className="font-bold text-gray-800">
-                                        {spk.name} <span className="block text-sm font-medium text-gray-500">{spk.role}</span>
+                                    <li key={i} className="font-bold text-slate-800 text-sm">
+                                        {spk.name} <span className="block text-xs font-normal text-slate-500 mt-0.5">{spk.role}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -100,33 +99,33 @@ export default async function AnniversaryPlanPage() {
 
                     {/* Implementation Column */}
                     <div className="lg:w-2/3">
-                        <h2 className="text-4xl font-black text-gray-900 mb-10 flex items-center gap-4 uppercase tracking-tighter">
-                            <Lightbulb className="w-10 h-10 text-yellow-500" /> Strategic Framework
+                        <h2 className="text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3 uppercase tracking-tight">
+                            <Lightbulb className="w-8 h-8 text-[#B8860B]" /> Strategic Framework
                         </h2>
 
-                        <p className="text-xl text-gray-600 font-medium mb-12 leading-relaxed">
+                        <p className="text-base md:text-lg text-slate-600 font-normal mb-10 leading-relaxed">
                             {planData.frameworkIntro || "Our implementation period spans from August 2025 to November 2026, aimed at strengthening stakeholder engagement, improving academic standards, upgrading physical infrastructure, and building sustainable accountability systems."}
                         </p>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid md:grid-cols-2 gap-5">
                             {framework.map((item: any, i: number) => (
-                                <div key={i} className="bg-white p-8 rounded-[30px] shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.obj}</h3>
-                                    <p className="text-gray-600 font-medium mb-6 leading-relaxed">{item.desc}</p>
-                                    <div className="mt-auto flex items-center gap-2 pt-4 border-t border-gray-100 text-sm font-bold text-gray-400">
-                                        <Users className="w-4 h-4" /> Lead: {item.lead}
+                                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-all duration-300">
+                                    <h3 className="text-base font-bold text-slate-900 mb-2">{item.obj}</h3>
+                                    <p className="text-slate-600 font-normal text-sm mb-4 leading-relaxed">{item.desc}</p>
+                                    <div className="mt-auto flex items-center gap-2 pt-3 border-t border-slate-100 text-xs font-semibold text-slate-400">
+                                        <Users className="w-3.5 h-3.5" /> Lead: {item.lead}
                                     </div>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-12 bg-gray-900 text-white p-10 rounded-[40px] shadow-2xl relative overflow-hidden">
-                            <TrendingUp className="absolute -right-10 -bottom-10 w-64 h-64 text-white/5" />
-                            <h3 className="text-3xl font-black mb-6 relative z-10">Expected Outcomes by 2026</h3>
-                            <ul className="space-y-4 font-medium text-gray-300 relative z-10 text-lg">
+                        <div className="mt-10 bg-[#071322] text-white p-8 md:p-10 rounded-3xl shadow-xl relative overflow-hidden border border-slate-800">
+                            <TrendingUp className="absolute -right-8 -bottom-8 w-56 h-56 text-white/5" />
+                            <h3 className="text-2xl font-black mb-6 relative z-10">Expected Outcomes by 2026</h3>
+                            <ul className="space-y-3 font-normal text-slate-300 relative z-10 text-sm md:text-base">
                                 {expectedOutcomes.map((oc: string, i: number) => (
-                                    <li key={i} className="flex items-start gap-4">
-                                        <CheckCircle2 className="text-green-400 mt-1 flex-shrink-0" /> {oc}
+                                    <li key={i} className="flex items-start gap-3">
+                                        <CheckCircle2 className="text-[#D4AF37] mt-1 flex-shrink-0 w-5 h-5" /> {oc}
                                     </li>
                                 ))}
                             </ul>

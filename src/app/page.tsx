@@ -47,7 +47,7 @@ export default async function Home() {
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-20">
                         {/* Left Content */}
                         <div className="lg:w-3/5">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-blue-200 text-sm font-bold tracking-wider uppercase mb-6 lg:mb-8 border border-white/10">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-6 lg:mb-8 border border-amber-400/20">
                                 {heroTag}
                             </div>
                             <HighlightedText
@@ -55,11 +55,11 @@ export default async function Home() {
                                 as="h1"
                                 className="text-[2.5rem] sm:text-5xl md:text-[5.5rem] lg:text-[6.5rem] font-black mb-6 lg:mb-10 leading-[1.05] tracking-tight"
                             />
-                            <div className="flex flex-col sm:flex-row gap-6 mt-12 hidden lg:flex">
-                                <Link href="/admission" className="px-10 py-5 bg-sky-500 hover:bg-sky-600 text-white transition-all rounded-full font-black text-lg shadow-xl shadow-sky-500/20 flex items-center justify-center gap-3 group">
+                            <div className="flex flex-col sm:flex-row gap-5 mt-12 hidden lg:flex">
+                                <Link href="/admission" className="px-10 py-5 bg-[#D4AF37] hover:bg-[#c49f27] text-[#071322] transition-all rounded-full font-bold text-lg shadow-xl shadow-amber-500/10 flex items-center justify-center gap-3 group">
                                     Apply Today <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
-                                <Link href="/about" className="px-10 py-5 bg-transparent hover:bg-white/5 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
+                                <Link href="/about" className="px-10 py-5 bg-white/5 hover:bg-white/10 transition-all text-white border border-white/15 rounded-full font-semibold text-lg flex items-center justify-center">
                                     Our History
                                 </Link>
                             </div>
@@ -67,27 +67,27 @@ export default async function Home() {
 
                         {/* Right Content */}
                         <div className="lg:w-2/5 flex flex-col gap-8 lg:gap-12 lg:pt-16">
-                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light border-l-2 border-sky-500/50 pl-6 text-left">
+                            <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-normal text-left">
                                 {heroSubtitle}
                             </p>
 
-                            <div className="flex items-center gap-8 md:gap-12 pt-4">
+                            <div className="flex items-center gap-8 md:gap-12 pt-4 border-t border-slate-800/80">
                                 {stats.map((stat: any, i: number) => (
                                     <div key={i} className="flex flex-col">
-                                        <div className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tighter flex items-baseline gap-1">
-                                            {stat.value} <span className="text-sky-400 text-xl">+</span>
+                                        <div className="text-3xl md:text-4xl font-black text-white mb-1 tracking-tight flex items-baseline gap-1">
+                                            {stat.value} <span className="text-[#D4AF37] text-lg font-bold">+</span>
                                         </div>
-                                        <div className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
+                                        <div className="text-slate-400 text-xs font-semibold uppercase tracking-widest">{stat.label}</div>
                                     </div>
                                 ))}
                             </div>
 
                             {/* Mobile Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-6 mt-4 lg:hidden">
-                                <Link href="/admission" className="px-8 py-4 bg-sky-500 hover:bg-sky-600 text-white transition-all rounded-full font-black text-lg flex items-center justify-center gap-3">
+                            <div className="flex flex-col sm:flex-row gap-4 mt-4 lg:hidden">
+                                <Link href="/admission" className="px-8 py-4 bg-[#D4AF37] hover:bg-[#c49f27] text-[#071322] transition-all rounded-full font-bold text-base flex items-center justify-center gap-3">
                                     Apply Today
                                 </Link>
-                                <Link href="/about" className="px-8 py-4 bg-white/5 hover:bg-white/10 transition-all text-white border border-white/20 rounded-full font-bold text-lg flex items-center justify-center">
+                                <Link href="/about" className="px-8 py-4 bg-white/5 hover:bg-white/10 transition-all text-white border border-white/20 rounded-full font-semibold text-base flex items-center justify-center">
                                     Our History
                                 </Link>
                             </div>

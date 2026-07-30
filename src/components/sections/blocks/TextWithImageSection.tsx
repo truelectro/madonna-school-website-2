@@ -42,8 +42,7 @@ export function TextWithImageSection({ data }: { data: any }) {
                                             h2: ({ children }) => <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-10 mb-6">{children}</h2>,
                                             h3: ({ children }) => <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mt-8 mb-4">{children}</h3>,
                                             h4: ({ children }) => <h4 className="text-xl md:text-2xl font-bold text-gray-900 mt-6 mb-4">{children}</h4>,
-                                            normal: ({ children }) => <p className="mb-6">{children}</p>,
-                                            blockquote: ({ children }) => <blockquote className="border-l-4 border-blue-600 pl-6 italic text-gray-700 bg-blue-50/50 py-4 pr-4 rounded-r-2xl my-8">{children}</blockquote>,
+                                            blockquote: ({ children }) => <blockquote className="border-l border-[#D4AF37] pl-6 italic text-slate-800 bg-slate-50/80 py-4 pr-4 rounded-r-xl my-8 font-serif text-xl">{children}</blockquote>,
                                         },
                                         list: {
                                             bullet: ({ children }) => <ul className="list-disc pl-6 space-y-2 mb-6">{children}</ul>,

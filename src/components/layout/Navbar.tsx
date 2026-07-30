@@ -64,14 +64,14 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <div key={link.name} className="relative group">
                             {link.subLinks ? (
-                                <Link href={link.href} className={`flex items-center gap-1 font-medium transition hover:text-blue-400 ${isDarkText ? 'text-gray-700' : 'text-white/90'}`}>
+                                <Link href={link.href} className={`flex items-center gap-1.5 font-semibold text-sm transition hover:text-amber-400 ${isDarkText ? 'text-slate-800' : 'text-white/90'}`}>
                                     {link.name}
-                                    <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                                    <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-amber-500" />
                                 </Link>
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className={`font-medium transition hover:text-blue-400 ${isDarkText ? 'text-gray-700' : 'text-white/90'}`}
+                                    className={`font-semibold text-sm transition hover:text-amber-400 ${isDarkText ? 'text-slate-800' : 'text-white/90'}`}
                                 >
                                     {link.name}
                                 </Link>
@@ -79,12 +79,12 @@ export default function Navbar() {
 
                             {link.subLinks && (
                                 <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-3 w-56 flex flex-col relative overflow-hidden">
+                                    <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 py-3 w-60 flex flex-col relative overflow-hidden">
                                         {link.subLinks.map((subLink) => (
                                             <Link
                                                 key={subLink.name}
                                                 href={subLink.href}
-                                                className="px-5 py-2.5 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                                                className="px-5 py-3 text-sm font-medium text-slate-800 hover:text-[#071322] hover:bg-slate-100 transition-colors flex items-center justify-between"
                                             >
                                                 {subLink.name}
                                             </Link>
@@ -94,9 +94,9 @@ export default function Navbar() {
                             )}
                         </div>
                     ))}
-                    <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition font-semibold ml-2">
-                        Apply
-                    </button>
+                    <Link href="/admission" className="px-6 py-2.5 bg-[#D4AF37] hover:bg-[#c49f27] text-[#071322] rounded-full transition-all font-bold text-sm tracking-wide shadow-md shadow-amber-500/10 ml-2">
+                        Apply Now
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}

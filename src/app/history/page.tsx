@@ -77,36 +77,35 @@ export default async function HistoryPage() {
     return (
         <main className="min-h-screen pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-[#051324] pt-40 pb-32 mb-20 text-white relative overflow-hidden">
-                {/* Animated Gradient Orbs */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <section className="bg-[#071322] pt-40 pb-32 mb-16 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
                 <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         About Our School
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{title}</h1>
-                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{title}</h1>
+                    <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         {subtitle}
                     </p>
                 </div>
             </section>
 
             <section className="container mx-auto px-6 max-w-5xl">
-                <div className="relative border-l-4 border-blue-200 ml-6 md:ml-10 pb-10">
+                <div className="relative border-l border-slate-300/80 ml-4 md:ml-8 pb-8">
                     {timelineEvents.map((event, i) => (
-                        <div key={i} className="mb-16 ml-10 relative group">
-                            <div className="absolute -left-[54px] bg-white border-4 border-blue-600 w-8 h-8 rounded-full mt-1.5 group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                        <div key={i} className="mb-12 ml-6 md:ml-8 relative group">
+                            <div className="absolute -left-[31px] md:-left-[39px] bg-white border-2 border-[#B8860B] w-4 h-4 rounded-full mt-2 group-hover:scale-125 group-hover:bg-[#D4AF37] transition-all duration-300 shadow-sm"></div>
 
-                            <div className="bg-white p-8 rounded-[30px] shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <Calendar className="text-blue-600 w-6 h-6" />
-                                    <span className="text-2xl font-black text-blue-600 tracking-tight">{event.year}</span>
+                            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-all duration-300">
+                                <div className="flex items-center gap-2.5 mb-3">
+                                    <Calendar className="text-[#B8860B] w-5 h-5" />
+                                    <span className="text-xl font-extrabold text-[#071322] tracking-tight">{event.year}</span>
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{event.title}</h3>
-                                <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">{event.title}</h3>
+                                <p className="text-base text-slate-600 leading-relaxed font-normal">
                                     {event.description}
                                 </p>
                             </div>
@@ -114,10 +113,10 @@ export default async function HistoryPage() {
                     ))}
                 </div>
 
-                <div className="mt-10 bg-white p-10 rounded-[40px] shadow-lg border border-gray-100 text-center">
-                    <Award className="w-16 h-16 text-indigo-600 mx-auto mb-6" />
-                    <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tight">{historyData.debtOfGratitudeTitle || "A Debt of Gratitude"}</h2>
-                    <div className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium">
+                <div className="mt-8 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200/80 text-center">
+                    <Award className="w-12 h-12 text-[#B8860B] mx-auto mb-4" />
+                    <h2 className="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-wider">{historyData.debtOfGratitudeTitle || "A Debt of Gratitude"}</h2>
+                    <div className="text-base text-slate-600 leading-relaxed max-w-3xl mx-auto font-normal">
                         {historyData.debtOfGratitudeContent ? (
                             <PortableText value={historyData.debtOfGratitudeContent} />
                         ) : (

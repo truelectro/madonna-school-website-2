@@ -49,9 +49,43 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --navy-deep: #071322;
+  --navy-card: #0E1F38;
+  --gold-accent: #D4AF37;
+  --gold-dark: #B8860B;
+  --gold-light: #F3E5AB;
+  --cream-bg: #FAF9F6;
+  --slate-body: #334155;
+  --slate-heading: #0F172A;
+}
+
 @layer base {
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-[#FAF9F6] text-slate-800 antialiased selection:bg-[#D4AF37] selection:text-[#071322];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-slate-900;
+  }
+}
+
+/* Design System Utilities */
+@layer utilities {
+  .bg-navy-deep {
+    background-color: var(--navy-deep);
+  }
+  .bg-navy-card {
+    background-color: var(--navy-card);
+  }
+  .text-gold {
+    color: var(--gold-accent);
+  }
+  .bg-gold {
+    background-color: var(--gold-accent);
+  }
+  .border-gold {
+    border-color: var(--gold-accent);
   }
 }
 

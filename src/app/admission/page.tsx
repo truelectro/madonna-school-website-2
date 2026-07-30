@@ -93,69 +93,69 @@ export default async function AdmissionsPage() {
     return (
         <main className="min-h-screen">
             {/* Page Header */}
-            <section className="bg-[#051324] pt-32 pb-24 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <section className="bg-[#071322] pt-32 pb-24 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
                 <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Join Our Family
                     </div>
                     {headerTitle.split(' ').length > 1 ? (
-                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
-                            {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-sky-400">{headerTitle.split(' ').slice(-1)[0]}</span>
+                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
+                            {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-[#D4AF37]">{headerTitle.split(' ').slice(-1)[0]}</span>
                         </h1>
                     ) : (
-                        <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
                             {headerTitle}
                         </h1>
                     )}
-                    <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
+                    <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
                         {headerSubtitle}
                     </p>
                 </div>
             </section>
 
             {/* Combined Content Area */}
-            <div className="bg-gray-50 py-20">
+            <div className="bg-[#FAF9F6] py-16 md:py-24">
                 <section className="container mx-auto px-6 max-w-7xl">
-                    <div className="flex flex-col lg:flex-row gap-20">
+                    <div className="flex flex-col lg:flex-row gap-16">
 
                         {/* Main Content (Rules + Curriculum) */}
                         <div className="lg:w-2/3">
                             {/* Policy Section */}
-                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">{policyTitle}</h2>
-                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-blue-600 decoration-4 underline underline-offset-8">General Rules</h3>
-                            <div className="space-y-6 mb-16">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">{policyTitle}</h2>
+                            <h3 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wide border-b-2 border-amber-400/80 pb-2 inline-block">General Rules</h3>
+                            <div className="space-y-5 mb-14">
                                 {generalRules.map((rule: string, i: number) => (
-                                    <div key={i} className="flex gap-6 group items-start">
-                                        <div className="mt-1 text-sky-500 flex-shrink-0"><CheckCircle2 size={24} /></div>
-                                        <p className="text-lg text-gray-600 leading-relaxed font-medium group-hover:text-gray-900 transition-colors">{rule}</p>
+                                    <div key={i} className="flex gap-4 group items-start">
+                                        <div className="mt-1 text-[#B8860B] flex-shrink-0"><CheckCircle2 size={20} /></div>
+                                        <p className="text-base text-slate-600 leading-relaxed font-normal group-hover:text-slate-900 transition-colors">{rule}</p>
                                     </div>
                                 ))}
                             </div>
 
-                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-indigo-600 decoration-4 underline underline-offset-8 flex items-center gap-4">
-                                <Baby size={32} className="text-indigo-600" /> KG 1 Admission
+                            <h3 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wide border-b-2 border-amber-400/80 pb-2 flex items-center gap-3 inline-flex">
+                                <Baby size={24} className="text-[#B8860B]" /> KG 1 Admission
                             </h3>
-                            <div className="space-y-6 mb-16">
+                            <div className="space-y-4 mb-14">
                                 {kg1Rules.map((rule: string, i: number) => (
-                                    <div key={i} className="flex gap-6 group items-start">
-                                        <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm">{i + 1}</div>
-                                        <p className="text-lg text-gray-600 leading-relaxed font-medium">{rule}</p>
+                                    <div key={i} className="flex gap-4 group items-start">
+                                        <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-amber-400/15 text-[#B8860B] flex items-center justify-center font-bold text-xs border border-amber-400/30">{i + 1}</div>
+                                        <p className="text-base text-slate-600 leading-relaxed font-normal">{rule}</p>
                                     </div>
                                 ))}
                             </div>
 
-                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-tighter decoration-red-500 decoration-4 underline underline-offset-8 flex items-center gap-4">
-                                <ShieldAlert size={32} className="text-red-500" /> Withdrawal Policy
+                            <h3 className="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wide border-b-2 border-amber-400/80 pb-2 flex items-center gap-3 inline-flex">
+                                <ShieldAlert size={24} className="text-[#B8860B]" /> Withdrawal Policy
                             </h3>
-                            <div className="bg-red-50 p-8 rounded-[30px] border border-red-100 mb-20">
-                                <ul className="space-y-6">
+                            <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60 mb-16">
+                                <ul className="space-y-4">
                                     {withdrawalRules.map((rule: string, i: number) => (
-                                        <li key={i} className="flex gap-4 items-start text-red-900 font-medium text-lg">
-                                            <div className="mt-2 w-2 h-2 rounded-full bg-red-400 flex-shrink-0" />
+                                        <li key={i} className="flex gap-3 items-start text-slate-800 font-medium text-sm md:text-base leading-relaxed">
+                                            <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[#B8860B] flex-shrink-0" />
                                             {rule}
                                         </li>
                                     ))}
@@ -163,26 +163,24 @@ export default async function AdmissionsPage() {
                             </div>
 
                             {/* Curriculum Section */}
-                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">{curriculumTitle}</h2>
-                            <p className="text-xl text-gray-500 font-medium mb-10 max-w-3xl">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">{curriculumTitle}</h2>
+                            <p className="text-base md:text-lg text-slate-600 font-normal mb-8 max-w-3xl leading-relaxed">
                                 {curriculumSubtitle}
                             </p>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                                 {levels.map((level: any, i: number) => {
                                     const Icon = iconMap[i % iconMap.length];
-                                    const color = colorMap[i % colorMap.length];
-                                    const shadow = shadowMap[i % shadowMap.length];
                                     return (
-                                        <div key={i} className="bg-white p-8 rounded-[30px] shadow-xl shadow-gray-200/50 border border-gray-100 hover:-translate-y-2 transition-transform duration-300 group">
-                                            <div className={`w-14 h-14 ${color} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg ${shadow} group-hover:scale-110 transition-transform`}>
-                                                <Icon size={28} />
+                                        <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition-all duration-300 group">
+                                            <div className="w-12 h-12 bg-[#071322] rounded-xl flex items-center justify-center text-[#D4AF37] mb-5 border border-slate-700">
+                                                <Icon size={24} />
                                             </div>
-                                            <div className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-black uppercase tracking-widest rounded-full mb-3">
+                                            <div className="inline-block px-3 py-1 bg-amber-400/10 text-[#B8860B] text-xs font-bold uppercase tracking-wider rounded-full mb-3 border border-amber-400/20">
                                                 {level.duration}
                                             </div>
-                                            <h3 className="text-2xl font-black text-gray-900 mb-3">{level.title}</h3>
-                                            <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">
+                                            <h3 className="text-xl font-bold text-slate-900 mb-2">{level.title}</h3>
+                                            <p className="text-slate-600 leading-relaxed font-normal text-sm">
                                                 {level.description}
                                             </p>
                                         </div>
@@ -194,21 +192,21 @@ export default async function AdmissionsPage() {
 
                         {/* Sidebar */}
                         <div className="lg:w-1/3">
-                            <div className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-xl mb-10 sticky top-32">
-                                <h2 className="text-2xl font-black text-gray-900 mb-8 border-b border-gray-200 pb-6 uppercase tracking-tight">On Admission</h2>
-                                <p className="text-gray-500 mb-8 font-medium italic">
+                            <div className="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-lg mb-10 sticky top-32">
+                                <h2 className="text-xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-4 uppercase tracking-wider">On Admission</h2>
+                                <p className="text-slate-500 mb-6 font-normal italic text-sm leading-relaxed">
                                     {onAdmissionNote}
                                 </p>
-                                <ul className="space-y-6 mb-10">
+                                <ul className="space-y-4 mb-8">
                                     {onAdmissionRequirements.map((req: string, i: number) => (
-                                        <li key={i} className="flex items-start gap-4 text-gray-700 font-bold text-md">
-                                            <CheckCircle2 className="text-sky-500 w-6 h-6 flex-shrink-0 mt-1" />
+                                        <li key={i} className="flex items-start gap-3 text-slate-700 font-semibold text-sm">
+                                            <CheckCircle2 className="text-[#B8860B] w-5 h-5 flex-shrink-0 mt-0.5" />
                                             {req}
                                         </li>
                                     ))}
                                 </ul>
-                                <button className="w-full py-5 bg-sky-500 hover:bg-sky-600 text-white rounded-2xl font-black text-xl transition-all shadow-xl shadow-sky-500/20 flex items-center justify-center gap-3 group">
-                                    Apply Now <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                                <button className="w-full py-4 bg-[#D4AF37] hover:bg-[#c49f27] text-[#071322] rounded-2xl font-bold text-base transition-all shadow-md shadow-amber-500/10 flex items-center justify-center gap-2 group">
+                                    Apply Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </div>
                         </div>

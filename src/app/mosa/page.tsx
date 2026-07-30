@@ -23,21 +23,20 @@ export default async function MosaPage() {
     return (
         <main className="min-h-screen pb-20 bg-gray-50">
             {/* Header */}
-            <section className="bg-[#051324] pt-40 pb-32 mb-20 text-white relative overflow-hidden">
-                {/* Animated Gradient Orbs */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+            <section className="bg-[#071322] pt-40 pb-32 mb-16 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
                 <HeroMouseOrb />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full text-sky-200 text-sm font-bold tracking-wider uppercase mb-8 border border-white/10">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Alumni Network
                     </div>
-                    <h1 className="text-3xl md:text-8xl font-black mb-6 tracking-tight">{mosaData.headerTitle || "MOSA"}</h1>
-                    <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium mb-4">
+                    <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{mosaData.headerTitle || "MOSA"}</h1>
+                    <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto font-medium mb-4">
                         {mosaData.headerSubtitle || "Madonna Old Students Association"}
                     </p>
-                    <p className="text-lg text-sky-400 font-bold uppercase tracking-widest">A vital link between alumni and building our future</p>
+                    <p className="text-xs text-[#D4AF37] font-bold uppercase tracking-widest">A vital link between alumni and building our future</p>
                 </div>
             </section>
 
@@ -56,15 +55,15 @@ export default async function MosaPage() {
                     <h3 className="text-3xl font-black text-gray-900 mb-6">{mosaData.directoryTitle || "Alumni Database Directory"}</h3>
                     <p className="text-lg text-gray-500 mb-8 font-medium">{mosaData.directorySubtitle || "Find your classmates. Select your graduating year below to view your year group."}</p>
 
-                    <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-3 md:grid-cols-5 gap-3.5">
                         {years.slice(0, 15).map((year) => (
-                            <button key={year} className="py-3 px-2 bg-gray-50 border border-gray-100 rounded-2xl text-gray-700 font-bold hover:bg-purple-600 hover:text-white hover:border-purple-600 transition-all shadow-sm">
+                            <button key={year} className="py-3 px-2 bg-slate-50 border border-slate-200/80 rounded-xl text-slate-700 font-bold hover:bg-[#071322] hover:text-[#D4AF37] hover:border-[#071322] transition-all text-sm shadow-xs">
                                 Class of '{String(year).slice(-2)}
                             </button>
                         ))}
                     </div>
-                    <button className="mt-8 text-purple-600 font-bold tracking-widest uppercase hover:underline flex justify-center items-center gap-2 w-full">
-                        View Older Year Groups <ArrowRight size={18} />
+                    <button className="mt-8 text-[#B8860B] font-bold tracking-wider text-xs uppercase hover:underline flex justify-center items-center gap-1.5 w-full">
+                        View Older Year Groups <ArrowRight size={16} />
                     </button>
                 </div>
 

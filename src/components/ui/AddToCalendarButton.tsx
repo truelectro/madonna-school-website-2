@@ -80,7 +80,7 @@ export function AddToCalendarButton({ title, description, startDate, endDate }: 
                         href={googleUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2.5 text-sm text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition-colors flex items-center gap-2"
+                        className="px-4 py-2.5 text-sm font-medium text-slate-800 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-2"
                     >
                         <svg width="16" height="16" viewBox="0 0 24 24" className="flex-shrink-0">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -92,7 +92,7 @@ export function AddToCalendarButton({ title, description, startDate, endDate }: 
                     </a>
                     <button
                         onClick={handleDownloadICS}
-                        className="px-4 py-2.5 text-sm text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition-colors flex items-center gap-2 text-left w-full"
+                        className="px-4 py-2.5 text-sm font-medium text-slate-800 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-2 text-left w-full"
                     >
                         <CalendarPlus size={16} className="flex-shrink-0" />
                         Apple / Outlook (.ics)
