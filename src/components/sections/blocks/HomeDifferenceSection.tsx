@@ -55,16 +55,7 @@ export function HomeDifferenceSection({ data }: { data: any }) {
                             )}
                         </div>
                         <div className="absolute -bottom-12 -left-12 bg-white p-12 rounded-[40px] shadow-2xl border border-gray-100 max-w-sm hidden md:block">
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="flex -space-x-4">
-                                    {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-blue-500 flex items-center justify-center text-[10px] font-bold text-white">
-                                            UA
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="text-sm font-black text-gray-400 uppercase tracking-widest">{data.badgeTitle || "Alumni Network"}</div>
-                            </div>
+                            <div className="text-sm font-black text-gray-400 uppercase tracking-widest mb-3">{data.badgeTitle || "Alumni Network"}</div>
                             <div className="text-2xl font-black text-gray-900 leading-tight">
                                 {data.badgeText || "Over 10,000 successful alumni globally."}
                             </div>
