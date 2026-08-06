@@ -149,5 +149,29 @@ export const locate: DocumentLocationResolver = (params, context) => {
         )
     }
 
+    if (type === 'page') {
+        const doc$ = context.documentStore.listenQuery(
+            `*[_id == $id][0]{slug, title}`,
+            { id },
+            { perspective: 'previewDrafts' }
+        )
+
+        return doc$.pipe(
+            map((doc: any) => {
+                if (!doc || !doc.slug?.current) {
+                    return null
+                }
+                return {
+                    locations: [
+                        {
+                            title: doc.title || 'Custom Page',
+                            href: `/${doc.slug.current}`,
+                        },
+                    ],
+                }
+            })
+        )
+    }
+
     return null
 }

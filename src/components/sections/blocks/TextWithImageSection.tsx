@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { PortableText } from "next-sanity";
+import { PortableText, stegaClean } from "next-sanity";
 import { urlFor } from "@/sanity/lib/client";
 
 export function TextWithImageSection({ data }: { data: any }) {
-    const isImageRight = data.imagePosition === "right";
+    const isImageRight = stegaClean(data.imagePosition) === "right";
 
     return (
         <section className="py-16 md:py-24 bg-white overflow-hidden relative">

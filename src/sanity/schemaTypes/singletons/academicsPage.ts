@@ -120,6 +120,9 @@ export const academicsPageType = defineType({
             description: 'Add extra modular sections to this page (e.g. underneath the Calendar).',
             type: 'array',
             of: [
+                { type: 'homeWelcomeSection' },
+                { type: 'homePhilosophySection' },
+                { type: 'homeDifferenceSection' },
                 { type: 'heroSection' },
                 { type: 'textWithImageSection' },
                 { type: 'callToActionSection' },

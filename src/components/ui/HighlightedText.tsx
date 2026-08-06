@@ -25,8 +25,10 @@ function parseHighlights(
     text: string,
     highlightClassName: string
 ): React.ReactNode[] {
-    // Match <span class="text-sky-400">…</span> with either quote style
-    const regex = /<span\s+class=["']text-sky-400["']\s*>(.*?)<\/span>/gi;
+    if (!text) return [];
+
+    // Match any <span ...>…</span> tag structure, including stega-encoded attributes
+    const regex = /<\s*span(?:\s+[^>]*)?>(.*?)<\s*\/\s*span\s*>/gi;
 
     const parts: React.ReactNode[] = [];
     let lastIndex = 0;

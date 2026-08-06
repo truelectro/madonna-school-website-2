@@ -1,3 +1,4 @@
+import { stegaClean } from "next-sanity";
 import { HeroSection } from "./blocks/HeroSection";
 import { TextWithImageSection } from "./blocks/TextWithImageSection";
 import { CallToActionSection } from "./blocks/CallToActionSection";
@@ -13,7 +14,7 @@ export function BlockRenderer({ blocks }: { blocks: any[] }) {
     return (
         <>
             {blocks.map((block: any, index: number) => {
-                const type = block._type;
+                const type = stegaClean(block._type);
                 const key = block._key || String(index);
 
                 switch (type) {

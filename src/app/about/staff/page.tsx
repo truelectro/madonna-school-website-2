@@ -1,6 +1,6 @@
 import StaffCard from "@/components/ui/StaffCard";
-import { client, sanityFetch } from "@/sanity/lib/client";
-import { Users } from "lucide-react";
+import { sanityFetch } from "@/sanity/lib/client";
+import { stegaClean } from "next-sanity";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 0;
@@ -13,9 +13,21 @@ export const metadata = {
 export default async function StaffPage() {
     let sanityStaff = await sanityFetch<any[]>(`*[_type == "staff"] | order(order asc)`) ?? [];
 
-    const administration = sanityStaff.filter((s: any) => s.category === 'administration' || s.role === 'Headmistress' || s.role === 'Assistant Headmistress');
-    const teaching = sanityStaff.filter((s: any) => s.category === 'teaching' || (s.role !== 'Headmistress' && s.role !== 'Assistant Headmistress' && s.role !== 'Staff' && !s.category));
-    const nonTeaching = sanityStaff.filter((s: any) => s.category === 'non_teaching' || s.role === 'Staff');
+    const administration = sanityStaff.filter((s: any) => {
+        const cat = stegaClean(s.category);
+        const role = stegaClean(s.role);
+        return cat === 'administration' || role === 'Headmistress' || role === 'Assistant Headmistress';
+    });
+    const teaching = sanityStaff.filter((s: any) => {
+        const cat = stegaClean(s.category);
+        const role = stegaClean(s.role);
+        return cat === 'teaching' || (role !== 'Headmistress' && role !== 'Assistant Headmistress' && role !== 'Staff' && !cat);
+    });
+    const nonTeaching = sanityStaff.filter((s: any) => {
+        const cat = stegaClean(s.category);
+        const role = stegaClean(s.role);
+        return cat === 'non_teaching' || role === 'Staff';
+    });
 
     return (
         <main className="min-h-screen">

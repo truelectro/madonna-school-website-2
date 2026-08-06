@@ -1,5 +1,5 @@
-import { createClient } from 'next-sanity'
-import createImageUrlBuilder from '@sanity/image-url'
+import { createClient, stegaClean } from 'next-sanity'
+import { createImageUrlBuilder } from '@sanity/image-url'
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
@@ -43,7 +43,7 @@ export async function sanityFetch<T = unknown>(
             .withConfig({
                 token,
                 perspective: 'previewDrafts',
-                stega: true,
+                stega: { studioUrl: '/admin', enabled: true },
                 useCdn: false,
             })
             .fetch<T>(query, params, {
@@ -59,7 +59,9 @@ export async function sanityFetch<T = unknown>(
 const builder = createImageUrlBuilder(client)
 
 export function urlFor(source: any) {
-    return builder.image(source)
+    // If source is a string or object with stega, stegaClean ensures proper URL generation
+    const cleanedSource = typeof source === 'string' ? stegaClean(source) : source
+    return builder.image(cleanedSource)
 }
 
 /**

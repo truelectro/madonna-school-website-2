@@ -1,6 +1,7 @@
 import { Newspaper, Calendar, ArrowRight } from "lucide-react";
 import Link from 'next/link';
 import { client, sanityFetch } from "@/sanity/lib/client";
+import { stegaClean } from "next-sanity";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 
 export const revalidate = 0; // Disable static caching so changes show up instantly
@@ -53,7 +54,7 @@ export default async function NewsPage() {
                                     </div>
                                     <div className="p-8">
                                         <div className="flex items-center gap-2.5 text-slate-400 font-semibold text-xs mb-3 uppercase tracking-wider">
-                                            <Calendar size={14} /> {new Date(item.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                            <Calendar size={14} /> {item.publishedAt ? new Date(stegaClean(item.publishedAt)).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}
                                         </div>
                                         <h2 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#B8860B] transition-colors tracking-tight leading-snug">
                                             {item.title}

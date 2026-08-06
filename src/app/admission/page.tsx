@@ -1,6 +1,7 @@
 import { BookOpen, GraduationCap, Users, CheckCircle2, FileText, Calendar, Clock, ArrowRight, ShieldAlert, Baby } from "lucide-react";
 import HeroMouseOrb from "@/components/ui/HeroMouseOrb";
 import { sanityFetch } from "@/sanity/lib/client";
+import { stegaClean } from "next-sanity";
 import { BlockRenderer } from "@/components/sections/BlockRenderer";
 
 export const revalidate = 0;
@@ -74,7 +75,8 @@ export default async function AdmissionsPage() {
     const query = `*[_type == "admissionsPage"][0]`;
     const data = (await sanityFetch<any>(query)) || {};
 
-    const headerTitle = data.headerTitle || "Admissions";
+    const rawHeaderTitle = data.headerTitle || "Admissions";
+    const cleanHeaderTitle = stegaClean(rawHeaderTitle);
     const headerSubtitle = data.headerSubtitle || "The journey toward excellence starts here. Learn about our admission rules, processes, and curriculum.";
 
     const policyTitle = data.policyTitle || "Admission Policy";
@@ -90,6 +92,8 @@ export default async function AdmissionsPage() {
 
     const extraBlocks = data.pageBuilder || [];
 
+    const titleWords = cleanHeaderTitle.split(' ');
+
     return (
         <main className="min-h-screen">
             {/* Page Header */}
@@ -102,13 +106,13 @@ export default async function AdmissionsPage() {
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-400/10 backdrop-blur-md rounded-full text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-8 border border-amber-400/20">
                         Join Our Family
                     </div>
-                    {headerTitle.split(' ').length > 1 ? (
+                    {titleWords.length > 1 ? (
                         <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">
-                            {headerTitle.split(' ').slice(0, -1).join(' ')} <br /><span className="text-[#D4AF37]">{headerTitle.split(' ').slice(-1)[0]}</span>
+                            {titleWords.slice(0, -1).join(' ')} <br /><span className="text-[#D4AF37]">{titleWords.slice(-1)[0]}</span>
                         </h1>
                     ) : (
                         <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight text-white">
-                            {headerTitle}
+                            {rawHeaderTitle}
                         </h1>
                     )}
                     <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">

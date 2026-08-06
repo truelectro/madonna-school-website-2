@@ -74,6 +74,9 @@ export const hallOfFamePageType = defineType({
             description: 'Add extra modular sections to this page.',
             type: 'array',
             of: [
+                { type: 'homeWelcomeSection' },
+                { type: 'homePhilosophySection' },
+                { type: 'homeDifferenceSection' },
                 { type: 'heroSection' },
                 { type: 'textWithImageSection' },
                 { type: 'callToActionSection' },

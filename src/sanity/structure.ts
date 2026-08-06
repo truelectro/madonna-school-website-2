@@ -100,6 +100,11 @@ export const structure = (S: any) =>
                 .title('📞 Contact')
                 .child(S.document().schemaType('contactPage').documentId('contactPage')),
 
+            // 📄 Custom Pages
+            S.listItem()
+                .title('📄 Custom Pages')
+                .child(S.documentTypeList('page').title('Custom Pages')),
+
             S.divider(),
 
             // ── Any other remaining collections ───────────────────

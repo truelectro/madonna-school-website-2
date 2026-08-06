@@ -27,6 +27,9 @@ export const pageType = defineType({
             title: 'Page Builder (Modular Layout)',
             type: 'array',
             of: [
+                { type: 'homeWelcomeSection' },
+                { type: 'homePhilosophySection' },
+                { type: 'homeDifferenceSection' },
                 { type: 'heroSection' },
                 { type: 'textWithImageSection' },
                 { type: 'callToActionSection' },
